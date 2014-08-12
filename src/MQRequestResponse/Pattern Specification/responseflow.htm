@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use the Service Facade to WebSphere MQ: request-response pattern to accept requests from many client applications on a single queue, and to return responses to the correct client by using transactional flows and persistent WebSphere MQ messages."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="css/bip4.css"/>
+<title>Response flow for the Service Facade to WebSphere MQ: request-response pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1">Response flow for the <span>Service Facade to WebSphere MQ: request-response</span> pattern</h1>
+<p class="shortdesc">The Response flow runs as a non-transactional flow.</p>
+<p>When a response is received
+from the provider application, the following actions are taken:</p>
+<ol>
+<li>The Response flow reads the response message from the provider. 
+Validation is determined by the pattern parameters.</li>
+<li>The flow uses the correlation ID to retrieve the SOAP Reply Identifier 
+from the internal WebSphere MQ queue. 
+The SOAP Reply Identifier is added to the local environment to 
+control the destination for the SOAP reply.</li>
+<li>An HTTP reply header is created.</li>
+<li>If an exception occurs and error logging is 
+included in the pattern application, the Error subflow is called, 
+and an error is written to the response queue. 
+However, because failure implies that the ReplyID that had to reply to the SOAP request 
+is not available, no attempt is made to reply to the requester.</li>
+<li>A successful response is logged only if logging is included in this pattern application 
+and is currently turned on.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the <span>Service Facade to WebSphere MQ: request-response</span> pattern specification</a>
+</body>
+</html>
