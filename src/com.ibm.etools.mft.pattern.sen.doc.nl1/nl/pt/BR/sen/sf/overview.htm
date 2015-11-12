@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Use o padrão do Service Facade para aceitar pedidos de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Padrão de Service Facade</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span></span>Padrão de Service Facade</h1>
+<div><p class="shortdesc">Use um padrão de Service Facade para fornecer loose coupling entre um
+solicitante de serviços e a funcionalidade que é fornecida por um aplicativo ou
+recurso que não é ativado por serviço. 
+O loose coupling cancela as complexidades do provedor e apresenta uma interface de
+serviço da Web padrão.</p>
+Um padrão de Service Facade também introduz um ponto de mediação para o aplicativo de funções padrão
+tal como a criação de log.</div>
+<div class="image"><img src="facade.gif" alt="Um diagrama mostrando o comportamento do padrão. Aplicativos enviam pedidos de serviço ao broker, que preenche estes pedidos usando a funcionalidade que não fornece uma interface de serviço." />
+<div class="section"><h2 class="sectiontitle">O Contexto</h2>
+<p>Quando uma arquitetura corporativa
+move em direção a uma Arquitetura Orientada a Serviços, geralmente é
+necessário acommodar sistemas legados existentes que executam partes grandes
+dos negócios, mas que não possuem uma competência de serviços. Estes
+aplicativos geralmente usam funções que devem estar acessíveis aos
+pacotes de software ativados por serviço mais novos, mas que oferecem acesso apenas através de adaptadores, sistema de mensagens ou outras
+técnicas de integração não orientadas a serviço.</p>
+</div>
+<div class="section"><h2 class="sectiontitle">O Problema</h2></div>
+<p>Aplicativos legados
+não se ajustam naturalmente em um ambiente de Arquitetura Orientada a Serviços (SOA) e alterações nesses sistemas
+são caras e requerem habilidades raras. O problema é descobrir uma maneira de
+integrar tais sistemas com pacotes e aplicativos orientados a serviço
+mais novos. Particularmente, é necessário criar uma ponte entre o protocolo HTTP síncrono
+que geralmente é usado com serviços da Web e os protocolos do sistema de mensagens que
+muitas vezes são usados por aplicativos legados.</p>
+<div class="section"><h2 class="sectiontitle">Orientação de Seleção</h2></div>
+<p>Este padrão é
+apropriado quando uma empresa deseja apresentar uma interface de serviço aos
+clientes solicitantes como parte de um ambiente SOA, mas aplicativos do
+provedor não podem ser atualizados facilmente para fornecer interfaces de serviço.</p>
+<p>Esse padrão é usado onde os aplicativos do provedor fornecem uma interface XML e os
+aplicativos clientes suportam chamadas para serviços da Web. O padrão pode ser estendido com transformações para
+	suportar uma fachada de serviço para aplicativos com interfaces não XML sobre WebSphere MQ.</p>
+</div>
+</body></html>

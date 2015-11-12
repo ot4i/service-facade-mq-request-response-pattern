@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Utilisation du modèle Façade de service pour accepter les demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Modèle Façade de service</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span></span>Modèle Façade de service</h1>
+<div><p class="shortdesc">Utilisez un modèle Façade de service pour fournir un couplage large entre un demandeur de service et une fonctionnalité fournie par une application ou une fonction qui n'est pas activée par le service. 
+Le couplage large masque les complexités du fournisseur et présente une interface de services Web standard.</p>
+Un modèle Façade de service introduit également un point de médiation pour l'application de fonctions standard, telles que la consignation.</div>
+<div class="image"><img src="facade.gif" alt="Diagramme montrant la comportement du modèle. Les applications envoient des demandes de service au courtier qui répond à ces demandes en utilisant la fonctionnalité qui ne fournit pas une interface de service." />
+<div class="section"><h2 class="sectiontitle">Contexte</h2>
+<p>Lorsqu'une architecture d'entreprise est migrée vers une architecture orientée service, il est souvent nécessaire d'intégrer les systèmes existants sur lesquels reposent une grande partie des opérations de l'entreprise, mais qui ne disposent pas d'une fonction de service. Ces applications utilisent souvent des fonctions qui doivent être accessibles aux nouveaux packages logiciels de service, mais qui offrent un accès uniquement via des adaptateurs, la messagerie ou d'autres techniques d'intégration non orientées service.</p>
+</div>
+<div class="section"><h2 class="sectiontitle">Problème</h2></div>
+<p>Les applications existantes ne s'intègrent pas naturellement à un environnement SOA (Service-Oriented Architecture) et les modifications apportées à ces systèmes sont onéreuses et nécessitent des compétences peu courantes. La solution consiste à trouver un moyen pour intégrer ces systèmes aux nouveaux packages et applications orientés service. Notamment, il est nécessaire de créer un pont entre le protocole HTTP synchrone qui est généralement utilisé avec les services Web et les protocoles de messagerie qu'utilisent généralement les applications existantes.</p>
+<div class="section"><h2 class="sectiontitle">Aide à la sélection</h2></div>
+<p>Utilisez ce modèle lorsqu'une entreprise veut présenter une interface de service aux clients demandeurs dans un environnement SOA. Toutefois, les applications fournisseurs ne peuvent pas être mises à niveau aisément pour fournir des interfaces de service.</p>
+<p>Ce modèle est utilisé lorsque les applications fournisseurs mettent à disposition une interface XML et que le support des applications client appellent les services Web. Vous pouvez étendre le modèle avec des transformations pour prendre en charge une façade de service dans les applications dotés d'une interface non-XML sur WebSphere MQ.</p>
+</div>
+</body></html>

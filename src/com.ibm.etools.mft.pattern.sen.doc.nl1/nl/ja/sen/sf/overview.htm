@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="サービス・ファサード・パターンを使用して、多数のクライアント・アプリケーションからの要求を 1 つのキューで受け入れ、正しいクライアントに応答を返します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>サービス・ファサード・パターン</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span></span>サービス・ファサード・パターン</h1>
+<div><p class="shortdesc">サービス・ファサード・パターンを使用することにより、サービス要求元と、アプリケーションによって提供される機能またはサービス対応でない機能との間の疎結合が提供されます。
+疎結合により、プロバイダーの複雑さが隠され、標準 Web サービス・インターフェースが提供されます。</p>
+また、サービス・ファサード・パターンは、ロギングなどの、標準機能のアプリケーションのメディエーション・ポイントも導入します。
+</div>
+<div class="image"><img src="facade.gif" alt="パターンの動作を示す図。アプリケーションはサービス要求をブローカーに送信し、ブローカーは、サービス・インターフェースを提供しない機能を使用することによって、これらの要求を実行します。" />
+<div class="section"><h2 class="sectiontitle">コンテキスト</h2>
+<p>エンタープライズ・アーキテクチャーがサービス指向アーキテクチャーに移行するときには、ビジネスの大部分を実行するもののサービス機能を持たない、既存のレガシー・システムに対応する必要がしばしば生じます。
+こうしたアプリケーションがしばしば使用する機能は、サービスに対応した、より新しいソフトウェア・パッケージにアクセス可能でなければならないものの、アダプター、メッセージング、または他の非サービス指向統合技術を介さないとアクセスできません。
+</p>
+</div>
+<div class="section"><h2 class="sectiontitle">問題</h2></div>
+<p>レガシー・アプリケーションは元々、サービス指向アーキテクチャー (SOA) 環境には適しておらず、こうしたシステムの変更には費用がかかり、高度なスキルを必要とします。
+問題は、こうしたシステムを、より新しいサービス指向パッケージおよびアプリケーションと統合する方法を見つけることです。
+特に、Web サービスで一般的に使用される同期 HTTP プロトコルと、レガシー・アプリケーションで頻繁に使用されるメッセージング・プロトコルとのブリッジを作成する必要があります。</p>
+<div class="section"><h2 class="sectiontitle">選択についてのガイダンス</h2></div>
+<p>このパターンが適しているのは、企業には SOA 環境の一部として要求元クライアントにサービス・インターフェースを提供する意志があっても、プロバイダー・アプリケーションをアップグレードしてサービス・インターフェースを提供するのが容易でない場合です。
+</p>
+<p>このパターンは、プロバイダー・アプリケーションが XML インターフェースを提供し、クライアント・アプリケーションが Web サービスの呼び出しをサポートする場合に使用されます。
+このパターンを拡張して、WebSphere MQ 経由の非 XML インターフェースによる、アプリケーションへのサービス・ファサードをサポートするよう変換することができます。
+</p>
+</div>
+</body></html>

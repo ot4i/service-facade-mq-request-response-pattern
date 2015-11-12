@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1">Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</h1>
+<div>
+	<p class="shortdesc">
+	Verwenden Sie das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)	zur Bereitstellung einer Web-Service-Schnittstelle für Clients und zur Verarbeitung von
+ Serviceanforderungen mittels einer WebSphere MQ-fähigen Anwendung.
+	</p>
+	<p>
+	Verwenden Sie dieses Muster zur Überbrückung der asynchronen HTTP-Protokolle und
+	zuverlässigen Nachrichtenprotokolle, um die Gewissheit zu haben, dass die
+	Anforderungen bei Aktualisierungen für die Verarbeitung gespeichert werden. 
+	</p>
+	<p>
+	Dieses Muster bietet in Hinblick auf den zeitlichen Ablauf, die Protokollierung
+	und den Transport eine lose Kopplung zwischen Requestern und Providern. Es eignet
+	sich für Serviceschnittstellen zu vorhandenen Systemen.
+	</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="Diagramm zur Veranschaulichung des Verhaltens dieses Musters. Serviceanforderungen der Clients werden zur Verarbeitung in eine Warteschlange eingereiht und eine Empfangsbestätigung wird zurückgegeben."/>
+	<div class="section">
+		<h2 class="sectiontitle">Lösung</h2>
+	</div>
+	<p>
+	Die Lösung besteht in der Implementierung eines Nachrichtenflusses, der einen
+	Serviceeingangspunkt bietet. 
+	Wenn eine Web-Service-Anforderung über HTTP eingeht,
+	werden die Daten als persistente Nachricht in eine Warteschlange für die
+	Provideranwendung eingereiht. Sobald sich die Nachricht in der Warteschlange
+	befindet, wird eine Empfangsbestätigung zurückgegeben, die die Annahme der
+	Anforderung bestätigt. Erhält ein Client diese Bestätigung, kann er sicher sein,
+	dass die Nachricht in die Warteschlange geschrieben wurde. Erhält er einen Fehler,
+	dann wurde keine Nachricht gesendet; bei einem Zeitlimitfehler ist die Ursache
+	nicht bestimmbar, jedoch weiß die Clientanwendung in diesem Fall, dass ein Problem
+	besteht.
+	</p>
+	<div>
+		<a href="requestflow.htm" title="Informationen zur Gestaltung des Anforderungsnachrichtenflusses">Anforderungsnachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informationen zur Gestaltung des untergeordneten Fehlernachrichtenflusses">Untergeordneter Fehlernachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informationen zur Gestaltung des untergeordneten Protokollnachrichtenflusses">Untergeordneter Protokollnachrichtenfluss</a>
+	</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">Verwandte Tasks</h2></div>
+		<p>Im folgenden Abschnitt finden Sie Informationen zur Anwendung und Verwendung dieses Musters.</p>
+		<div>
+			<a href="constraints.htm" title="Vorgaben für die Verwendung des Musters">
+			Vorgaben für die Verwendung des Musters</a>
+		</div>
+		<div>
+			<a href="prereq.htm" title="Erforderliche Tasks vor der Anwendung des Musters">Erforderliche Tasks vor der Anwendung des Musters</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="Ressourcen für die Aufnahme der Musternutzung">Ressourcen für die Aufnahme der Musternutzung</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="Schnittstellenbeispiel">Schnittstellenbeispiel</a>
+		</div>
+		<div>
+			<a href="parametertable.htm" title="Parameter des Musters">
+			Parameter des Musters</a>
+		</div>
+		<div>
+			<a href="postreq.htm" title="Erforderliche Tasks nach der Generierung des Musters">
+			Erforderliche Tasks nach der Generierung des Musters</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

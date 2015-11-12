@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Anforderungsnachrichtenfluss für das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">Anforderungsnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+	<p class="shortdesc">
+	Details zum Anforderungsnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort),
+	einschließlich Protokollierung und Ausnahmen.
+	</p>
+	<ol>
+		<li>
+			Bei einem SOAP-Knoten geht eine SOAP-Anforderung ein. Wenn die Musterparameter
+			der Musterinstanz eine Validierung vorschreiben, wird die Anforderung validiert.
+		</li>
+		<li>
+			SOAP- und HTTP-Header werden entfernt, um das Ziel der XML-Basisnachricht
+			bei der Provideranwendung zu belassen.
+		</li>
+		<li>
+			Die Nachricht wird dann an einen untergeordneten Anforderungsprozessor-
+			Nachrichtenfluss weitergeleitet, der die Möglichkeit der Anpassung einer
+			Musterinstanz bietet.
+		</li>
+		<li>
+			Ein MQMD-Header mit der Antwortadresse des Integration Bus wird eingefügt und
+			die Ablaufzeit wird entsprechend der erwarteten Antwortzeit festgelegt.
+		</li>
+		<li>
+			Die Nachricht wird in die Warteschlange des Providers eingereiht.
+		</li>
+		<li>
+			Eine Nachricht zum Speichern der SOAP-Antwortkennung wird eingerichtet. 
+			Die für die ausgehende Nachricht generierte Nachrichten-ID wird aus den in der
+			lokalen Umgebung gespeicherten Zieldaten abgerufen und als MQMD-Korrelations-ID
+			verwendet. Die SOAP-Antwortkennung wird aus der lokalen Umgebung abgerufen und
+			als Hauptteil der Nachricht verwendet. Diese Daten werden in eine interne
+			Warteschlange geschrieben.
+		</li>
+		<li>
+			Wenn Ausnahmen auftreten, bevor die Nachricht an den Provider gesendet wird, wird an
+			den Provider ein SOAP-Fehler zurückgegeben. Wenn Fehlernachrichten erforderlich sind,
+			wird an die Fehlerwarteschlange eine Fehlernachricht gesendet.
+		</li>
+		<li>
+			Wenn die Protokollierung der Anforderungen erforderlich ist und der Nachrichtenfluss
+			erfolgreich durchlaufen wird, wird zur Protokollierung der eingehenden Nachricht der
+			untergeordnete Protokollnachrichtenfluss aufgerufen.
+		</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</body>
+</html>

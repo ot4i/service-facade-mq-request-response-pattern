@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalhes sobre o que é necessário saber e quais recursos você deve ter antes de poder usar o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Exemplo de Interface</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.interface">
+<h1 class="topictitle1">Exemplo de Interface</h1>
+<div>
+	<p class="shortdesc">
+	O esquema para as mensagens XML que são esperadas pelo aplicativo do provedor são
+	requeridas como a base para os elementos do pedido no arquivo WSDL que é usado como a
+	interface de serviço. </p>
+	<p>Por exemplo, o aplicativo do provedor pode obter
+	mensagens com uma ação e essas mensagens contêm o item sob o qual essa ação deve ser executada. 
+	O exemplo a seguir contém uma ação, SaveItem, que se torna a operação de serviço:
+	</p>
+</div>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="http://ServiceFacade_RR" elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ServiceFacade_RR"&gt;
+	&lt;complexType name="Item"&gt;
+	&lt;sequence&gt;
+	&lt;element name="Name" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Code" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Description" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Location" type="string"&gt;&lt;/element&gt;
+	&lt;/sequence&gt;
+	&lt;/complexType&gt;
+	&lt;element name="SaveItem" type="tns:SaveItem"&gt;&lt;/element&gt;
+	&lt;complexType name="SaveItem"&gt;
+	&lt;sequence&gt;
+	&lt;element name="Item" type="tns:Item"&gt;&lt;/element&gt;
+	&lt;/sequence&gt;
+	&lt;/complexType&gt;
+	&lt;/schema&gt;
+	</pre>
+</div>
+<p>
+O WSDL associado deve definir uma mensagem de entrada com um elemento
+que corresponda ao elemento de nível superior que é requerido pelo esquema do provedor. O
+fragmento a seguir corresponde ao esquema do provedor precedente:
+</p>
+<pre>
+	&lt;wsdl:message name="SaveItemRequestMsg"&gt; &lt;wsdl:part name="SaveItemRequest"
+	element="tns:SaveItem"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt; </pre>
+
+
+<h2>reconhecimento</h2> 
+O reconhecimento é corrigido pelo padrão e se aplica a todas as instâncias padrão, mas os
+namespaces podem variar.
+<p>
+O esquema para o reconhecimento (com namespaces específicos do padrão indicados) é:
+</p>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;schema targetNamespace="&lt;instance specific&gt;" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://&lt;instance specific&gt;" "&gt; 
+	&lt;complexType name="Ack"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="acknowledgment" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="Response" type="tns:Ack"&gt;
+	&lt;/element&gt; 
+	&lt;/schema&gt;</pre>
+</div>
+<p>
+A entrada de WSDL que define a mensagem de resposta deve referenciar a seguinte resposta:
+</p><pre>
+	&lt;wsdl:message name="SaveItemResponseMsg"&gt; &lt;wsdl:part name="Response"
+	element="tns:Response"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt;</pre>
+<p>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do
+padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</a>
+</p>
+</body>
+</html>

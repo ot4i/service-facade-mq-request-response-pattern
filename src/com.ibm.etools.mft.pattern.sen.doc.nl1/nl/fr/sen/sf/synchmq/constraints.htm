@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Informations dont vous devez avoir connaissance et ressources dont vous devez disposer pour pouvoir utiliser le modèle Façade de service sur WebSphere MQ : question-réponse."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Contraintes d'utilisation du modèle Façade de service sur WebSphere MQ : question-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1">Contraintes d'utilisation du modèle <span>Façade de service sur WebSphere MQ : question-réponse</span></h1>
+<div>
+<p class="shortdesc">Il existe certaines contraintes lorsque vous utilisez le modèle.</p>
+	<p>
+	Vous ne pouvez utiliser le modèle <span>Façade de service sur WebSphere MQ : question-réponse</span> que si toutes les contraintes suivantes sont respectées :
+	</p>
+	<ul>
+		<li>
+			Les demandes doivent être reçues sous forme de messages SOAP sur HTTP.
+		</li>
+		<li>
+			Les applications demandeurs doivent prendre en charge un style d'interaction réponse-demande synchrone.
+		</li>
+		<li>
+			Les applications fournisseurs doivent pouvoir répondre aux demandes dans un délai approprié pour l'interaction synchrone.
+		</li>
+		<li>
+			Les applications fournisseurs peuvent recevoir les demandes et retourner les réponses sur WebSphere MQ.
+		</li>
+		<li>
+			Les applications fournisseurs doivent prendre en charge le comportement standard de copie de l'identificateur du message dans l'identificateur de corrélation.
+		</li>
+		<li>
+			Les fichiers WSDL qui définissent l'interface de courtier disposent d'un seul port et d'une seul liaison.
+		</li>
+		<li>
+			Les fichiers WSDL doivent contenir les définitions qui spécifient les propriétés du noeud SOAPInput dans les définitions du fichier WSDL de niveau supérieur. Par conséquent, certains fichiers WSDL imbriqués complexes ne peuvent pas être traités automatiquement par le modèle.
+			<p>Si des fichiers WSDL qui ne respectent pas ces contraintes sont utilisés, le modèle ne configure pas le noeud SOAPInput, mais il liste la configuration du noeud sous la forme d'une tâche à exécuter après avoir généré l'instance du modèle.</p> 
+			
+		</li>
+		<li>
+			L'application fournisseur prend en charge les messages WebSphere MQ XML dans un format qui peut       être utilisé comme corps d'une demande SOAP ou vous pouvez personnaliser le flux secondaire    Traitement de la demande pour convertir le format en messages non-XML.
+		</li>
+		<li>
+			Si la consignation est nécessaire, le format utilisé par le modèle est supposé répondre aux    conditions de votre environnement.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : question-réponse</a>
+</p>
+</body>
+</html>

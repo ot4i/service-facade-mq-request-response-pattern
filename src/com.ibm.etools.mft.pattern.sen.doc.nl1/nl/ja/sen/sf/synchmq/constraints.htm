@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンを使用する前に知っておくべき事柄や、必要なリソースについての詳細。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンの使用に関する制約</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンの使用に関する制約</h1>
+<div>
+<p class="shortdesc">このパターンを使用する場合に適用される制約は多数あります。</p>
+	<p>
+以下のすべての制約を満たす場合にのみ、「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンを使用できます。</p>
+	<ul>
+		<li>
+HTTP を介した SOAP メッセージとして要求を受け取る必要がある。
+</li>
+		<li>
+要求元アプリケーションが同期要求応答対話スタイルをサポートしている必要がある。
+</li>
+		<li>
+プロバイダー・アプリケーションが、同期対話に適した時間フレームで要求に応答できる必要がある。
+</li>
+		<li>
+プロバイダー・アプリケーションが	WebSphere MQ 経由で要求を受け取り、応答を返すことができる。
+		</li>
+		<li>
+プロバイダー・アプリケーションが、メッセージ ID を相関 ID にコピーするという標準の動作をサポートしている必要がある。
+</li>
+		<li>
+ブローカー・インターフェースを定義する	WSDL が 1 つのポート・タイプおよび 1 つのバインディングのみを有している。
+</li>
+		<li>
+WSDL には、最上位の WSDL の定義に、SOAPInput ノードのプロパティーを定義する定義が含まれている必要があります。
+このため、このパターンでは、ネストされた一部の複雑な WSDL は自動的に処理できません。
+			<p>この制約を満たさない WSDL が使用されている場合、パターンは SOAPInput ノードを構成しませんが、パターン・インスタンスの生成後に完了するタスクとして SOAPInput ノードの構成をリストします。</p> 
+			
+		</li>
+		<li>
+プロバイダー・アプリケーションは、SOAP 要求および応答の本体として使用可能な形式で WebSphere MQ XML メッセージをサポートします。あるいは、要求処理サブフローをカスタマイズして、形式を非 XML メッセージに変換することもできます。
+</li>
+		<li>
+ロギングが必要な場合、このパターンで使用されるフォーマットが要件を満たしていると想定されます。
+</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>

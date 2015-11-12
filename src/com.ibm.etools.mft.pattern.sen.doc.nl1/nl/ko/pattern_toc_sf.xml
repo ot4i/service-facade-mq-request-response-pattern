@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="서비스 퍼사드
+" topic="sen/sf/overview.htm">
+    <topic label="서비스 퍼사드
+" href="sen/sf/overview.htm">
+      	<topic label="수신 확인을 사용하는 MQ 단방향" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="요청 플로우" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="오류 서브플로우" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="로그 서브플로우" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="인터페이스 예" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="제한조건" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="패턴 적용 전에 완료할 태스크" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="패턴을 시작할 자원" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="매개변수
+" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="패턴 생성 후에 완료할 태스크" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ 요청-응답" href="sen/sf/synchmq/overview.htm">
+      		<topic label="요청 플로우" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="응답 플로우" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="요청 처리 서브플로우" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="오류 서브플로우" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="로그 서브플로우" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="제한조건" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="패턴 적용 전에 완료할 태스크" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="패턴을 시작할 자원" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="매개변수
+" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="패턴 생성 후에 완료할 태스크" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

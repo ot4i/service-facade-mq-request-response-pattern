@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilisez le modèle Façade de service sur WebSphere MQ : question-réponse pour répondre aux demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié en utilisant des flux transactionnels et des messages WebSphere MQ persistants."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flux secondaire Demande pour le modèle Façade de service sur WebSphere MQ : question-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">Flux secondaire Demande pour le modèle  <span>Façade de service sur WebSphere MQ : question-réponse</span></h1>
+	<p class="shortdesc">
+	Informations sur le flux Demande, y compris la consignation et les exceptions, du modèle	<span>Façade de service sur WebSphere MQ : question-réponse</span>.
+	</p>
+	<ol>
+		<li>
+			Un noeud SOAP reçoit une demande SOAP. La demande est validée si les paramètres imposent la validation pour chaque instance du modèle.
+		</li>
+		<li>
+			Les en-têtes SOAP et HTTP sont supprimés pour que le message XML de base continue de pointer vers    l'application fournisseur.
+		</li>
+		<li>
+			Le message est envoyé à un flux secondaire de traitement des demandes qui fournit un emplacement    pour personnaliser une instance du modèle.
+		</li>
+		<li>
+			Un en-tête MQMD est inséré avec l'adresse de réponse d'Integration Bus et le délai d'expiration est défini en fonction du délai de réponse attendu.
+		</li>
+		<li>
+			Le message est placé dans la file d'attente du fournisseur.
+		</li>
+		<li>
+			Un message pour stocker l'identificateur de réponse SOAP est créé. 
+			L'identificateur de message généré pour le message sortant est extrait des données de destination    écrites dans l'environnement local et il est utilisé dans l'identificateur de corrélation MQMD ;    l'identificateur de réponse SOAP est extrait de l'environnement local et il est utilisé comme corps    du message. Ces données sont écrites dans une file d'attente interne.
+		</li>
+		<li>
+			Si des exceptions se produisent avant l'envoi du message au fournisseur, une erreur SOAP est    envoyée au fournisseur. Si des messages d'erreurs doivent être émis, un message d'erreur est envoyé à la file d'attente des erreurs.
+		</li>
+		<li>
+			Si la consignation des demandes est nécessaire et que le flux de messages aboutit, le flux    secondaire de consignation est appelé pour consigner le message entrant.
+		</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : question-réponse</a>
+</body>
+</html>

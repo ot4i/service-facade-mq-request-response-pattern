@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="WebSphere MQ에 서비스 퍼사드: 단방향 수신확인 패턴을 사용하면 단일 큐에 있는 많은 클라이언트 애플리케이션의 요청을 승인하고 트랜잭션 플로우와 지속 WebSphere MQ 메시지를 사용하여 올바른 클라이언트로 응답을 리턴할 수 있습니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>WebSphere MQ에 서비스 퍼사드: 단방향 수신확인 패턴</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1"><span>WebSphere MQ에 서비스 퍼사드: 단방향 수신확인</span> 패턴</h1>
+<div>
+	<p class="shortdesc">
+	<span>WebSphere MQ에 서비스 퍼사드: 단방향 수신확인</span> 패턴을 사용하면 클라이언트에 웹 서비스 인터페이스를 제공하고
+WebSphere MQ 실행 애플리케이션을 사용하여 서비스 요청을 수행할 수 있습니다.
+	</p>
+	<p>
+	비동기 HTTP 프로토콜과 신뢰할 수 있는 메시징
+	프로토콜을 브릿지 처리하여 처리할 요청이 저장되었다는 확인 하에
+	업데이트을 핸들링하려면 이 패턴을 사용하십시오.
+	</p>
+	<p>
+	이 패턴은 시간, 프로토콜 및 전송에서 요청자와 제공자 간
+	완화된 커플링을 제공합니다. 기존 시스템에 대한 서비스 인터페이스에
+	적합합니다.
+	</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="패턴의 작동을 보여주는 다이어그램입니다. 클라이언트의 서비스 요청이 처리를 위해 큐에 배치된 다음 수신확인이 리턴됩니다."/>
+	<div class="section">
+		<h2 class="sectiontitle">솔루션</h2>
+	</div>
+	<p>
+	솔루션은 서비스 시작점을 제공하는 메시지 플로우를 구현하는 것입니다.
+	HTTP를 통해 웹 서비스 요청을 수신하면, 데이터가 제공자 애플리케이션을 위한 큐에
+지속 메시지로 배치됩니다. 메시지가 배치되면, 요청 승인을 확인하기 위해 수신확인이
+리턴됩니다. 클라이언트가 수신확인을 수신하면, 메시지가 큐에 기록됩니다. 결함을 수신하면 메시지를
+	송신하지 않지만, 결함이 제한시간 문제이면 미해결 상태가 되고
+	클라이언트 애플리케이션은 문제점이 있다고 인식합니다.
+	</p>
+	<div>
+<a href="requestflow.htm" title="요청 메시지 플로우의 설계 정보입니다.">요청 플로우</a></div>
+	<div>
+		<a href="errorflow.htm" title="오류 서브플로우의 설계 정보입니다.">오류 서브플로우</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="로그 서브플로우의 설계 정보입니다.">로그 서브플로우</a>
+	</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">관련 태스크</h2></div>
+		<p>			이 패턴의 적용 및 사용 방법에 대한 정보는 다음 절을 읽어 보십시오. </p>
+		<div>
+		<a href="constraints.htm" title="패턴의 사용 제한조건">
+			패턴의 사용 제한조건</a>
+	</div>
+		<div>
+			<a href="prereq.htm" title="패턴 적용 전에 완료할 태스크">패턴 적용 전에 완료할 태스크</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="패턴을 시작할 자원">패턴을 시작할 자원</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="인터페이스 예">인터페이스 예</a>
+		</div>
+		<div>
+		<a href="parametertable.htm" title="패턴 매개변수">
+			패턴 매개변수</a>
+	</div>
+		<div>
+		<a href="postreq.htm" title="패턴 생성 후에 완료할 태스크">
+			패턴을 생성 후에 완료할 태스크</a>
+	</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Fachada de servicio" topic="sen/sf/overview.htm">
+    <topic label="Fachada de servicio" href="sen/sf/overview.htm">
+      	<topic label="A MQ, unidireccional con acuse de recibo" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="Flujo Request" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="Subflujo Error" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="Subflujo Log" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="Ejemplo de interfaz" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="Restricciones" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="Tareas que deben completarse antes de aplicar el patrón" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="Recursos para que pueda familiarizarse con el patrón" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="Parámetros" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="Tareas que deben completarse después de generar el patrón" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="A MQ, solicitud-respuesta" href="sen/sf/synchmq/overview.htm">
+      		<topic label="Flujo Request" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="Flujo Response" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="Subflujo Request Processing" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="Subflujo Error" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="Subflujo Log" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="Restricciones" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="Tareas que deben completarse antes de aplicar el patrón" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="Recursos para que pueda familiarizarse con el patrón" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="Parámetros" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="Tareas que deben completarse después de generar el patrón" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

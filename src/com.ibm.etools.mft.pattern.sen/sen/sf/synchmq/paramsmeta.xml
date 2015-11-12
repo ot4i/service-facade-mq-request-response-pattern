@@ -1,0 +1,61 @@
+<povs>
+	<simplePov name="instanceName" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.instanceName"/>
+	<simplePov name="deployableServiceWsdl" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.inputInformation" 
+	povEditorId="com.ibm.etools.mft.patterns.model.edit.POVEditorAdapterWSDL"/>
+	<simplePov name="validationofSOAPRequest" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.inputInformation"/>
+	<simplePov name="validationofSOAPResponse" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.inputInformation"></simplePov>
+	<simplePov name="providerRequestQueueManager" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.providerInformation"></simplePov >
+	<simplePov name="providerRequestQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.providerInformation"></simplePov >				
+	<simplePov name="responseQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.responseInformation"></simplePov >
+	<simplePov name="storeQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.responseInformation"></simplePov >			
+	<simplePov name="expiryofStoreQueueMessages" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.responseInformation"></simplePov >				
+	<simplePov name="loggingRequired" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.log">
+		<master>
+			<slave id="logQueueManager" handler="com.ibm.etools.patterns.dependency.Enable">
+				<argument type="master">true</argument>
+				<argument type="slave">true</argument>
+			</slave>
+			<slave id="logQueue" handler="com.ibm.etools.patterns.dependency.Enable">
+				<argument type="master">true</argument>
+				<argument type="slave">true</argument>
+			</slave>
+		</master> 
+	</simplePov>			
+	<simplePov name="logQueueManager" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.log"></simplePov >			
+	<simplePov name="logQueue"  groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.log"></simplePov >
+	<simplePov name="errorMessageRequired" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.errorHandling">
+		<master>
+			<slave id="errorQueueManager" handler="com.ibm.etools.patterns.dependency.Enable">
+				<argument type="master">true</argument>
+				<argument type="slave">true</argument>
+			</slave>
+			<slave id="errorQueue" handler="com.ibm.etools.patterns.dependency.Enable">
+				<argument type="master">true</argument>
+				<argument type="slave">true</argument>
+			</slave>
+		</master>
+	</simplePov >			
+	<simplePov name="errorQueueManager" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.errorHandling"></simplePov >
+	<simplePov name="errorQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.errorHandling"></simplePov>			
+	<simplePov name="brokerSchema" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="flowPrefix" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="flowSuffix" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="queuePrefix" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="queueSuffix" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="shortDescription" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>
+	<simplePov name="longDescription" groupId="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel"/>	
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.instanceName" visible="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.inputInformation" visible="true" name="inputInformation" 
+		description="description" expand="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.providerInformation" visible="true" name="providerInformation" 
+		description="description" expand="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.responseInformation" visible="true" name="responseInformation" 
+		description="description" expand="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.log" visible="true" name="log" 
+		description="description" expand="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.errorHandling" visible="true" name="errorHandling" 
+		description="description" expand="false"/>
+	<Group id="com.ibm.etools.mft.pattern.sen.sf.synchmq.patternLevel" visible="true" name="patternLevel" 
+		description ="description" expand="false"/>
+	<ReferencedProject name="_Flows"/>
+</povs>

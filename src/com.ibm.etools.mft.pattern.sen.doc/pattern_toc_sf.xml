@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Service Facade" topic="sen/sf/overview.htm">
+    <topic label="Service Facade" href="sen/sf/overview.htm">
+      	<topic label="MQ one-way with acknowledgement" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="Request flow" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="Error subflow" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="Log subflow" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="Interface example" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="Constraints" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="Tasks to complete before applying the pattern" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="Resources to get you started with the pattern" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="Parameters" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="Tasks to complete after generating the pattern" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ request-response" href="sen/sf/synchmq/overview.htm">
+      		<topic label="Request flow" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="Response flow" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="Request Processing subflow" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="Error subflow" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="Log subflow" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="Constraints" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="Tasks to complete before applying the pattern" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="Resources to get you started with the pattern" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="Parameters" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="Tasks to complete after generating the pattern" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

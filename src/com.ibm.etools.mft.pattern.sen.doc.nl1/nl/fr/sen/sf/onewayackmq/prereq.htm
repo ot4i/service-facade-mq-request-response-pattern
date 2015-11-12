@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Informations dont vous devez avoir connaissance et ressources dont vous devez disposer pour pouvoir utiliser le modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tâches à exécuter avant l'application du modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">Tâches à exécuter avant l'application du modèle <span>Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</span></h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">Avant d'appliquer le modèle pour produire une instance du modèle, vous devez déterminer les tâches à exécuter parmi les tâches suivantes. Si nécessaire, exécutez les tâches suivantes :</p>
+	</div>
+	<ul>
+		<li>
+			Vérifiez que le modèle répond aux besoins de l'entreprise et qu'il peut être pris en charge par les applications demandeur et fournisseur.
+		</li>
+		<li>
+			Sélectionnez un nom unique pour l'instance du modèle. Vous pouvez utiliser le modèle plusieurs fois et créez plusieurs instances différentes différenciées par leur nom. Déterminez la fonction de l'instance du modèle afin de définir un nom approprié ou significatif.
+		</li>
+		<li>
+			Définissez ou identifiez l'interface fournisseur et l'interface de service associée. 
+			Créez un fichier déployable WSDL dans un projet d'ensemble de messages.
+		</li>
+		<li>
+			Identifiez les files d'attente et les gestionnaires de files d'attente. Vous pouvez utiliser les gestionnaires de files d'attente et les files d'attente existants, par exemple, pour accéder à l'application fournisseur, et vous devez définir leurs noms. Identifiez les gestionnaires de files d'attente et les files d'attente supplémentaires nécessaires au modèle et définissez leurs noms. Tenez compte des règles, des normes ou des conventions d'attribution de nom qui s'appliquent.
+		</li>
+		<li>
+			
+			Déterminez s'il est nécessaire de consigner les messages de demande. Si vous devez les consigner, vous devez définir le gestionnaire de files d'attente et la file d'attente auxquels les messages de consignation sont envoyés. Vous pouvez envoyer les messages de consignation vers une file d'attente de consignation générale utilisée par plusieurs flux de messages ou utiliser une file d'attente spécifique pour l'instance du modèle.
+		</li>
+		<li>
+			Indiquez si vous voulez générer des messages d'erreur pour l'instance du modèle. Dans ce modèle, les messages d'erreur permettent de notifier les erreurs de traitement et non pas de conserver les données. Vous pouvez envoyer les messages d'erreur vers une file d'attente des erreurs générale utilisée par plusieurs flux de messages ou utiliser une file d'attente spécifique pour l'instance du modèle. Si vous voulez envoyer les messages d'erreur dans l'instance du modèle, vous pouvez activer ou désactiver cette fonction en configurant le fichier archive de courtier (BAR) avant le déploiement.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</a>
+</p>
+</body>
+</html>

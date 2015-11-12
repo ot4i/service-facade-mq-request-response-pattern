@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilisez le modèle Façade de service sur WebSphere MQ : question-réponse pour répondre aux demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié en utilisant des flux transactionnels et des messages WebSphere MQ persistants."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flux secondaire Réponse pour le modèle Façade de service sur WebSphere MQ : question-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1">Flux secondaire Réponse pour le modèle  <span>Façade de service sur WebSphere MQ : question-réponse</span></h1>
+<p class="shortdesc">Le flux Réponse est exécuté sous la forme d'un flux non transactionnel.</p>
+<p>Lorsqu'une réponse est reçue de l'application fournisseur, les actions suivantes sont exécutées :</p>
+<ol>
+<li>Le flux de réponse lit le message de réponse provenant du fournisseur. 
+La validation est déterminée par les paramètres du modèle.</li>
+<li>Le flux utilise l'ID de corrélation pour récupérer l'Identifiant de réponse SOAP auprès de la file d'attente WebSphere MQ interne. 
+L'Identifiant de réponse SOAP est ajouté à l'environnement local afin de contrôler la destination de la réponse SOAP.</li>
+<li>Un en-tête de réponse HTTP est créé.</li>
+<li>Si une exception se produit et que la consignation d'erreur est incluse dans l'application du modèle, le flux secondaire Erreur est appelé, et une erreur est écrite dans la file d'attente de réponse. 
+Cependant, dans la mesure où la défaillance implique que l'IDdeRéponse qui devait répondre à la demande SOAP n'est pas disponible, aucune tentative n'est faite de répondre au demandeur.</li>
+<li>Une réponse réussie n'est consignée que si la consignation est incluse dans cette application du modèle et activée.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Retour ">Spécification du modèle <span>Façade de service sur WebSphere MQ : question-réponse</span> </a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="使用 Service Facade 型樣，可以接受單一佇列上多個用戶端應用程式的要求，以及將回應傳回給正確的用戶端。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Service Facade 型樣</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span>Service Facade</span> 型樣</h1>
+<div><p class="shortdesc">使用 Service Facade 型樣，可以在服務要求者與應用程式所提供的功能或未啟用服務的功能之間，提供鬆散聯結。
+鬆散聯結可隱藏提供者的複雜性，並呈現標準 Web 服務介面。</p>
+Service Facade 型樣也會引進應用標準功能（例如記載）的調解點。</div>
+<div class="image"><img src="facade.gif" alt="顯示型樣行為的圖表。應用程式會將服務要求傳送給分配管理系統，而這些分配管理系統會使用未提供服務介面的功能來滿足這些要求。" />
+<div class="section"><h2 class="sectiontitle">環境定義</h2>
+<p>企業架構移往服務導向架構時，通常需要容納現有的舊式系統，而這些系統執行企業的大部分作業，但是不具有服務功能。這些應用程式所使用的功能通常只有較新且已啟用服務的軟體套件才能存取，而且只能透過配接器、傳訊或其他非服務導向整合技術進行存取。</p>
+</div>
+<div class="section"><h2 class="sectiontitle">問題</h2></div>
+<p>舊式應用程式在本質上不符合服務導向架構 (SOA) 環境，而且變更為這類系統的成本十分昂貴，並且需要特殊的技能。此問題是尋找方法來整合這類系統與較新的服務導向套件及應用程式。尤其需要在下列兩者之間建立橋接器：一般與 Web 服務搭配使用的同步 HTTP 通訊協定，與舊式應用程式經常使用的傳訊通訊協定。</p>
+<div class="section"><h2 class="sectiontitle">選擇指引</h2></div>
+<p>如果企業想要向要求端用戶端呈現服務介面，以作為 SOA 環境的一部分，但是無法輕鬆升級提供者應用程式以提供服務介面，則適合使用此型樣。</p>
+<p>如果提供者應用程式提供 XML 介面，而用戶端應用程式支援對 Web 服務的呼叫，則使用此型樣。此型樣可以使用轉換加以延伸，以透過 WebSphere MQ 支援具有非 XML 介面的應用程式的服務 Facade。</p>
+</div>
+</body></html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Subflujo Error para el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Subflujo Error para el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+	<p class="shortdesc">Este subflujo prueba si debe escribirse un mensaje de error, determinado por la propiedad definida por el usuario: <span class="msobjprop"> ErrorLoggingOn</span>.</p>
+<ol>
+<li>Si ha configurado los parámetros de patrón para que incluyan mensajes de error y se ha seleccionado la propiedad definida por el usuario:
+<span class="msobjprop">ErrorLoggingOn</span>, se preparará un mensaje de error y se grabará en la cola de errores.
+<p>Los detalles de la excepción se graban como un mensaje XML. Estos detalles incluyen:</p>
+	<ul>
+	<li>Nombre del intermediario</li>
+	<li>Nombre de flujo</li>
+	<li>Indicación horaria</li>
+	<li>Resumen de los datos de excepción</li>
+	</ul>
+	<p>El resumen de los datos de excepción contienen la etiqueta del flujo de mensajes, el número del error, la descripción del texto y una lista de inserciones que ofrecen más detalles.</p>
+</li>
+<li>Se produce una excepción que provoca un error SOAP que se debe devolver al solicitante.</li>
+</ol>
+	
+	<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</a>
+</div>
+</body>
+</html>

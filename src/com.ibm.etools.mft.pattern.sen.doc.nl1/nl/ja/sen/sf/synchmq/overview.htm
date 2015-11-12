@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンを使用して、多数のクライアント・アプリケーションからの要求を 1 つのキューで受け入れ、正しいクライアントに応答を返します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 要求/応答」パターン</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.overview">
+<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターン</h1>
+<div>
+	<p class="shortdesc">
+「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンを使用して、WebSphere MQ を介してのみアクセスできる機能に Web サービス・ファサードを提供します。
+このパターンは、通常は Web サービスによって使用される同期 HTTP プロトコルと、簡単にアップグレードできない WebSphere MQ インターフェースを持つ既存のアプリケーションとの間のブリッジを作成します。
+</p>
+	<p>このパターンは、プロバイダー・アプリケーションが XML インターフェースを提供し、クライアント・アプリケーションが Web サービスの呼び出しをサポートする場合に使用します。
+このパターンを拡張して、WebSphere MQ 経由の非 XML インターフェースによる、アプリケーションへのサービス・ファサードをサポートするよう変換することができます。
+</p>
+	</div>
+<div class="section">
+	<h2 class="sectiontitle">ソリューション</h2>
+</div>
+<p>ソリューションは、サービス・エントリー・ポイントを提供するメッセージ・フローを実装することです。
+サービス要求を受け取ると、応答 ID が内部キューに保管され、要求はプロバイダー・アプリケーションに転送されます。
+プロバイダー・アプリケーションから応答を受け取ると、応答 ID がリカバリーされ、プロバイダー応答が入った Web サービスの応答が要求元アプリケーションに返されます。
+</p>
+<div class="image">
+<img src="synchmq.gif"
+		alt="パターンの動作を示す図。アプリケーションはサービス要求をブローカーに送信し、ブローカーはサービス・インターフェースを提供しない機能を使用することによって、これらの要求を実行します。" />
+<div>
+		<a href="requestflow.htm" title="要求メッセージ・フローに関する設計情報。">要求フロー
+</a>
+</div>
+	<div>
+		<a href="responseflow.htm" title="応答メッセージ・フローに関する設計情報。">応答フロー</a>
+</div>
+	<div>
+		<a href="requestsubflow.htm" title="要求処理サブフローに関する設計情報。">要求処理サブフロー
+</a>
+</div>
+	<div>
+		<a href="errorflow.htm" title="エラー・サブフローに関する設計情報。">エラー・サブフロー
+</a>
+</div>
+	<div>
+		<a href="logflow.htm" title="ログ・サブフローに関する設計情報。">ログ・サブフロー
+</a>
+</div>
+	<div>
+		<div class="familylinks">
+			<a name="anchor1"></a>
+			<div class="section"><h2 class="sectiontitle">関連タスク</h2></div>
+				<p>このパターンの適用と使用の方法については、以下のセクションをお読みください。</p>
+			<a href="constraints.htm" title="パターンの使用に関する制約">パターンの使用に関する制約</a>
+</div>
+				<div>
+<a href="prereq.htm" title="パターンを使用する前に知っておくべき事柄や、必要なリソースについての詳細。">パターンを適用する前に完了するタスク</a></div>
+				<div>
+			<a href="resources.htm" title="パターンを開始するためのリソース">パターンを開始するためのリソース</a>
+		</div>
+				<div>
+			<a href="parametertable.htm" title="パターンの適用とパラメーターの構成">パターンのパラメーター</a>
+</div>
+				<div>
+			<a href="postreq.htm" title="">パターンを生成した後に完了するタスク</a>
+</div>
+			</div>
+		</div>
+</body>
+</html>

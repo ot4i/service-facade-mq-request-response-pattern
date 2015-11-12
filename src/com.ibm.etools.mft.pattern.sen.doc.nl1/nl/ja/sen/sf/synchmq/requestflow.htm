@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンを使用して、多数のクライアント・アプリケーションからの要求を単一のキューで受け入れ、正しいクライアントに応答を返します。その際、トランザクション・フローおよび永続 WebSphere MQ メッセージを使用します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンの要求フロー</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンの要求フロー</h1>
+	<p class="shortdesc">
+「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンの要求フローに関する詳細 (ロギングおよび例外を含む)。
+</p>
+	<ol>
+		<li>
+SOAP 要求は SOAP ノードで受け取られます。パターン・インスタンスごとのパターン・パラメーターで妥当性検査が必要であると指定されている場合、要求は妥当性検査されます。
+</li>
+		<li>
+SOAP および HTTP ヘッダーを削除して、基本的な XML メッセージをプロバイダー・アプリケーションをターゲットとしたままにします。
+</li>
+		<li>
+次いでメッセージが要求処理サブフローに渡されます。これはパターン・インスタンスのカスタマイズ用の場所となります。
+</li>
+		<li>
+Integration Bus の応答アドレスとともに MQMD ヘッダーが挿入され、予想される応答時間に従って有効期限時刻が設定されます。
+</li>
+		<li>
+メッセージはプロバイダー・キューに入れられます。
+</li>
+		<li>
+SOAP 応答 ID を保管するためのメッセージがセットアップされます。
+出力メッセージで生成されるメッセージ ID は、ローカル環境に書き込まれた宛先データから取得され、MQMD 相関 ID で使用されます。SOAP 応答 ID はローカル環境から取得され、メッセージの本体として使用されます。
+このデータは内部キューに書き込まれます。
+</li>
+		<li>
+メッセージがプロバイダーに送信される前に例外が発生した場合、SOAP 障害がプロバイダーに返されます。
+エラー・メッセージが必要な場合、エラー・メッセージはエラー・キューに送信されます。
+</li>
+		<li>
+要求のロギングが必要で、かつメッセージ・フローが正常に行われた場合には、着信メッセージをログに記録するためにロギング・サブフローが呼び出されます。
+</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンの仕様に戻る</a>
+</body>
+</html>

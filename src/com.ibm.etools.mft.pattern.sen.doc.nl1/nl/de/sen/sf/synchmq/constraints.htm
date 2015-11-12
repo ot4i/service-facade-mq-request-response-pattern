@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Vorgaben für die Verwendung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1">Vorgaben für die Verwendung des Musters <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+<div>
+<p class="shortdesc">Wenn Sie dieses Muster verwenden, gelten eine Reihe von Vorgaben.</p>
+	<p>
+	Sie können das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort) nur verwenden, wenn alle der folgenden Vorgaben erfüllt sind:
+	</p>
+	<ul>
+		<li>
+			Die Anforderungen müssen als SOAP-Nachrichten über HTTP eingehen.
+		</li>
+		<li>
+			Die anfordernden Anwendungen müssen einen Interaktionsstil mit synchronen
+			Anforderungen und Antworten unterstützen.
+		</li>
+		<li>
+			Die Provideranwendungen müssen Anforderungen innerhalb eines für eine
+			synchrone Interaktion angemessenen Zeitrahmens beantworten können.
+		</li>
+		<li>
+			Die Provideranwendungen müssen Anforderungen über WebSphere MQ empfangen
+			und die Antworten über WebSphere MQ zurückgeben können.
+		</li>
+		<li>
+			Die Provideranwendungen müssen das Standardverhalten zum Kopieren der
+			Nachrichten-ID in die Korrelations-ID unterstützen.
+		</li>
+		<li>
+			Die WSDLs, die die Brokerschnittstelle definieren, weisen nur einen Porttyp und
+			nur eine Bindung auf.
+		</li>
+		<li>
+			Die WSDLs müssen die Eigenschaften für den SOAPInput-Knoten definieren,
+			der in der WSDL der höchsten Ebene definiert ist. Einige komplexe, verschachtelte
+			WSDLs können daher nicht automatisch von diesem Muster verarbeitet werden.
+			<p>Wenn die verwendeten WSDLs diese Bedingungen nicht erfüllen, kann das Muster den
+			SOAPInput-Knoten nicht konfigurieren. Die Konfiguration des SOAPInput-Knotens wird in
+			diesem Fall als erforderliche Task nach der Generierung der Musterinstanz aufgeführt.</p> 
+			
+		</li>
+		<li>
+			Die Provideranwendung unterstützt WebSphere MQ-XML-Nachrichten in einem Format, das als
+			Hauptteil einer SOAP-Anforderung oder SOAP-Antwort verwendet werden kann. Sie können den
+			untergeordneten Anforderungsprozessor-Nachrichtenfluss aber auch so anpassen, dass das
+			Format für Nicht-XML-Nachrichten umgesetzt wird.
+		</li>
+		<li>
+			Wenn eine Protokollierung erforderlich ist, wird davon ausgegangen, dass das von diesem
+			Muster verwendete Nachrichtenformat Ihren Anforderungen entspricht.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Tâches à exécuter après avoir généré le modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tâches à exécuter après avoir généré le modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.postreq">
+<h1 class="topictitle1">Tâches à exécuter après avoir généré le modèle <span>Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</span></h1>
+<div>
+	<p class="shortdesc">
+	Tâches que vous devez exécuter après avoir généré le modèle.
+	</p>
+	<ol>
+		<li>
+			Vérifiez le CCSID. Ce modèle suppose que le CCSID utilisé pour les demandes SOAP est 1208. Si l'application fournisseur nécessite des messages avec un CCSID, vous devez définir ce paramètre dans le flux secondaire Processeur des demandes en utilisant l'éditeur de flux de messages. Cette propriété ne peut pas être modifiée avec l'éditeur d'archive de courtier.
+		</li>
+		<li>
+			Vérifiez la configuration du noeud SOAP. Dans le cas de fichiers WSDL complexes, il peut être nécessaire de sélectionner le fichier WSDL dans l'éditeur de flux de messages, ce qui est indiqué dans le fichier récapitulatif.
+		</li>
+		<li>
+			Créez le fichier archive de courtier (BAR). 
+			Ajoutez le flux de messages généré au fichier BAR. Dans l'éditeur d'archives du courtier, vous devez sélectionner l'option <span class="uicontrol">Compiler et intégrer des ressources</span> avant de générer le fichier BAR.
+			Vous devez également ajouter les ensembles de messages auxquels le flux fait référence.
+		</li>
+		<li>
+			Configurez le fichier archive du courtier. Il n'est pas nécessaire d'effectuer d'autres opérations de configuration au niveau du flux de messages dans le fichier archive de courtier avant de déployer les flux de messages de l'instance du modèle <span>Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</span>. Néanmoins, vous pouvez vérifier certaines options par défaut et configurer des modifications pour votre environnement. Par exemple, vous pouvez vérifier  les propriétés suivantes :
+			<ul>
+				<li><span class="msobjprop">LoggingOn</span>.
+					Si la consignation est incluse, lors du déploiement, cette option détermine si la consignation      des demandes est nécessaire pour l'environnement en cours.
+				</li>
+				<li><span class="msobjprop">ErrorLoggingOn</span>.
+					Si les messages d'erreur sont inclus, lors du déploiement, cette option détermine si la      consignation des erreurs est nécessaire pour l'environnement en cours.
+				</li>
+			</ul>
+			Vous pouvez changer les paramètres du modèle qui répertoriés dans les table de paramètres    comme étant définissables, mais vous devez faire preuve de vigilance, car le modèle peut utiliser    par défaut un comportement spécifique. Toutefois, vous pouvez changer les propriétés définies par    des caractéristiques de fonctionnement qui n'affectent pas la logique de flux (configuration de la    sécurité ou instances supplémentaires, par exemple).
+		</li>
+		<li>
+			Créez les files d'attente. Lorsque vous appliquez le modèle, la liste des files d'attente WebSphere MQ est générée, avec les noms de file d'attente et de gestionnaire de file d'attente, que vous devez créer s'ils n'existent pas. Tous les paramètres de message nécessaires au modèle sont définis explicitement dans les messages et ne dépendent pas des paramètres de file d'attente.
+			<ul>
+				<li>Dans le fichier récapitulatif, consultez la liste des files d'attente que vous devez créer. Ce fichier se trouve dans le dossier Configuration du modèle du projet d'instance de modèle <i>InstanceName</i>.</li>
+				<li>Créez les ressources WebSphere MQ. Vous pouvez créer les ressources WebSphere MQ depuis la ligne de commande en utilisant des programmes et des utilitaires, tels que <span class="cmdname">runmqsc</span>, ou en utilisant l'interface graphique WebSphere MQ Explorer. Pour plus d'informations sur la création des ressources WebSphere MQ, voir <cite>WebSphere MQ Intercommunication</cite>
+					sur la page Web
+					<img src="../../../images/external_link.gif" alt="Ce lien s'ouvre dans une nouvelle fenêtre" class="external_link" />
+					<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">Bibliothèque WebSphere MQ</a>.
+				</li>
+			</ul>
+		</li>
+		<li>Déployez le fichier BAR. L'ensemble de messages qui contient le fichier déployable WSDL doit être déployé en utilisant le même ou un autre fichier BAR dans chaque courtier où les flux sont déployés.
+		</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="WebSphere MQ에 서비스 퍼사드: 단방향 수신확인 패턴을 사용하기 전에 알아야 하는 내용과 필요한 자원 세부사항입니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>인터페이스 예</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.interface">
+<h1 class="topictitle1">인터페이스 예</h1>
+<div>
+	<p class="shortdesc">
+서비스 인터페이스로 사용되는 WSDL 파일의 요청 요소에 대한 기반으로
+제공자 애플리케이션에서 예상한 XML 메시지의 스키마가
+필요합니다. </p>
+	<p>예를 들어, 제공자 애플리케이션은 조치를 포함한 메시지를 가져올 수
+있으며, 해당 메시지는 조치를 수행해야 하는 항목을 포함하고 있습니다.
+다음 예에는 서비스 조작이 되는 SaveItem 조치를 설명합니다.
+	</p>
+</div>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="http://ServiceFacade_RR" elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ServiceFacade_RR"&gt;
+	&lt;complexType name="항목"&gt;
+	&lt;sequence&gt;
+	&lt;element name="이름" type="string"&gt;&lt;/element&gt;
+	&lt;element name="코드" type="string"&gt;&lt;/element&gt;
+	&lt;element name="설명" type="string"&gt;&lt;/element&gt;
+	&lt;element name="위치" type="string"&gt;&lt;/element&gt;
+	&lt;/sequence&gt;
+	&lt;/complexType&gt;
+	&lt;element name="SaveItem" type="tns:SaveItem"&gt;&lt;/element&gt;
+	&lt;complexType name="SaveItem"&gt;
+	&lt;sequence&gt;
+	&lt;element name="항목" type="tns:Item"&gt;&lt;/element&gt;
+	&lt;/sequence&gt;
+	&lt;/complexType&gt;
+	&lt;/schema&gt;
+	</pre>
+</div>
+<p>
+연관된 WSDL가 제공자 스키마에 필요한 최상위 레벨 요소에 상응하는
+요소로 입력 메시지를 정의해야 합니다. 다음 부분이
+선행 제공자 스키마에 해당합니다.
+</p>
+<pre>
+	&lt;wsdl:message name="SaveItemRequestMsg"&gt; &lt;wsdl:part name="SaveItemRequest" 
+	element="tns:SaveItem"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt; </pre>
+
+
+<h2>수신확인</h2> 
+수신확인은 패턴에 따라 고정되고 모든 패턴 인스턴스에 적용되지만, 네임스페이스는 다양합니다.
+<p>
+수신확인의 스키마(패턴 고유의 네임스페이스 표시)는 다음과 같습니다.
+</p>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;schema targetNamespace="&lt;instance specific&gt;" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://&lt;instance specific&gt;" "&gt; 
+	&lt;complexType name="Ack"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="acknowledgment" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="Response" type="tns:Ack"&gt;
+	&lt;/element&gt; 
+	&lt;/schema&gt;</pre>
+</div>
+<p>
+응답 메시지를 정의하는 WSDL 항목이 다음 응답을 참조해야 합니다.
+</p><pre>
+	&lt;wsdl:message name="SaveItemResponseMsg"&gt; &lt;wsdl:part name="응답"
+	element="tns:Response"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt;</pre>
+<p>
+<a href="overview.htm#anchor1" title="이전">WebSphere MQ에 서비스 퍼사드: 단방향 수신확인 패턴 스펙으로 돌아가기</a>
+</p>
+</body>
+</html>

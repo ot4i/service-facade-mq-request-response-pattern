@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを使用して、多数のクライアント・アプリケーションからの要求を単一のキューで受け入れ、正しいクライアントに応答を返します。その際、トランザクション・フローおよび永続 WebSphere MQ メッセージを使用します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンの要求フロー</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.overview">
+<div class="section">
+	<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンの要求フロー</h1>
+	<p class="shortdesc">
+「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンの要求フローに関する詳細 (ロギングおよび例外を含む)。
+</p>
+	<ol>
+		<li>
+SOAP 要求は SOAP ノードによって受け取られます。パターン・パラメーターにより妥当性検査が必要と指定されている場合、要求は妥当性検査されます。
+</li>
+		<li>
+SOAP および HTTP ヘッダーを削除して、基本的な XML メッセージをプロバイダー・アプリケーションをターゲットとしたままにします。
+</li>
+		<li>
+次いでメッセージが要求処理サブフローに渡されます。これはパターン・インスタンスのカスタマイズ用の場所となります。
+</li>
+		<li>
+この時点までに発生する例外はすべてキャッチされ、SOAP 障害が呼び出し元に返されます。
+障害が送信された後は、要求は処理されません。
+</li>
+		<li>
+例外が発生しなかった場合、メッセージは永続メッセージとしてプロバイダーの入力キューに書き込まれ、コミットされます。
+フローは、書き込みが正常に行われた場合には、後続の例外が発生しても、メッセージが送信されなかったことを示す応答が要求元に送信されない構造になっています。
+ただし、SOAP ノード上のタイムアウトによって SOAP タイムアウト障害が返される可能性は依然としてあります。
+</li>
+		<li>
+			肯定の確認応答が SOAP 応答として要求元に返されます。
+			この応答には、<tt>Accepted</tt> というストリングによる単一の確認応答が含まれています。
+		</li>
+		<li>
+要求のロギングが必要で、かつメッセージ・フローが正常に行われた場合には、着信メッセージをログに記録するためにロギング・サブフローが呼び出されます。
+</li>
+		<li>
+メッセージが書き込まれた後、確認応答の作成と送信を行う時に例外が発生した場合は、エラー・メッセージが必要であることがパターン・パラメーターで指定されているのなら、エラーを記録するためにエラー・サブフローが呼び出され、サブフローは正常に終了します。
+メッセージはプロバイダー・キューに残るため、このエラーはデータの保持ではなく、単なる通知を目的としたものであり、メッセージの本体は含まれません。
+エラー・メッセージがパターン・パラメーターに必要ではない場合、フローは正常に終了します。
+</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flujo Response para el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1">Flujo Response para el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+<p class="shortdesc">El flujo Response se ejecuta como un flujo no transaccional.</p>
+<p>Cuando se recibe una respuesta de la aplicación de proveedor, se efectúan las acciones siguientes:</p>
+<ol>
+<li>El flujo Response lee el mensaje de respuesta del proveedor. 
+La validación se determina mediante los parámetros del patrón.</li>
+<li>El flujo utiliza el ID de correlación para recuperar el identificador de respuesta SOAP de la cola de WebSphere MQ interna. 
+El identificador de respuesta SOAP se añade al entorno local para controlar el destino de la respuesta SOAP.</li>
+<li>Se crea una cabecera HTTPReply.</li>
+<li>Si se produce una excepción, y el registro de errores está incluido en la aplicación del patrón, se llama al subflujo Error, y se graba un error en el cola de respuesta. 
+Sin embargo, puesto que el error implica que el ID de respuesta que tenía que contestar a la solicitud SOAP no está disponible, no se efectúa ningún intento de responder al peticionario.</li>
+<li>Sólo se registra una respuesta satisfactoria si el registro está incluido en esta aplicación de patrón y está activado actualmente.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></a>
+</body>
+</html>

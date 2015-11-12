@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1">Patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span></h1>
+<div>
+	<p class="shortdesc">
+	Utilice el patrón
+	<span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span>
+para presentar una interfaz de servicio web a los clientes y satisfacer las solicitudes
+de servicio utilizando una aplicación habilitada para WebSphere MQ.
+	</p>
+	<p>
+	Utilice este patrón para establecer un puente entre los protocolos HTTP asíncronos y protocolos de mensajería fiables a fin de manejar las actualizaciones con la garantía de que las solicitudes se guardan para su proceso. 
+	</p>
+	<p>
+	Este patrón proporciona acoplamiento abierto entre los solicitantes y los proveedores en tiempo, protocolos y transporte. Es adecuado para las interfaces de servicio con los sistemas existentes.
+	</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="Un diagrama que muestra el comportamiento del patrón. Las solicitudes de servicio de los clientes se colocan en una cola para su proceso y, a continuación, se devuelve un acuse de recibo."/>
+	<div class="section">
+		<h2 class="sectiontitle">Solución</h2>
+	</div>
+	<p>
+	La solución es implementar un flujo de mensajes que proporcione un punto de entrada de servicio. 
+	Cuando se recibe una solicitud de servicio web a través de HTTP, los datos se colocan como un mensaje persistente en una cola para la aplicación de proveedor. Cuando el mensaje se coloca, se devuelve un acuse de recibo para confirmar que la solicitud se ha aceptado. Si un cliente recibe un acuse de recibo, el mensaje se ha escrito en la cola. Si se recibe un error, no se ha enviado ningún mensaje, no obstante, si el error es de tiempo de espera excedido, el caso es indeterminado, pero las aplicaciones clientes saben que existe un problema.
+	</p>
+	<div>
+		<a href="requestflow.htm" title="Información de diseño sobre el flujo de mensajes Request.">Flujo Request </a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Información de diseño sobre el subflujo Error.">Subflujo Error</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Información de diseño sobre el subflujo Log.">Subflujo Log</a>
+	</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">Tareas relacionadas</h2></div>
+		<p>Consulte la sección siguiente para obtener información sobre cómo aplicar y utilizar este patrón.</p>
+		<div>
+			<a href="constraints.htm" title="Restricciones en el uso del patrón">
+			 Restricciones en el uso del patrón</a>
+		</div>
+		<div>
+			<a href="prereq.htm" title="Tareas que deben completarse antes de aplicar el patrón">Tareas que deben completarse antes de aplicar el patrón</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="Recursos para que pueda familiarizarse con el patrón">Recursos para que pueda familiarizarse con el patrón</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="Ejemplo de interfaz">Ejemplo de interfaz</a>
+		</div>
+		<div>
+			<a href="parametertable.htm" title="Parámetros para el patrón">
+			Parámetros para el patrón</a>
+		</div>
+		<div>
+			<a href="postreq.htm" title="Tareas que deben completarse después de generar el patrón"> 			Tareas que deben completarse después de generar el patrón</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

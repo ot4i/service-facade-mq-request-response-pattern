@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣，透過已啟用 WebSphere MQ 的應用程式，以接受服務要求並滿足這些要求。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Service Facade to WebSphere MQ: one-way with acknowledgment 型樣的錯誤子流程</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.errorflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Facade to WebSphere MQ: one-way with acknowledgement</span> 型樣的錯誤子流程</h1>
+	<p class="shortdesc">此子流程會測試是否必須寫入錯誤訊息，而這是透過使用者定義的內容 <span class="msobjprop">ErrorLoggingOn</span> 來決定。</p>
+<ol>
+<li>如果您已將型樣參數配置成包括錯誤訊息，並選取使用者定義的內容 <span class="msobjprop">ErrorLoggingOn</span>，則會準備錯誤訊息，並將它寫入錯誤佇列。
+<p>異常狀況的明細會寫入為 XML 訊息。這些明細包括：</p>
+	<ul>
+	<li>分配管理系統名稱</li>
+	<li>流程名稱</li>
+	<li>時間戳記</li>
+	<li>異常狀況資料的摘要</li>
+	</ul>
+	<p>異常狀況資料的摘要包含訊息流程標籤、錯誤碼、文字說明，以及提供進一步明細的插入項目清單。</p>
+</li>
+<li>如果已寫入提供者的訊息，並將回覆傳送給要求者，則不會採取進一步的動作。</li> 
+<li>如果尚未寫入提供者的訊息，則會產生導致 SOAP 錯誤傳回給要求者的異常狀況。</li>
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣規格</a>
+</body>
+</html>

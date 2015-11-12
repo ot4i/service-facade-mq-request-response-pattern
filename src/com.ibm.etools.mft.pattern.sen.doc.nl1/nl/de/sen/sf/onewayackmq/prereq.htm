@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks, die vor der Anwendung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) ausgeführt werden müssen</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">Tasks, die vor der Anwendung des Musters <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) ausgeführt werden müssen</h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">Bevor Sie das Muster für die Erstellung einer Musterinstanz anwenden, müssen Sie bestimmen, welche der folgenden Tasks erforderlich sind. Führen Sie folgende Tasks aus, falls erforderlich:</p>
+	</div>
+	<ul>
+		<li>
+			Prüfen Sie, ob dieses Muster Ihren Geschäftsanforderungen entspricht und sowohl
+			von den Requester- als auch von den Provideranwendungen unterstützt wird.
+		</li>
+		<li>
+			Wählen Sie einen eindeutigen Namen für die Musterinstanz aus. Sie können das Muster
+   mehrmals verwenden und verschiedene Instanzen davon erstellen, die sich
+			durch ihre Namen unterscheiden. Legen Sie einen aussagekräftigen Namen fest,
+			der auf den Zweck der Musterinstanz hinweist.
+		</li>
+		<li>
+			Definieren bzw. ermitteln Sie die Providerschnittstelle sowie die zugehörige
+			Serviceschnittstelle. 
+			Erstellen Sie die implementierbare WSDL in einem Nachrichtensatzprojekt.
+		</li>
+		<li>
+			Ermitteln Sie die Warteschlangen und Warteschlangenmanager. Vorhandene
+			Warteschlangenmanager und Warteschlangen können zum Beispiel für den
+			Zugriff auf die Provideranwendung verwendet werden, und deren Namen müssen
+			festgelegt werden. Ermitteln Sie alle weiteren für dieses Muster
+			erforderlichen Warteschlangenmanager und Warteschlangen und legen Sie
+			deren Namen fest. Berücksichtigen Sie dabei alle anzuwendenden Regeln,
+			Standards und Namenskonventionen.
+		</li>
+		<li>
+			
+			Entscheiden Sie, ob eine Protokollierung der Anforderungsnachrichten erforderlich
+			ist. Falls ja, bestimmen Sie den Warteschlangenmanager und die Warteschlange für
+			die Protokollnachrichten. Die Protokollnachrichten können an eine allgemeine Protokollwarteschlange gesendet werden, die von mehreren Nachrichtenflüssen verwendet wird, oder an eine speziell für die Musterinstanz eingerichtete Warteschlange.
+		</li>
+		<li>
+			Entscheiden Sie, ob für die Musterinstanz Fehlernachrichten generiert werden
+			sollen. Die Fehlernachrichten dieses Musters dienen der Benachrichtigung bei
+			Verarbeitungsfehlern, nicht der Bewahrung von Daten. Die Fehlernachrichten
+			können an eine allgemeine Fehlerwarteschlange gesendet werden, die von
+			mehreren Nachrichtenflüssen verwendet wird, oder an eine speziell für die
+			Musterinstanz eingerichtete Warteschlange. Wenn Sie sich entscheiden,
+			innerhalb der Musterinstanz Fehlernachrichten zu senden, können Sie diese
+			Funktion vor der Implementierung durch Konfiguration der Brokerarchivdatei
+			aktivieren oder inaktivieren.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</a>
+</p>
+</body>
+</html>

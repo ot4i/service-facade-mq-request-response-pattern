@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalles sobre lo que necesita saber y qué recursos debe tener antes de poder utilizar el patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Ejemplo de interfaz</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.interface">
+<h1 class="topictitle1">Ejemplo de interfaz</h1>
+<div>
+	<p class="shortdesc">
+	El esquema para los mensajes XML que la aplicación de proveedor espera son necesarios como base de los elementos de solicitud en el archivo WSDL que se utiliza como interfaz de servicio. </p>
+	<p>Por ejemplo, la aplicación de proveedor puede tomar mensajes con una acción y que esos mensajes contengan el elemento en el que esa acción debe realizarse. 
+	El siguiente ejemplo contiene una acción, SaveItem, que se convierte en la operación de servicio:
+	</p>
+</div>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="http://ServiceFacade_RR" elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ServiceFacade_RR"&gt;
+	&lt;complexType name="Item"&gt;
+	&lt;sequence&gt; 
+	&lt;element name="Name" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Code" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Description" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Location" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="SaveItem" type="tns:SaveItem"&gt;&lt;/element&gt; 
+	&lt;complexType name="SaveItem"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="Item" type="tns:Item"&gt;&lt;/element&gt;
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;/schema&gt;
+	</pre>
+</div>
+<p>
+El WSDL asociado debe definir un mensaje de entrada con un elemento que corresponde al elemento de nivel superior que requiere el esquema de proveedor. El siguiente fragmento corresponde al esquema de proveedor anterior:
+</p>
+<pre>
+	&lt;wsdl:message name="SaveItemRequestMsg"&gt; &lt;wsdl:part name="SaveItemRequest" 
+	element="tns:SaveItem"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt; </pre>
+
+
+<h2>Acuse de recibo</h2> 
+El patrón fija el acuse de recibo y se aplica a todas las instancias de patrón, pero los espacios de nombres pueden variar.
+<p>
+El esquema para el acuse de recibo (con espacios de nombres específicos del patrón indicados) es:
+</p>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;schema targetNamespace="&lt;instance specific&gt;" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://&lt;instance specific&gt;" "&gt; 
+	&lt;complexType name="Ack"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="acknowledgment" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="Response" type="tns:Ack"&gt;
+	&lt;/element&gt; 
+	&lt;/schema&gt;</pre>
+</div>
+<p>
+La entrada de WSDL que define el mensaje de respuesta debe hacer referencia a la siguiente respuesta:
+</p><pre>
+	&lt;wsdl:message name="SaveItemResponseMsg"&gt; &lt;wsdl:part name="Response" 
+	element="tns:Response"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt;</pre>
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</a>
+</p>
+</body>
+</html>

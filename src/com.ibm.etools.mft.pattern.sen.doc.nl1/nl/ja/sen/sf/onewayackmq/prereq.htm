@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを使用する前に知っておくべき事柄や、必要なリソースについての詳細。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを適用する前に完了するタスク</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンを適用する前に完了するタスク</h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">パターン・インスタンスを作成するためにパターンを適用する前に、以下のどのタスクが必要かを判別する必要があります。必要に応じて、以下のタスクを完了します。</p>
+	</div>
+	<ul>
+		<li>
+このパターンがビジネス要件を満たしていること、および要求元アプリケーションとプロバイダー・アプリケーションの両方でサポート可能であることを確認します。
+</li>
+		<li>
+パターン・インスタンス用の固有の名前を選択します。
+パターンを複数回使用して、複数の異なるインスタンスを作成できます。これらのインスタンスは名前で区別できます。
+適切な名前または意味のある名前を決定できるように、パターン・インスタンスの目的を確認してください。
+</li>
+		<li>
+プロバイダー・インターフェースおよび関連したサービス・インターフェースを定義または特定します。
+デプロイ可能な	WSDL をメッセージ・セット・プロジェクトに作成します。
+</li>
+		<li>
+キューおよびキュー・マネージャーを識別します。プロバイダー・アプリケーションへのアクセスなどに既存のキュー・マネージャーおよびキューを使用することができ、それらの名前を決定する必要があります。
+このパターンで追加のキュー・マネージャーおよびキューが必要な場合は、それらを特定し、名前を決定します。
+適用する必要があるポリシー、規格、または命名規則を考慮します。
+</li>
+		<li>
+要求メッセージのロギングが必要かどうかを決定します。
+ロギングが必要な場合、ロギング・メッセージがどのキュー・マネージャーおよびキューに送付されるかを決定する必要があります。複数のメッセージ・フローで使われる一般的なログ・キューにロギング・メッセージを送信できます。または、パターン・インスタンス用の固有のキューを使用することもできます。</li>
+		<li>
+パターン・インスタンスのエラー・メッセージを生成するかどうかを決定します。
+このパターンでは、エラー・メッセージはデータを保持するためのものではなく、処理中のエラーの通知用です。
+複数のメッセージ・フローで使われる一般的なエラー・キューにエラー・メッセージを送信できます。
+または、パターン・インスタンス用の固有のキューを使用することもできます。
+パターン・インスタンスでエラー・メッセージを送信することを選択した場合、デプロイメント前にブローカー・アーカイブ (BAR) ファイルを構成することによって、この機能をオンまたはオフにすることができます。</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>

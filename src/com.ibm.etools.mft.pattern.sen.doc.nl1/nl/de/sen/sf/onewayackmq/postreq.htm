@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Tasks, die nach der Generierung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) ausgeführt werden müssen"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks, die nach der Generierung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) ausgeführt werden müssen</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.postreq">
+<h1 class="topictitle1">Tasks, die nach der Generierung des Musters <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) ausgeführt werden müssen</h1>
+<div>
+	<p class="shortdesc">
+	Tasks, die nach der Generierung des Musters ausgeführt werden müssen.
+	</p>
+	<ol>
+		<li>
+			Prüfen Sie die CCSID. Dieses Muster setzt voraus, dass für SOAP-Anforderungen die CCSID
+			1208 verwendet wird. Falls für die Provideranwendung Nachrichten mit einer anderen
+			CCSID erforderlich sind, muss dieser Parameter im Nachrichtenflusseditor im
+			untergeordneten Anforderungsprozessor-Nachrichtenfluss konfiguriert werden. Diese
+			Eigenschaft kann nicht im Brokerarchiveditor geändert werden.
+		</li>
+		<li>
+			Prüfen Sie die Konfiguration des SOAP-Knotens. Im Falle komplexer WSDLs müssen Sie
+			die WSDL eventuell im Nachrichtenflusseditor auswählen. Ob dies erforderlich ist,
+			entnehmen Sie der Zusammenfassungsdatei.
+		</li>
+		<li>
+			Erstellen Sie die Brokerarchivdatei (BAR-Datei). 
+			Fügen Sie den generierten Nachrichtenfluss Ihrer BAR-Datei hinzu. Im Brokerarchiveditor müssen Sie die Option <span class="uicontrol">Ressourcen kompilieren und integrieren</span> auswählen, um die BAR-Datei zu erstellen.
+			Auch die vom Nachrichtenfluss referenzierten Nachrichtensätze müssen hinzugefügt werden.
+		</li>
+		<li>
+			Konfigurieren Sie die Brokerarchivdatei. Eine weitere Konfiguration des
+			in der Brokerarchivdatei enthaltenen Nachrichtenflusses ist vor der Implementierung
+			der Nachrichtenflüsse für Ihre Instanz des Musters <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) nicht
+			erforderlich. Eventuell sollten Sie jedoch die Standardoptionen überprüfen und
+			die Konfiguration an Ihre Umgebung anpassen. Es empfiehlt sich unter anderem
+			die folgenden Parameter zu überprüfen:
+			<ul>
+				<li><span class="msobjprop">LoggingOn</span>.
+					Wenn die Protokollierung eingeschlossen ist, bestimmt dieser Schalter zum
+					Zeitpunkt der Implementierung, ob die Protokollierung der Anforderungen für die
+					aktuelle Umgebung erforderlich ist.
+				</li>
+				<li><span class="msobjprop">ErrorLoggingOn</span>.
+					Wenn Fehlermeldungen eingeschlossen sind, bestimmt dieser Schalter zum Zeitpunkt
+					der Implementierung, ob die Protokollierung von Fehlern für die aktuelle
+					Umgebung erforderlich ist.
+				</li>
+			</ul>
+			Sie können alle Musterparameter ändern, die in den Parametertabellen als
+			konfigurierbar gekennzeichnet sind. Da das Muster unter Umständen jedoch ein
+			bestimmtes Verhalten voraussetzt, sollten Sie Ihre Änderungen mit Bedacht
+			vornehmen. Eigenschaften, die durch betriebliche Anforderungen bestimmt werden
+			und sich nicht auf die Logik des Nachrichtenflusses auswirken, zum Beispiel die
+			Sicherheitskonfiguration oder weitere Instanzen, können Sie hingegen ohne Bedenken
+			ändern.
+		</li>
+		<li>
+			Erstellen Sie Warteschlangen. Bei der Anwendung des Musters wird eine Liste mit
+			WebSphere MQ-Warteschlangen generiert. Diese Liste enthält die Namen von Warteschlangen
+			und Warteschlangenmanagern. Falls diese WebSphere MQ-Warteschlangen noch nicht
+			vorhanden sind, müssen sie erstellt werden. Sämtliche für das Muster erforderlichen
+			Nachrichteneinstellungen werden explizit in den Nachrichten definiert und sind
+			nicht abhängig von den Warteschlangeneinstellungen.
+			<ul>
+				<li>Die zu erstellenden Warteschlangen entnehmen Sie bitte der
+ 				Zusammenfassungsdatei. Die Summendatei befindet sich im Projektverweisordner des Musterinstanzprojektes <i>Instanzname</i>.</li>
+				<li>Erstellen Sie WebSphere MQ-Ressourcen. WebSphere MQ-Ressourcen können in
+ 				der Befehlszeile mit Programmen und Dienstprogrammen wie
+ 				<span class="cmdname">runmqsc</span> oder in der grafischen Benutzerschnittstelle
+ 				von WebSphere MQ Explorer erstellt werden. Weitere Informationen zur Erstellung von
+    				WebSphere MQ-Ressourcen finden Sie unter <cite>WebSphere MQ Intercommunication</cite>, verfügbar auf der <img src="../../../images/external_link.gif" alt="Dieser Link öffnet sich in einem neuen Fenster" class="external_link" />	<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere
+    				MQ-Bibliotheks</a>webseite.
+				</li>
+			</ul>
+		</li>
+		<li>Implementieren Sie die BAR-Datei. Der Nachrichtensatz mit der
+			implementierbaren WSDL muss aus der gleichen oder einer anderen Brokerarchivdatei
+			auf jedem Broker implementiert werden, auf dem die Nachrichtenflüsse implementiert
+			wurden.
+		</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão do Service Facade para WebSphere MQ: Pedido-Resposta para aceitar pedidos de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto usando fluxos transacionais e mensagens do WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Fluxo de Pedido para o Padrão de Service Facade para WebSphere MQ: Pedido-Resposta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">Fluxo de Pedido para o Padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span></h1>
+	<p class="shortdesc">
+	Detalhes sobre o fluxo de Pedido, incluindo criação de log e exceções, para o
+	padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span>.
+	</p>
+	<ol>
+		<li>
+			Um pedido SOAP é recebido em um nó SOAP. O pedido é validado se a validação é necessária
+			pelos parâmetros padrão para cada instância padrão.
+		</li>
+		<li>
+			Os cabeçalhos SOAP e HTTP são removidos para deixar a mensagem XML básica de destino
+			no aplicativo do provedor.
+		</li>
+		<li>
+			A mensagem, então, é transmitida para um subfluxo de processamento de pedido, que fornece um local
+			para customização de uma instância padrão.
+		</li>
+		<li>
+			Um cabeçalho MQMD é inserido com o endereço de Resposta do Integration Bus e o
+			tempo de expiração é configurado de acordo com o tempo de resposta esperado.
+		</li>
+		<li>
+			A mensagem é colocada na fila do provedor.
+		</li>
+		<li>
+			Uma mensagem para armazenar o identificador de resposta SOAP é configurada. 
+			O identificador de mensagem que é gerado
+			para a mensagem de saída é recuperado dos dados de destino gravados no
+			ambiente local e é usado no identificador de correlação MQMD; o identificador de
+   resposta SOAP é recuperado do ambiente local e é usado como o corpo da
+			mensagem. Estes dados são gravados em uma fila interna.
+		</li>
+		<li>
+			Se ocorrerem exceções antes da mensagem ser enviada ao provedor, uma falha de SOAP será
+			retornada ao provedor. Se mensagens de erro forem necessárias, uma mensagem de erro
+		 será enviada à fila de erros.
+		</li>
+		<li>
+			Se a criação de log de pedidos for necessária e o fluxo de mensagens for bem-sucedido, o
+			subfluxo de criação de log será chamado para registrar a mensagem recebida.
+		</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do padrão do Service Facade para WebSphere MQ: Pedido-Resposta</a>
+</body>
+</html>

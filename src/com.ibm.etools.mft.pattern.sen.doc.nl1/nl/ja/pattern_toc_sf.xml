@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="サービス・ファサード" topic="sen/sf/overview.htm">
+    <topic label="サービス・ファサード" href="sen/sf/overview.htm">
+      	<topic label="確認応答を伴う MQ 一方向" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="要求フロー" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="エラー・サブフロー" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="ログ・サブフロー" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="インターフェースの例" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="制約" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="パターンを適用する前に完了するタスク" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="パターンを開始するためのリソース" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="パラメーター" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="パターンを生成した後に完了するタスク" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ 要求/応答" href="sen/sf/synchmq/overview.htm">
+      		<topic label="要求フロー" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="応答フロー" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="要求処理サブフロー" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="エラー・サブフロー" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="ログ・サブフロー" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="制約" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="パターンを適用する前に完了するタスク" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="パターンを開始するためのリソース" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="パラメーター" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="パターンを生成した後に完了するタスク" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

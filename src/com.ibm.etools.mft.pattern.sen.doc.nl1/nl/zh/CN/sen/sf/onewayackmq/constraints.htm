@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="有关使用 Service Facade to WebSphere MQ: one-way with acknowledgment 模式之前必须了解的内容和必须具备的资源的详细信息。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>使用 Service Facade to WebSphere MQ: one-way with acknowledgment 模式时的约束</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">使用 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 模式时的约束</h1>
+<div>	
+<p class="shortdesc">使用此模式时会有若干约束。</p>
+	<p>
+	只有在满足以下所有约束时，才可以使用
+	<span>Service Facade to WebSphere MQ: one-way with acknowledgment</span>
+	模式：
+	</p>
+	<ul>
+		<li>
+			请求的接收形式是使用文档字面值样式的 HTTP 上的 SOAP 消息。</li>
+		<li>
+			SOAP 请求和响应使用 CCSID 1208。</li>
+		<li>
+			请求应用程序可支持
+			<span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 模式。
+		</li>
+		<li>
+			提供者应用程序负责在消息交付到输入队列时针对更新执行相应的操作。</li>
+		<li>
+			定义代理接口的 WSDL 只有一个端口类型和一个绑定。</li>
+		<li>
+			WSDL 的顶级 WSDL 定义中必须包含定义 SOAPInput 节点属性的定义。因此，该模式无法自动处理某些复杂嵌套的 WSDL。
+			<p>如果使用了不符合此约束的 WSDL，那么该模式不会配置 SOAPInput 节点，而是会将配置 SOAPInput 节点列为生成模式实例之后要完成的任务。</p> 
+			
+		</li>
+		<li>
+			提供者应用程序支持的 WebSphere MQ XML 消息格式是可用作 SOAP 请求主体的格式，您也可以定制请求处理子流以将格式变换为非 XML 消息。</li>
+		<li>
+			该模式会为记录和错误消息定义自己的格式；假定条件是，这些消息均足以满足您自己环境中的需求。</li>
+	</ul>
+	<p>
+	在应用模式后，可通过配置来解决前面所述的一些约束（特别是 CCSID）。</p>
+</div>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Facade to WebSphere MQ: one-way with acknowledgment 模式规范</a>
+</body>
+</html>

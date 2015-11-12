@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="有关使用 Service Facade to WebSphere MQ: one-way with acknowledgment 模式之前必须了解的内容和必须具备的资源的详细信息。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>接口示例</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.interface">
+<h1 class="topictitle1">接口示例</h1>
+<div>
+	<p class="shortdesc">
+	用作服务接口的 WSDL 文件中的请求元素必须使用提供者应用程序所需的 XML 消息模式作为其基础。</p>
+	<p>例如，提供者应用程序可能要通过某个操作来获取消息，而且这些消息包含的项是必须执行该操作的项。以下示例包含成为了服务操作的 SaveItem 操作：</p>
+</div>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="http://ServiceFacade_RR" elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ServiceFacade_RR"&gt;
+	&lt;complexType name="Item"&gt;
+	&lt;sequence&gt; 
+	&lt;element name="Name" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Code" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Description" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Location" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="SaveItem" type="tns:SaveItem"&gt;&lt;/element&gt; 
+	&lt;complexType name="SaveItem"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="Item" type="tns:Item"&gt;&lt;/element&gt;
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;/schema&gt;
+	</pre>
+</div>
+<p>
+相关联的 WSDL 必须使用一个与顶级元素对应的元素来定义提供者模式所需的输入消息。以下片段对应上述提供者模式：
+</p>
+<pre>
+	&lt;wsdl:message name="SaveItemRequestMsg"&gt; &lt;wsdl:part name="SaveItemRequest" 
+	element="tns:SaveItem"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt; </pre>
+
+
+<h2>确认</h2> 
+确认由模式修订并应用于所有模式实例，但名称空间可能会有所不同。
+<p>
+确认的模式（已表明特定于模式的名称空间）：
+</p>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="&lt;instance specific&gt;"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://&lt;instance specific&gt;" "&gt;
+	&lt;complexType name="Ack"&gt;
+	&lt;sequence&gt;
+	&lt;element name="acknowledgment" type="string"&gt;&lt;/element&gt;
+	&lt;/sequence&gt;
+	&lt;/complexType&gt;
+	&lt;element name="Response" type="tns:Ack"&gt;
+	&lt;/element&gt;
+	&lt;/schema&gt;</pre>
+</div>
+<p>
+定义响应消息的 WSDL 条目必须引用以下响应：
+</p><pre>
+	&lt;wsdl:message name="SaveItemResponseMsg"&gt; &lt;wsdl:part name="Response" 
+	element="tns:Response"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt;</pre>
+<p>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Facade to WebSphere MQ: one-way with acknowledgment 模式规范</a>
+</p>
+</body>
+</html>

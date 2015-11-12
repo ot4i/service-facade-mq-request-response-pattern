@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="在您可以使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之前，必須知道及必須具有的資源的明細。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>套用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之前要完成的作業</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">套用 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣之前要完成的作業</h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">套用型樣以產生型樣實例之前，您必須決定需要下列哪一項作業。必要的話，請完成下列作業：</p>
+	</div>
+	<ul>
+		<li>
+			檢查此型樣是否符合商業需求，而且要求者及提供者應用程式是否都支援此型樣。</li>
+		<li>
+			選取型樣實例的唯一名稱。
+您可以多次使用型樣，以及建立多個不同的實例，而這些實例可以透過其名稱加以識別。識別型樣實例的用途，讓您可以決定適當或有意義的名稱。</li>
+		<li>
+			定義或識別提供者介面及相關聯的服務介面。
+			在訊息集專案中建立可部署的 WSDL。</li>
+		<li>
+			識別佇列及佇列管理程式。可以使用現有佇列管理程式及佇列（例如，以存取提供者應用程式），而且必須決定它們的名稱。識別此型樣所需的任何其他佇列管理程式及佇列，以及決定它們的名稱。請考量必須套用的任何原則、標準或命名慣例。</li>
+		<li>
+			
+			決定您是否需要記載要求訊息。如果需要記載，則您必須決定傳送記載訊息的目標佇列管理程式及佇列。
+您可以將記載訊息傳送至多個訊息流程所使用的一般日誌佇列，也可以使用特別針對型樣實例的佇列。</li>
+		<li>
+			決定您是否想要產生型樣實例的錯誤訊息。
+在此型樣中，錯誤訊息是用來通知處理時發生錯誤，而不是用來保留資料。您可以將錯誤訊息傳送至多個訊息流程所使用的一般錯誤佇列，也可以使用特別針對型樣實例的佇列。如果您選擇傳送型樣實例中的錯誤訊息，則可以在部署之前配置分配管理系統保存檔 (BAR)，以開啟或關閉此功能。</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣規格</a>
+</p>
+</body>
+</html>

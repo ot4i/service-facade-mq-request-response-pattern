@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento para aceitar solicitações de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto usando fluxos transacionais e mensagens do WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Fluxo de solicitação do Padrão de Service Facade para WebSphere MQ:
+unidirecional com reconhecimento</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.overview">
+<div class="section">
+	<h1 class="topictitle1">Fluxo de solicitação do padrão de <span>Service Facade para
+WebSphere MQ: unidirecional com reconhecimento</span></h1>
+	<p class="shortdesc">
+	Detalhes sobre o fluxo de Solicitação, incluindo criação de log e exceções, para o padrão
+ de <span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span>.
+	</p>
+	<ol>
+		<li>
+			Um pedido de SOAP é recebido por um nó SOAP. Se a validação for
+			necessária para os parâmetros padrão, o pedido é validado.
+		</li>
+		<li>
+			Os cabeçalhos SOAP e HTTP são removidos para deixar a mensagem XML básica de destino
+			no aplicativo do provedor.
+		</li>
+		<li>
+			A mensagem, então, é transmitida para um subfluxo do processamento de pedido, que fornece um local
+			para a customização de uma instância padrão.
+		</li>
+		<li>
+			Qualquer exceção que ocorra neste momento é capturada e faz com que uma falha de SOAP seja
+			retornada ao responsável pela chamada. O pedido não é processado após a falha
+			ter sido enviada.
+		</li>
+		<li>
+			Se nenhuma exceção ocorrer, a mensagem será gravada como uma mensagem persistente na
+			fila de entrada do provedor e será confirmada. O fluxo é estruturado de forma que, se a
+			gravação for bem-sucedida, quaisquer exceções subsequentes não causarão uma resposta ao
+			solicitante que indica que a mensagem não foi enviada. Entretanto, ainda é possível que
+			o tempo limite no nó SOAP possa fazer com que uma falha de tempo limite de SOAP seja retornada.
+		</li>
+		<li>
+			Um reconhecimento positivo é retornado ao solicitante como uma Resposta SOAP. 
+			Essa resposta contém um único reconhecimento com a sequência <tt>Aceito</tt>.
+		</li>
+		<li>
+			Se você requerer a criação de log de pedidos e o fluxo de mensagens for bem-sucedido, o
+			subfluxo de criação de log será chamado para registrar a mensagem recebida.
+		</li>
+		<li>
+			Se uma exceção ocorrer após a mensagem ser gravada, ao construir e enviar o
+   reconhecimento, e se mensagens de erro forem requeridas pelos parâmetros padrão, o
+   subfluxo de erro será chamado para registrar o erro e o subfluxo será finalizado com
+   êxito. Como a mensagem persiste na fila do provedor,
+			este erro é apenas para informações, não para persistência de dados, e o corpo da
+			mensagem não é incluído. Se mensagens de erro não forem requeridas pelos parâmetros
+			padrão, o fluxo finalizará com êxito.
+		</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação
+do padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</a>
+</p>
+</body>
+</html>

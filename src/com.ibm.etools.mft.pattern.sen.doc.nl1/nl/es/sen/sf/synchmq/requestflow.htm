@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flujo Request para el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">Flujo Request para el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+	<p class="shortdesc">
+	Detalles sobre el flujo Request, incluidos el registro y las excepciones, para el patrón <span>Fachada de servicio a WebSphere MQ: petición-respuesta</span>.
+	</p>
+	<ol>
+		<li>
+			Se ha recibido una solicitud SOAP en un nodo SOAP. La solicitud se valida, si es necesario, por los parámetros de patrón para cada instancia de patrón.
+		</li>
+		<li>
+			Las cabeceras HTTP y SOAP se eliminan para dejar el mensaje XML básico dirigido a la aplicación de proveedor.
+		</li>
+		<li>
+			A continuación, el mensaje pasa a un subflujo de proceso de solicitudes, que proporciona un lugar para la personalización de una instancia de patrón.
+		</li>
+		<li>
+			Se inserta una cabecera MQMD con la dirección de respuesta de Integration Bus, y el tiempo de caducidad se establece según el tiempo de respuesta esperado. 		</li>
+		<li>
+			El mensaje se coloca en la cola de proveedor.
+		</li>
+		<li>
+			Se ha configurado un mensaje para almacenar el identificador de respuesta SOAP. 
+			El identificador de mensaje que se genera para el mensaje saliente se recupera de los datos de destino escritos en el entorno local, y se utiliza en el identificador de correlación MQMD; el identificador de respuesta SOAP se recupera del entorno local y se utiliza como el cuerpo del mensaje. Estos datos se escriben en una cola interna.
+		</li>
+		<li>
+			Si las excepciones se producen antes de que el mensaje se envíe al proveedor, un error SOAP se devuelve al proveedor. Si se necesitan mensajes de error, se envía un mensaje de error a la cola de errores.
+		</li>
+		<li>
+			Si el registro de solicitudes es necesario y el flujo de mensajes es satisfactorio, se llama al subflujo de registro para registrar el mensaje entrante.
+		</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</a>
+</body>
+</html>

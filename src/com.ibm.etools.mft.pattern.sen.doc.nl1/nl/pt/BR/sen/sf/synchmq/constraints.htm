@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalhes sobre o que é necessário saber e quais recursos você deve ter antes de poder usar o padrão de Service Facade para WebSphere MQ: Pedido-Resposta."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Restrições sobre o Uso do Padrão de Service Facade para WebSphere MQ: Pedido-Resposta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1">Restrições sobre o Uso do Padrão de
+<span>Service Facade para WebSphere MQ: Pedido-Resposta</span></h1>
+<div>
+<p class="shortdesc">Várias restrições se aplicam quando este padrão é usado.</p>
+	<p>
+	É possível usar o padrão de
+	<span>Service Facade para WebSphere MQ: Pedido-Resposta</span> apenas se você
+	atender todas as restrições a seguir:
+	</p>
+	<ul>
+		<li>
+			Os pedidos devem ser recebidos como mensagens SOAP sobre HTTP.
+		</li>
+		<li>
+			Aplicativos solicitantes devem suportar um estilo de interação de resposta de pedido síncrono.
+		</li>
+		<li>
+			Aplicativos do provedor devem poder responder aos pedidos em um período de tempo
+			apropriado para interação síncrona.
+		</li>
+		<li>
+			Aplicativos do provedor podem receber pedidos e retornar respostas sobre o WebSphere MQ.
+		</li>
+		<li>
+			Aplicativos do provedor devem suportar o comportamento padrão de cópia do
+			identificador de mensagem no identificador de correlação.
+		</li>
+		<li>
+			WSDLs que definem a interface do broker possuem apenas um tipo de porta e uma ligação.
+		</li>
+		<li>
+			WSDLs devem conter as definições que definem propriedades para o nó SOAPInput nas
+			definições do WSDL de nível superior. Portanto, alguns WSDLs aninhados complexos não podem
+		 ser processados automaticamente pelo padrão.
+			<p>Se WSDLs que não atendem a esta restrição forem usados, o padrão não configurará o
+			nó SOAPInput, mas listará a configuração do nó SOAPInput
+		 como uma tarefa a concluir após a geração da instância padrão.</p> 
+			
+		</li>
+		<li>
+			O aplicativo do provedor suporta mensagens XML do WebSphere MQ em um formato que pode ser usado
+			como o corpo de um pedido e resposta SOAP ou você pode customizar o subfluxo de
+			Processamento de Pedido para transformar o formato em mensagens não XML.
+		</li>
+		<li>
+			Se a criação de log for necessária, o formato usado por este padrão será assumido para atender aos seus
+			requisitos.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do padrão do Service Facade para WebSphere MQ: Pedido-Resposta</a>
+</p>
+</body>
+</html>

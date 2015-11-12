@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalhes sobre o que é necessário saber e quais recursos você deve ter antes de poder usar o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Restrições sobre o uso do padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">Restrições sobre o uso do padrão de
+<span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span></h1>
+<div>	
+<p class="shortdesc">Várias restrições se aplicam quando este padrão é usado.</p>
+	<p>
+	Você só poderá usar o padrão de
+	<span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span>
+	se atender a todas as seguintes restrições:
+	</p>
+	<ul>
+		<li>
+			Pedidos são recebidos como mensagens SOAP sobre HTTP que usa estilo literal de documento.
+		</li>
+		<li>
+			Pedidos e respostas SOAP usam CCSID 1208.
+		</li>
+		<li>
+			Aplicativos de solicitação podem suportar o padrão de
+			<span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span>.
+		</li>
+		<li>
+			Aplicativos do provedor assumem a responsabilidade para agir em uma atualização quando uma
+			mensagem é entregue para sua fila de entrada.
+		</li>
+		<li>
+			WSDLs que definem a interface do broker possuem apenas um tipo de porta e uma ligação.
+		</li>
+		<li>
+			WSDLs devem conter as definições que definem as propriedades para o nó SOAPInput nas
+			definições do WSDL de nível superior. Portanto, alguns WSDLs aninhados complexos não podem
+		 ser processados automaticamente pelo padrão.
+			<p>Se WSDLs que não atendem a esta restrição forem usados, o padrão não configurará o
+			nó SOAPInput, mas listará a configuração do nó SOAPInput
+		 como uma tarefa a concluir após a geração da instância padrão.</p> 
+			
+		</li>
+		<li>
+			O aplicativo do provedor suporta mensagens XML do WebSphere MQ em um formato que pode ser usado
+			como o corpo de um pedido SOAP ou você pode customizar o subfluxo de
+			Processamento de Pedido para transformar o formato para mensagens não XML.
+		</li>
+		<li>
+			O padrão define seu próprio formato para as mensagens de criação de log e de erro; é
+			assumido que estas mensagens são suficientes para atender aos requisitos em seu próprio
+			ambiente.
+		</li>
+	</ul>
+	<p>
+	Algumas das restrições precedentes, particularmente o CCSID, podem ser superadas pela
+	configuração após o padrão ter sido aplicado.
+	</p>
+</div>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</a>
+</body>
+</html>

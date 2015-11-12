@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="產生 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之後要完成的作業"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>產生 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之後要完成的作業</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.postreq">
+<h1 class="topictitle1">產生 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣之後要完成的作業</h1>
+<div>
+	<p class="shortdesc">
+	在您產生此型樣之後必須完成的作業。</p>
+	<ol>
+		<li>
+			檢閱 CCSID。此型樣假設用於 SOAP 要求的 CCSID 是 1208。如果提供者應用程式需要具有不同 CCSID 的訊息，則必須使用「訊息流程」編輯器，在 RequestProcessing 子流程中配置此參數。此內容無法使用「分配管理系統保存檔」編輯器進行修改。</li>
+		<li>
+			檢閱 SOAP 節點的配置。如果是複雜 WSDL，則您可能需要從「訊息流程」編輯器選取 WSDL，而此需求會顯示在摘要檔中。</li>
+		<li>
+			建立分配管理系統保存檔 (BAR)。
+			將產生的訊息流程新增至 BAR 檔。在「分配管理系統保存檔」編輯器中，您必須先選取<span class="uicontrol">編譯及行內資源</span>選項，然後再建置 BAR 檔。
+			同時必須新增流程所參照的訊息集。
+		</li>
+		<li>
+			配置分配管理系統保存檔。在您部署 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span>
+			型樣實例的訊息流程之前，並不需要進一步配置分配管理系統保存檔中的訊息流程，但是您可能會想要檢閱一些預設選項，以及配置環境的變更。例如，您可能會想要檢閱下列內容：
+			<ul>
+				<li><span class="msobjprop">LoggingOn</span>。
+					如果包括記載，則在部署時期，此參數可判斷是否需要記載現行環境的要求。				</li>
+				<li><span class="msobjprop">ErrorLoggingOn</span>。
+					如果包括錯誤訊息，則在部署時期，此參數可判斷是否需要記載現行環境的錯誤。				</li>
+			</ul>
+			您可以將列在參數表格中的任何型樣參數變更為可配置，但是型樣可能會採用特定行為，因此必須十分小心。不過，您可以變更由作業性質所決定且不會影響流程邏輯的內容，例如，安全配置或其他實例。</li>
+		<li>
+			建立佇列。當您套用型樣時，會產生具有佇列名稱及佇列管理程式名稱的 WebSphere MQ 佇列清單，如果這些 WebSphere MQ 佇列尚未存在，則必須加以建立。此型樣需要的所有訊息設定都是明確設定於訊息上，而且與佇列設定無關。			<ul>
+				<li>在摘要檔中，檢視您必須建立的佇列清單。摘要檔位於 <i>InstanceName</i> 型樣實例專案的「型樣配置」資料夾中。</li>
+				<li>建立 WebSphere MQ 資源。您可以在指令行上使用程式及公用程式（例如 <span class="cmdname">runmqsc</span>），或使用「WebSphere MQ 探險家」圖形介面，以建立 WebSphere MQ	資源。如需建立	WebSphere MQ 資源的相關資訊，請參閱位於 <img src="../../../images/external_link.gif" alt="此鏈結將在新視窗中開啟" class="external_link" /><a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ Library</a> 網頁上的 <cite>WebSphere MQ Intercommunication</cite>。
+				</li>
+			</ul>
+		</li>
+		<li>部署 BAR 檔案。必須使用相同或不同的 BAR 檔案，將含有可部署 WSDL 的訊息集部署至每一個已部署流程的分配管理系統。</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣規格</a>
+</p>
+</body>
+</html>

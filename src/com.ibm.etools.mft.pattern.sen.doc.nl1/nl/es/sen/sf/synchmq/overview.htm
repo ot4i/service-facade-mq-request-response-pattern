@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta para aceptar solicitudes de muchas aplicaciones clientes en una sola cola y devolver respuestas al cliente correcto."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.overview">
+<h1 class="topictitle1">Patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+<div>
+	<p class="shortdesc">
+	Utilice el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span> para proporcionar una fachada de servicio web a funciones que sólo son accesibles mediante WebSphere MQ. 
+	Este patrón crea un puente entre el protocolo HTTP síncrono, que se utiliza normalmente con los servicios web, y las aplicaciones existentes con interfaces de WebSphere MQ que no se puedan actualizar fácilmente.</p>
+	<p>Utilice este patrón donde las aplicaciones de proveedor proporcionen una interfaz XML y llamadas de soporte de aplicaciones clientes a servicios web. El patrón puede ampliarse con transformaciones para dar soporte a una fachada de servicio a aplicaciones con interfaces no XML a través de
+WebSphere MQ.</p>
+	</div>
+<div class="section">
+	<h2 class="sectiontitle">Solución</h2>
+</div>
+<p>La solución es implementar un flujo de mensajes que proporcione un punto de entrada de servicio. 
+Cuando se recibe una solicitud de servicio, el identificador de respuesta se almacena en una cola interna y la solicitud se reenvía a la aplicación de proveedor. Cuando se recibe la respuesta de la aplicación de proveedor, el identificador de respuesta se recupera y una respuesta de servicios web, que contiene la respuesta del proveedor, se devuelve a la aplicación solicitante.
+</p>
+<div class="image">
+	<img src="synchmq.gif"
+		alt="Un diagrama que muestra el comportamiento del patrón. Las aplicaciones envían solicitudes de servicio al intermediario, que satisface estas solicitudes utilizando funciones que no proporciona una interfaz de servicio." />
+	<div>
+		<a href="requestflow.htm" title="Información de diseño sobre el flujo de mensajes Request.">Flujo Request </a>
+	</div>
+	<div>
+		<a href="responseflow.htm" title="Información de diseño sobre el flujo de mensajes Response.">Flujo Response</a>
+	</div>
+	<div>
+		<a href="requestsubflow.htm" title="Información de diseño sobre el subflujo Request Processing.">Subflujo Request Processing</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Información de diseño sobre el subflujo Error.">Subflujo Error</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Información de diseño sobre el subflujo Log.">Subflujo Log</a>
+	</div>
+	<div>
+		<div class="familylinks">
+			<a name="anchor1"></a>
+			<div class="section"><h2 class="sectiontitle">Tareas relacionadas</h2></div>
+				<p>Consulte la sección siguiente para obtener información sobre cómo aplicar y utilizar este patrón.</p>
+					<a href="constraints.htm" title="Restricciones en el uso del patrón.">Restricciones en el uso del patrón</a>
+				</div>
+				<div>
+					<a href="prereq.htm" title="Detalles sobre lo que necesita saber y qué recursos debe tener antes de que pueda utilizar el patrón.">Tareas que deben completarse antes de aplicar el patrón</a>
+				</div>
+				<div>
+					<a href="resources.htm" title="Recursos para que pueda familiarizarse con el patrón">Recursos para que pueda familiarizarse con el patrón</a>
+				</div>
+				<div>
+					<a href="parametertable.htm" title="Aplique el patrón y configure los parámetros">Parámetros para el patrón</a>
+				</div>
+				<div>
+					<a href="postreq.htm" title="">Tareas que deben completarse después de generar el patrón</a>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Façade de service" topic="sen/sf/overview.htm">
+    <topic label="Façade de service" href="sen/sf/overview.htm">
+      	<topic label="MQ unidirectionnel avec accusé de réception" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="Flux Demande" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="Flux secondaire Erreur" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="Flux secondaire Journal" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="Exemple d'interface" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="Contraintes" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="Tâches à exécuter avant d'appliquer le modèle" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="Ressources nécessaires pour commencer à utiliser le modèle" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="Paramètres" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="Tâches à exécuter après avoir généré le modèle" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ question-réponse" href="sen/sf/synchmq/overview.htm">
+      		<topic label="Flux Demande" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="Flux Réponse" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="Flux secondaire Traitement de la demande" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="Flux secondaire Erreur" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="Flux secondaire Journal" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="Contraintes" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="Tâches à exécuter avant d'appliquer le modèle" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="Ressources nécessaires pour commencer à utiliser le modèle" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="Paramètres" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="Tâches à exécuter après avoir généré le modèle" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

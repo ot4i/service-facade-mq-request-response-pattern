@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Servicefassade" topic="sen/sf/overview.htm">
+    <topic label="Servicefassade" href="sen/sf/overview.htm">
+      	<topic label="MQ-unidirektional mit Empfangsbestätigung" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="Anforderungsnachrichtenfluss" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="Untergeordneter Fehlernachrichtenfluss" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="Untergeordneter Protokollnachrichtenfluss" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="Schnittstellenbeispiel" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="Vorgaben" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="Erforderliche Tasks vor der Anwendung des Musters" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="Ressourcen für die Aufnahme der Musternutzung" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="Parameters" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="Erforderliche Tasks nach der Generierung des Musters" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ-Anforderung-Antwort" href="sen/sf/synchmq/overview.htm">
+      		<topic label="Anforderungsnachrichtenfluss" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="Antwortnachrichtenfluss" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="Untergeordneter Anforderungsprozessor-Nachrichtenfluss" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="Untergeordneter Fehlernachrichtenfluss" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="Untergeordneter Protokollnachrichtenfluss" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="Vorgaben" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="Erforderliche Tasks vor der Anwendung des Musters" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="Ressourcen für die Aufnahme der Musternutzung" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="Parameters" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="Erforderliche Tasks nach der Generierung des Musters" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

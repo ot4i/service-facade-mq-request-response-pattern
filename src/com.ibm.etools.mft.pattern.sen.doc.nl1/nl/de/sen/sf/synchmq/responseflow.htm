@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Antwortnachrichtenfluss für das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1">Antwortnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+<p class="shortdesc">Der Antwortnachrichtenfluss wird als nicht transaktionsorientierter Nachrichtenfluss ausgeführt.</p>
+<p>Wenn eine Antwort von der Provideranwendung empfangen wird, werden folgende Aktionen ausgeführt:</p>
+<ol>
+<li>Der Antwortnachrichtenfluss liest die Antwortnachricht vom Provider. 
+Die Überprüfung wird durch die Musterparameter bestimmt.</li>
+<li>Der Nachrichtenfluss ruft mithilfe der Korrelations-ID die SOAP-Antwortkennung aus der internen WebSphere MQ-Warteschlange ab. 
+Die SOAP-Antwortkennung wird der lokalen Umgebung hinzugefügt, um die Zieladresse für die SOAP-Antwort bestimmen zu können.</li>
+<li>Es wird ein HTTP-Antwortheader erstellt.</li>
+<li>Falls eine Ausnahmebedingung auftritt und eine Fehlerprotokollierung in der Musteranwendung integriert ist, wird der untergeordnete Fehlernachrichtenfluss aufgerufen, und es wird ein Fehler in die Antwortwarteschlange geschrieben. 
+Da der Fehler jedoch impliziert, dass die Antwort-ID, die auf die SOAP-Anforderung reagieren musste, nicht verfügbar ist, wird kein Versuch unternommen, der anfordernden Stelle zu antworten.</li>
+<li>Eine erfolgreiche Antwort wird nur protokolliert, wenn die Protokollierung in dieser Musteranwendung integriert und derzeit aktiviert ist.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</body>
+</html>

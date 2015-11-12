@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="在您可以使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之前，必須知道及必須具有的資源的明細。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>介面範例</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.interface">
+<h1 class="topictitle1">介面範例</h1>
+<div>
+	<p class="shortdesc">
+	提供者應用程式所預期的 XML 訊息的綱目，必須是 WSDL 檔案中作為服務介面使用的要求元素的基礎。</p>
+	<p>例如，提供者應用程式可能會取得具有動作的訊息，而那些訊息包含必須採取該動作的項目。下列範例包含會變成服務作業的動作 SaveItem：</p>
+</div>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+	&lt;schema targetNamespace="http://ServiceFacade_RR" elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ServiceFacade_RR"&gt;
+	&lt;complexType name="Item"&gt;
+	&lt;sequence&gt; 
+	&lt;element name="Name" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Code" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Description" type="string"&gt;&lt;/element&gt;
+	&lt;element name="Location" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="SaveItem" type="tns:SaveItem"&gt;&lt;/element&gt; 
+	&lt;complexType name="SaveItem"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="Item" type="tns:Item"&gt;&lt;/element&gt;
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;/schema&gt;
+	</pre>
+</div>
+<p>
+相關聯的 WSDL 必須定義具有元素的輸入訊息，而此元素對應於提供者綱目所需要的最上層元素。下列片段對應於之前的提供者綱目：</p>
+<pre>
+	&lt;wsdl:message name="SaveItemRequestMsg"&gt; &lt;wsdl:part name="SaveItemRequest" 
+	element="tns:SaveItem"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt; </pre>
+
+
+<h2>確認通知 (acknowledgment)</h2> 
+確認通知是透過型樣來修正，而且套用至所有型樣實例，但名稱空間可能會不同。
+<p>
+確認通知的綱目（指出型樣特定的名稱空間）為：
+</p>
+<div><pre>
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
+	&lt;schema targetNamespace="&lt;instance specific&gt;" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://&lt;instance specific&gt;" "&gt; 
+	&lt;complexType name="Ack"&gt; 
+	&lt;sequence&gt; 
+	&lt;element name="acknowledgment" type="string"&gt;&lt;/element&gt; 
+	&lt;/sequence&gt; 
+	&lt;/complexType&gt; 
+	&lt;element name="Response" type="tns:Ack"&gt;
+	&lt;/element&gt; 
+	&lt;/schema&gt;</pre>
+</div>
+<p>
+定義回應訊息的 WSDL 項目必須參照下列回應：
+</p><pre>
+	&lt;wsdl:message name="SaveItemResponseMsg"&gt; &lt;wsdl:part name="Response" 
+	element="tns:Response"&gt;&lt;/wsdl:part&gt; &lt;/wsdl:message&gt;</pre>
+<p>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣規格</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.overview">
+<h1 class="topictitle1">Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+<div>
+	<p class="shortdesc">
+	Verwenden Sie das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort) zur Bereitstellung einer Web-Service-Fassade für Funktionen, die nur über WebSphere MQ
+	zugänglich sind. 
+	Dieses Muster bildet eine Brücke zwischen dem synchronen HTTP-Protokoll,
+	das in der Regel für Web-Services eingesetzt wird, und vorhandenen Anwendungen mit
+	WebSphere MQ-Schnittstellen, die nicht so einfach aufzurüsten sind.</p>
+	<p>Verwenden Sie dieses Muster, wenn die Provideranwendungen eine XML-Schnittstelle
+	bereitstellen, die Clientanwendungen aber Web-Service-Aufrufe unterstützen. Das
+	Muster lässt sich durch Umsetzungen erweitern, die über WebSphere MQ eine
+	Servicefassade für Anwendungen mit Nicht-XML-Schnittstellen unterstützen.</p>
+	</div>
+<div class="section">
+	<h2 class="sectiontitle">Lösung</h2>
+</div>
+<p>Die Lösung besteht in der Implementierung eines Nachrichtenflusses, der einen Serviceeingangspunkt bietet. 
+Wenn eine Serviceanforderung eingeht, wird die Antwortkennung in einer internen Warteschlange gespeichert und die Anforderung wird an die Provideranwendung weitergeleitet. Sobald die Antwort der Provideranwendung eingeht, wird die Antwortkennung wiederhergestellt und eine Web-Service-Antwort mit der Antwort des Providers wird an die anfordernde Anwendung zurückgesendet.
+</p>
+<div class="image">
+	<img src="synchmq.gif"
+		alt="Diagramm zur Veranschaulichung des Verhaltens des Musters. Anwendungen senden Serviceanforderungen an den Broker, der diese Anforderungen mittels Funktionen erfüllt, die keine Serviceschnittstelle bereitstellen." />
+	<div>
+		<a href="requestflow.htm" title="Informationen zur Gestaltung des Anforderungsnachrichtenflusses">Anforderungsnachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="responseflow.htm" title="Informationen zur Gestaltung des Antwortnachrichtenflusses">Antwortnachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="requestsubflow.htm" title="Informationen zur Gestaltung des untergeordneten Anforderungsprozessor-Nachrichtenflusses">Untergeordneter Anforderungsprozessor-Nachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informationen zur Gestaltung des untergeordneten Fehlernachrichtenflusses">Untergeordneter Fehlernachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informationen zur Gestaltung des untergeordneten Protokollnachrichtenflusses">Untergeordneter Protokollnachrichtenfluss</a>
+	</div>
+	<div>
+		<div class="familylinks">
+			<a name="anchor1"></a>
+			<div class="section"><h2 class="sectiontitle">Verwandte Tasks</h2></div>
+				<p>Im folgenden Abschnitt finden Sie Informationen zur Anwendung und Verwendung dieses Musters.</p>
+					<a href="constraints.htm" title="Einschränkungen bei der Verwendung des Musters">Einschränkungen bei der Verwendung des Musters</a>
+				</div>
+				<div>
+					<a href="prereq.htm"
+						title="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters">Erforderliche Tasks vor der Anwendung des Musters</a>
+				</div>
+				<div>
+					<a href="resources.htm" title="Ressourcen für die Aufnahme der Musternutzung">Ressourcen für die Aufnahme der Musternutzung</a>
+				</div>
+				<div>
+					<a href="parametertable.htm" title="Muster anwenden und Parameter konfigurieren">Parameter für das Muster</a>
+				</div>
+				<div>
+					<a href="postreq.htm" title="">Erforderliche Tasks nach der Generierung des Musters</a>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

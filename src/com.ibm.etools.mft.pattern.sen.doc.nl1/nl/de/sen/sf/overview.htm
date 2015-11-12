@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade' (Servicefassade), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>'Service Facade' (Servicefassade)</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span></span>'Service Facade' (Servicefassade)</h1>
+<div><p class="shortdesc">Muster des Typs 'Service Facade' (Servicefassade) dienen der losen Kopplung eines Servicerequesters mit der von einer Anwendung bereitgestellten Funktionalität bzw. mit nicht servicefähigen Funktionen. 
+Durch die lose Kopplung wird die Komplexität des Providers verborgen und eine Web-Service-Standardschnittstelle bereitgestellt.</p>
+Eine Servicefassade bietet zudem einen Mediationspunkt für die Anwendung von Standardfunktionen wie der Protokollierung.</div>
+<div class="image"><img src="facade.gif" alt="Diagramm zur Veranschaulichung des Verhaltens des Musters. Anwendungen senden Serviceanforderungen an den Broker, der diese Anforderungen mittels Funktionen erfüllt, die keine Serviceschnittstelle bereitstellen." />
+<div class="section"><h2 class="sectiontitle">Kontext</h2>
+<p>Wenn sich eine Unternehmensarchitektur in Richtung serviceorientierter Architektur entwickelt, müssen meist vorhandene Systeme integriert werden, mit denen ein großer Teil der Geschäftsabläufe erledigt wird, die aber über keine Servicefähigkeiten verfügen. Diese Anwendungen enthalten häufig Funktionen, die auch den neueren servicefähigen Softwarepaketen zur Verfügung stehen sollten, der Zugriff kann aber nur über Adapter, Messaging oder andere nicht-serviceorientierte Integrationstechniken bereitgestellt werden.</p>
+</div>
+<div class="section"><h2 class="sectiontitle">Problem</h2></div>
+<p>Bereits vorhandene Unternehmensanwendungen lassen sich nur mit großem Aufwand in eine Umgebung mit serviceorientierter Architektur (SOA) integrieren und Änderungen an diesen Systemen sind kostenintensiv und erfordern spezielle Kenntnisse. Es muss eine Möglichkeit gefunden werden, diese Systeme mit neueren serviceorientierten Paketen und Anwendungen zu verbinden. Insbesondere muss eine Überbrückung zwischen dem synchronen HTTP-Protokoll, das in der Regel von Web-Services verwendet wird, und den Messaging-Protokollen der älteren Anwendungen gefunden werden.</p>
+<div class="section"><h2 class="sectiontitle">Auswahlanleitung</h2></div>
+<p>Dieses Muster eignet sich für Unternehmen, die den anfordernden Clients als Teil einer SOA-Umgebung eine Serviceschnittstelle bereitstellen wollen, sich die Provideranwendungen aber nicht problemlos für die Bereitstellung einer Serviceschnittstelle aufrüsten lassen.</p>
+<p>Dieses Muster findet Verwendung, wenn die Provideranwendungen eine XML-Schnittstelle bereitstellen, die Clientanwendungen aber Web-Service-Aufrufe unterstützen. Das Muster lässt sich durch Umsetzungen erweitern, durch die Servicefassaden für Anwendungen mit Nicht-XML-Schnittstellen über WebSphere MQ unterstützt werden.</p>
+</div>
+</body></html>

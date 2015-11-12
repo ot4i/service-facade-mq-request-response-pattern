@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンを使用して、多数のクライアント・アプリケーションからの要求を単一のキューで受け入れ、正しいクライアントに応答を返します。その際、トランザクション・フローおよび永続 WebSphere MQ メッセージを使用します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンのログ・サブフロー</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 要求/応答</span>」パターンのログ・サブフロー</h1>
+	<p class="shortdesc">
+データベースへのメッセージのロギングは、ビジネス・トランザクションを処理するメッセージ・フロー内では行われません。
+代わりに、個別に処理される WebSphere MQ キューに永続メッセージが書き込まれます。
+WebSphere MQ キューへの永続メッセージの書き込みは、データベース更新によるパフォーマンスへの影響とは切り離されるため、これらのキューが処理される場所およびタイミングを制御することが可能です。
+</p>
+	<p>
+パターンは、ログ・データが MQRFH2 ヘッダーに追加されると想定します (MQRFH2 ヘッダーが存在する場合)。
+存在しない場合、MQRFH2 ヘッダーが作成されます。メッセージ本体は、メッセージ・フローに着信するとログに記録されます。
+以下のログ・データが追加されます。
+</p>
+	<ul>
+		<li>
+ログのタイム・スタンプ
+</li>
+		<li>
+ブローカー名
+</li>
+		<li>
+メッセージ・フロー名
+</li>
+		<li>
+状況 (0 成功)
+		</li>
+		<li>
+モード - 要求 / 応答
+</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 要求/応答」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>
+
+

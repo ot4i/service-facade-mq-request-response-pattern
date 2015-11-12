@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalhes sobre o que é necessário saber e quais recursos você deve ter antes de poder usar o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tarefas a serem concluídas antes de aplicar o padrão de Service Facade para
+WebSphere MQ: unidirecional com reconhecimento</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">Tarefas a serem concluídas antes de aplicar o padrão de <span>Service
+Facade para WebSphere MQ: unidirecional com reconhecimento</span></h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">Antes de aplicar o padrão para produzir uma instância padrão, é necessário determinar
+		quais das tarefas a seguir são necessárias. Se necessário, conclua as tarefas a seguir:</p>
+	</div>
+	<ul>
+		<li>
+			Verifique se este padrão atende seus requisitos de negócios e se podem ser suportados
+			pelos aplicativos do solicitante e do provedor.
+		</li>
+		<li>
+			Selecione um nome exclusivo para a instância padrão. É possível usar o padrão várias
+			vezes e criar múltiplas instâncias diferentes, que podem ser distinguidas por
+			seus nomes. Identifique o propósito da instância padrão para que você possa decidir
+			sobre um nome apropriado ou significativo.
+		</li>
+		<li>
+			Defina ou identifique a interface do provedor e a interface de serviço associada. 
+			Crie o WSDL implementável em um projeto do conjunto de mensagens.
+		</li>
+		<li>
+			Identifique filas e gerenciadores de filas. Os gerenciadores de filas e filas existentes podem ser
+			usados, por exemplo, para acessar o aplicativo do provedor e seus nomes devem ser
+			decididos. Identifique quaisquer gerenciadores de filas e filas adicionais que sejam necessários para este
+			padrão e decida sobre seus nomes. Leve em conta quaisquer políticas, normas ou convenções de nomenclatura
+		  que devem ser aplicadas.
+		</li>
+		<li>
+			
+			Decida se você requer a criação de log de mensagens de pedido. Se a criação de log for necessária, é preciso decidir
+		  para qual gerenciador de filas e fila as mensagens de criação de log são enviadas. É possível enviar mensagens de criação de log para uma fila de log geral que é usada por múltiplos fluxos de mensagens
+ou você pode usar uma fila especificamente para a instância padrão.
+		</li>
+		<li>
+			Decida se você deseja produzir mensagens de erro para a instância padrão. Neste
+			padrão, as mensagens de erro são para notificação de erros sobre processamento, não para
+			preservação de dados. É possível enviar mensagens de erro para uma fila de erros geral que é usada por múltiplos fluxos de mensagens
+ou você pode usar uma fila especificamente para a instância padrão. Se escolher enviar mensagens de erro na instância padrão, é possível ativar esta função ou
+		  desativá-la configurando o arquivo broker archive (BAR) antes da implementação.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do
+padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</a>
+</p>
+</body>
+</html>

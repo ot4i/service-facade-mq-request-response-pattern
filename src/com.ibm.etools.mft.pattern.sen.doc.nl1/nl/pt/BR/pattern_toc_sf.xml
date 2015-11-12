@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Service Facade" topic="sen/sf/overview.htm">
+    <topic label="Service Facade" href="sen/sf/overview.htm">
+      	<topic label="MQ Unidirecional com Confirmação" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="Fluxo de Pedido" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="Subfluxo de Erro" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="Subfluxo de Log" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="Exemplo de Interface" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="Restrições" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="Tarefas para concluir antes de aplicar o padrão" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="Recursoss para introduzí-lo no padrão" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="Parâmetros" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="Tarefas a concluir após gerar o padrão" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="Pedido-Resposta do MQ" href="sen/sf/synchmq/overview.htm">
+      		<topic label="Fluxo de Pedido" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="Fluxo de Resposta" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="Subfluxo de Processamento do Pedido" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="Subfluxo de Erro" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="Subfluxo de Log" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="Restrições" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="Tarefas para concluir antes de aplicar o padrão" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="Recursoss para introduzí-lo no padrão" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="Parâmetros" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="Tarefas a concluir após gerar o padrão" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

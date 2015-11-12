@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão do Service Facade para WebSphere MQ: Pedido-Resposta para aceitar pedidos de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto usando fluxos transacionais e mensagens do WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Fluxo de Resposta para o Padrão de Service Facade para WebSphere MQ: Pedido-Resposta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1">Fluxo de Resposta para o Padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span></h1>
+<p class="shortdesc">O fluxo de Resposta é executado como um fluxo não transacional.</p>
+<p>Quando uma resposta é recebida
+do aplicativo do provedor, as seguintes ações são executadas:</p>
+<ol>
+<li>O fluxo de Resposta lê a mensagem de resposta do provedor. 
+A validação é determinada pelos parâmetros padrão.</li>
+<li>O fluxo usa o ID de correlação para recuperar o Identificador de Resposta SOAP
+a partir da fila interna do WebSphere MQ. 
+O Identificador de Resposta SOAP é incluído no ambiente local para
+controlar o destino para a resposta SOAP.</li>
+<li>Um cabeçalho de resposta HTTP é criado.</li>
+<li>Se uma exceção ocorrer e a criação de log de erros for
+incluída no aplicativo padrão, o subfluxo de Erro será chamado
+e um erro será gravado na fila de resposta. 
+Entretanto, como a falha implica que o ReplyID que precisava responder ao pedido SOAP
+não está disponível, nenhuma tentativa de responder ao solicitante é feita.</li>
+<li>Uma resposta bem-sucedida é registrada apenas se a criação de log é incluída neste aplicativo padrão
+e está atualmente ativada.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span></a>
+</body>
+</html>

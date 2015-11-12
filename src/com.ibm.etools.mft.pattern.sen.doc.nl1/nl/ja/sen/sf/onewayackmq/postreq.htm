@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを生成した後に完了するタスク"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを生成した後に完了するタスク</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.postreq">
+<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンを生成した後に完了するタスク</h1>
+<div>
+	<p class="shortdesc">
+パターンを生成した後に完了する必要があるタスクです。</p>
+	<ol>
+		<li>
+CCSID を調べます。このパターンでは、SOAP 要求で使用される CCSID が 1208 であると想定します。
+プロバイダー・アプリケーションが別の CCSID を持つメッセージを必要とする場合、メッセージ・フロー・エディターを使用して、RequestProcessing サブフローでこのパラメーターを構成する必要があります。
+このプロパティーをブローカー・アーカイブ・エディターで変更することはできません。
+</li>
+		<li>
+SOAP ノードの構成を調べます。複雑な WSDL の場合、メッセージ・フロー・エディター内から WSDL を選択しなければならない場合があります。この要件は要約ファイルに示されています。
+</li>
+		<li>
+ブローカー・アーカイブ (BAR) ファイルを作成します。生成されたメッセージ・フローを BAR ファイルに追加します。BAR ファイルを作成する前に、「ブローカー・アーカイブ」エディターで、<span class="uicontrol">「リソースのコンパイルおよびインライン化」</span>オプションを選択しなければなりません。フローによって参照されるメッセージ・セットも追加しなければなりません。</li>
+		<li>
+ブローカー・アーカイブ・ファイルを構成します。「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターン・インスタンス用のメッセージ・フローをデプロイする前は、ブローカー・アーカイブ・ファイル内のメッセージ・フローをこれ以上構成する必要はありませんが、いくつかのデフォルト・オプションを検討して、環境に応じて構成を変更することもできます。
+例えば、以下のプロパティーを検討することができます。
+<ul>
+				<li><span class="msobjprop">LoggingOn</span>。
+ロギングが組み込まれている場合、このスイッチはデプロイメント時に、要求のロギングが現在の環境で必要かどうかを決定します。
+				</li>
+				<li><span class="msobjprop">ErrorLoggingOn</span>。
+エラー・メッセージが組み込まれている場合、このスイッチはデプロイメント時に、エラーのロギングが現在の環境で必要かどうかを決定します。
+				</li>
+			</ul>
+パラメーターの表で構成可能としてリストされているパターン・パラメーターは変更できますが、パターンは固有の動作をする可能性があるため、注意する必要があります。
+ただし、操作上の特性によって決定されたプロパティーは変更しても、フロー・ロジック (セキュリティー構成または追加インスタンスなど) に影響することはありません。
+</li>
+		<li>
+キューを作成します。パターンを適用するとき、キュー名とキュー・マネージャー名を使用して WebSphere MQ キューのリストが生成されます。
+これらの WebSphere MQ キューがまだ存在しない場合は、これらを作成する必要があります。
+パターンで必要とされるすべてのメッセージ設定はメッセージで明示的に設定されます (キューの設定には依存しません)。
+					<ul>
+				<li>要約ファイルで、作成が必要なキューのリストを表示します。要約ファイルは、<i>InstanceName</i> パターン・インスタンス・プロジェクトのパターン構成フォルダーに配置されています。</li>
+				<li>WebSphere MQ リソースを作成します。WebSphere MQ リソースは、<span class="cmdname">runmqsc</span> などのプログラムおよびユーティリティーを使用してコマンド行で作成したり、あるいは WebSphere MQ Explorer グラフィカル・インターフェースを使用して作成したりできます。
+WebSphere MQ リソースの作成に関する詳細は、<img src="../../../images/external_link.gif" alt="このリンクをクリックすると新しいウィンドウが開きます" class="external_link" /> <a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ ライブラリー</a> Web ページで「<cite>WebSphere MQ Intercommunication</cite>」を参照してください。
+				</li>
+			</ul>
+		</li>
+		<li>BAR ファイルをデプロイします。同じまたは別の BAR ファイルを使用して、デプロイ可能な WSDL を含むメッセージ・セットを、フローがデプロイされているすべてのブローカーにデプロイする必要があります。
+</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>

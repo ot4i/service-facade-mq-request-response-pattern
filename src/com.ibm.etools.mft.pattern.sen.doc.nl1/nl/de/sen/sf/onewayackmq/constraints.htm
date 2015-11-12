@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Vorgaben für die Verwendung des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">Vorgaben für die Verwendung des Musters <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</h1>
+<div>	
+<p class="shortdesc">Wenn Sie dieses Muster verwenden, gelten eine Reihe von Vorgaben.</p>
+	<p>
+	Sie können das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung) nur verwenden, wenn alle der folgenden Vorgaben erfüllt sind:
+	</p>
+	<ul>
+		<li>
+			Die Anforderungen werden als SOAP-Nachrichten über HTTP im literalen Dokumentstil empfangen.
+		</li>
+		<li>
+			SOAP-Anforderungen und -Antworten verwenden CCSID 1208.
+		</li>
+		<li>
+			Die anfordernden Anwendungen unterstützen das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung).
+		</li>
+		<li>
+			Sobald eine Nachricht an ihre Eingabewarteschlange gesendet wurde, sind die
+			Provideranwendungen für die Aktionen bei einer Aktualisierung zuständig.
+		</li>
+		<li>
+			Die WSDLs, die die Brokerschnittstelle definieren, weisen nur einen Porttyp und
+			nur eine Bindung auf.
+		</li>
+		<li>
+			Die WSDLs müssen die Eigenschaften für den SOAPInput-Knoten definieren,
+			der in der WSDL der höchsten Ebene definiert ist. Einige komplexe, verschachtelte
+			WSDLs können daher nicht automatisch von diesem Muster verarbeitet werden.
+			<p>Wenn die verwendeten WSDLs diese Bedingungen nicht erfüllen, kann das Muster den
+			SOAPInput-Knoten nicht konfigurieren. Die Konfiguration des SOAPInput-Knotens wird in
+			diesem Fall als erforderliche Task nach der Generierung der Musterinstanz aufgeführt.</p> 
+			
+		</li>
+		<li>
+			Die Provideranwendung unterstützt WebSphere MQ-XML-Nachrichten in einem Format, das als
+			Hauptteil der SOAP-Anforderung verwendet werden kann. Sie können den untergeordneten
+			Anforderungsprozessor-Nachrichtenfluss aber auch so anpassen, dass das Format
+			für Nicht-XML-Nachrichten umgesetzt wird.
+		</li>
+		<li>
+			Das Muster definiert sein eigenes Format für Protokoll- und Fehlernachrichten.
+			Es wird davon ausgegangen, dass diese Nachrichten den Anforderungen in Ihrer
+			Umgebung entsprechen.
+		</li>
+	</ul>
+	<p>
+	Einige dieser Einschränkungen, insbesondere die CCSID, lassen sich durch eine
+	entsprechende Konfiguration nach der Anwendung des Musters umgehen.
+	</p>
+</div>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</a>
+</body>
+</html>

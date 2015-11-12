@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを使用して、多数のクライアント・アプリケーションからの要求を単一のキューで受け入れ、正しいクライアントに応答を返します。その際、トランザクション・フローおよび永続 WebSphere MQ メッセージを使用します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターン</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターン</h1>
+<div>
+	<p class="shortdesc">
+「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンを使用して、Web サービス・インターフェースをクライアントに提供し、WebSphere MQ 対応のアプリケーションを使用してサービス要求を実行します。
+</p>
+	<p>
+このパターンを使用して、非同期 HTTP プロトコルと信頼できるメッセージング・プロトコルとをブリッジし、要求が処理用に確実に保存しつつ、更新を処理します。
+</p>
+	<p>
+このパターンは、要求元とプロバイダーとの間での、タイミング、プロトコル、およびトランスポートの疎結合を提供します。
+これは、既存のシステムに対するサービス・インターフェースに適しています。
+</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="パターンの動作を示す図。クライアントからのサービス要求は処理用のキューに置かれ、続いて確認応答が返されます。"/>
+<div class="section">
+		<h2 class="sectiontitle">ソリューション</h2>
+	</div>
+	<p>
+ソリューションは、サービス・エントリー・ポイントを提供するメッセージ・フローを実装することです。
+HTTP を介して Web サービス要求を受け取ると、データは、プロバイダー・アプリケーションのキューに永続メッセージとして置かれます。
+メッセージが置かれると、要求が受け入れられたことを確認するために確認応答が返されます。
+クライアントが確認応答を受け取った場合、メッセージがキューに書き込まれています。
+障害を受け取った場合、メッセージは送信されていません。ただし、障害がタイムアウトである場合、状況ははっきりしないものの、クライアント・アプリケーションは問題が存在することを認識しています。
+</p>
+	<div>
+		<a href="requestflow.htm" title="要求メッセージ・フローに関する設計情報。">要求フロー
+</a>
+</div>
+	<div>
+		<a href="errorflow.htm" title="エラー・サブフローに関する設計情報。">エラー・サブフロー
+</a>
+</div>
+	<div>
+		<a href="logflow.htm" title="ログ・サブフローに関する設計情報。">ログ・サブフロー
+</a>
+</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">関連タスク</h2></div>
+		<p>このパターンの適用と使用の方法については、以下のセクションをお読みください。</p>
+		<div>
+			<a href="constraints.htm" title="パターンの使用に関する制約">パターンの使用に関する制約</a>
+</div>
+		<div>
+			<a href="prereq.htm" title="パターンを適用する前に完了するタスク">パターンを適用する前に完了するタスク</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="パターンを開始するためのリソース">パターンを開始するためのリソース</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="インターフェースの例">インターフェースの例</a>
+</div>
+		<div>
+		<a href="parametertable.htm" title="パターンのパラメーター">パターンのパラメーター</a>
+</div>
+		<div>
+		<a href="postreq.htm" title="パターンを生成した後に完了するタスク">パターンを生成した後に完了するタスク</a>
+	</div>
+	</div>
+</div>
+</body>
+</html>

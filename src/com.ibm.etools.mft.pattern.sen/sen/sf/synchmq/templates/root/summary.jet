@@ -1,0 +1,204 @@
+<%
+com.ibm.etools.mft.pattern.sen.plugin.PatternPlugin pattern = com.ibm.etools.mft.pattern.sen.plugin.PatternPlugin.getInstance();
+com.ibm.etools.mft.pattern.sen.sf.synchmq.PatternMessages messages = new com.ibm.etools.mft.pattern.sen.sf.synchmq.PatternMessages();
+%>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title><c:get select="$root/instanceName"/>_summary.html</title>
+	<link rel="stylesheet" href="summary.css" media="screen">
+</head>
+
+<script type="text/javascript">
+	function setStatus(txt){
+		window.status = txt;
+		window.status = "";
+	}
+</script>
+
+<body>
+<a name="NoPlace"></a>
+
+<div id="banner">
+	<h2><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.35", new Object[] { "$root/instanceName" }) %></h2>
+	<p><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.1", new Object[] { "$root/instanceName" }) %></p>
+</div>	
+
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.2") %></h2>
+	</div>
+	<div class="content">
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.3") %>
+		</p>
+		<p>
+			<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.5", new Object[] { "$root/@projectname" }) %>
+		</p>
+		<ul>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@request"/>.msgflow')">
+					<c:get select="$root/@request"/>
+				</a>
+			</li>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@response"/>.msgflow')">
+					<c:get select="$root/@response"/>
+				</a>
+			</li>
+		</ul>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.6") %>
+		</p>
+		<ul>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@requestprocessor"/>.subflow')">
+					<c:get select="$root/@requestprocessor"/>
+				</a>
+			</li>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@responseprocessor"/>.subflow')">
+					<c:get select="$root/@responseprocessor"/>
+				</a>
+			</li>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@error"/>.subflow')">
+					<c:get select="$root/@error"/>
+				</a>
+			</li>
+			<c:if test="$root/loggingRequired='true'">
+				<li>
+					<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@log"/>.subflow')">
+						<c:get select="$root/@log"/>
+					</a>
+				</li>
+			</c:if>
+		</ul>
+	</div>
+</div>
+		
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.7", new Object[] { "$root/instanceName" }) %></h2>
+	</div>
+	<div class="content">
+		<c:choose>
+			<c:when test="boolean($root/serviceWsdl/portType) 
+				and string-length($root/serviceWsdl/portType) > 0
+				and boolean($root/serviceWsdl/binding)
+				and string-length($root/serviceWsdl/binding) > 0
+				and boolean($root/serviceWsdl/port)
+				and boolean($root/serviceWsdl/portType)
+				and boolean($root/serviceWsdl/targetNamespace)
+				and string-length($root/serviceWsdl/targetNamespace) > 0">
+			</c:when>
+			<c:otherwise>
+				<h3><%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.33") %></h3>
+				<p>
+					<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.34", new Object[] { "$root/@request" }) %>
+				</p>
+			</c:otherwise>
+		</c:choose>
+		<h3><%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.8") %></h3>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.9") %>
+		</p>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.10") %>
+		</p>
+		<ul>
+			<li>
+				<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.11", new Object[] { "$root/queuePrefix", "$root/responseQueue", "$root/queueSuffix" }) %>
+			<li>
+				<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.12", new Object[] { "$root/queuePrefix", "$root/storeQueue", "$root/queueSuffix" }) %>
+			</li>
+		</ul>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.13") %>
+		</p>
+		<ul>
+			<c:if test="$root/errorMessageRequired='true'">
+				<li>
+					<c:choose>
+						<c:when test="string-length($root/errorQueueManager) > 0">
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.14.queueManager", new Object[] { "$root/queuePrefix", "$root/errorQueue", "$root/queueSuffix", "$root/errorQueueManager" }) %>
+						</c:when>
+						<c:otherwise>
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.14", new Object[] { "$root/queuePrefix", "$root/errorQueue", "$root/queueSuffix" }) %>
+						</c:otherwise>
+					</c:choose>
+				</li>
+			</c:if>
+			<c:if test="$root/loggingRequired='true'">
+				<li>
+					<c:choose>
+						<c:when test="string-length($root/logQueueManager) > 0">
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.15.queueManager", new Object[] { "$root/queuePrefix", "$root/logQueue", "$root/queueSuffix", "$root/logQueueManager" }) %> 
+						</c:when>
+						<c:otherwise>
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.15", new Object[] { "$root/queuePrefix", "$root/logQueue", "$root/queueSuffix" }) %> 
+						</c:otherwise>
+					</c:choose>
+				</li>
+			</c:if>
+			<li>
+				<c:choose>
+					<c:when test="string-length($root/providerRequestQueueManager) > 0">
+						<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.16.queueManager", new Object[] { "$root/queuePrefix", "$root/providerRequestQueue", "$root/queueSuffix", "$root/providerRequestQueueManager" }) %>
+					</c:when>
+					<c:otherwise>
+						<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.16", new Object[] { "$root/queuePrefix", "$root/providerRequestQueue", "$root/queueSuffix" }) %>
+					</c:otherwise>
+				</c:choose>
+			</li>
+		</ul>
+		<h3><%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.22") %></h3>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.32") %>
+		</p>
+	</div>
+</div>
+		
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.25") %></h2>
+	</div>
+	<div class="content">
+		<c:choose>
+			<c:when test="$root/loggingRequired='true'">
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.26") %>
+				</p>
+				<br>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.27") %> 
+				</p>
+			</c:when>
+			<c:otherwise>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.28") %>
+				</p>
+			</c:otherwise>
+		</c:choose>
+		<br>
+		<c:choose>
+			<c:when test="$root/errorMessageRequired='true'">
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.29") %>
+				</p>
+				<br>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.30") %>
+				</p>
+			</c:when>
+			<c:otherwise>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sen.sf.synchmq.summary.31") %>
+				</p>
+			</c:otherwise>
+		</c:choose>
+	</div>
+</div>
+</body>
+</html>
+

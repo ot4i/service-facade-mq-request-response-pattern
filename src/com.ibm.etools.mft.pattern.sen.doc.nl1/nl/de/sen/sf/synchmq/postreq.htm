@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Tasks, die nach der Generierung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort) ausgeführt werden müssen"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks, die nach der Generierung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort) ausgeführt werden müssen</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.postreq">
+<h1 class="topictitle1">Tasks, die nach der Generierung des Musters <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort) ausgeführt werden müssen</h1>
+<p class="shortdesc">
+Tasks, die nach der Generierung des Musters ausgeführt werden müssen.
+</p>
+<ol>
+	<li>
+		Erstellen Sie die Brokerarchivdatei (BAR-Datei). Der Nachrichtenfluss muss einer Brokerarchivdatei hinzugefügt werden. Alle im Nachrichtenfluss referenzierten Nachrichtensätze werden dabei
+				automatisch hinzugefügt.
+		<ol>
+			
+			<li>
+				Klicken Sie auf <span class="uicontrol">Datei &gt; Neu &gt; BAR-Datei</span>.
+			</li>
+			<li>
+				Geben Sie den Namen Ihres Serverprojekts ein oder wählen Sie ein Projekt aus der
+				Liste aus. Die Liste ist gefiltert. Sie zeigt nur die Projekte des aktiven Arbeitsbereichs an.
+			</li>
+			<li>
+				Geben Sie einen Namen für die zu erstellende Brokerarchivdatei ein.
+			</li>
+			<li>
+				Klicken Sie auf <span class="uicontrol">Fertigstellen</span>.
+				
+				Eine Datei mit der Erweiterung <span class="filepath">.bar</span> wird erstellt und in
+				der Ansicht 'Navigator zur Brokerverwaltung' im Ordner 'Brokerarchive' angezeigt. Der
+				Inhaltseditor für die Brokerarchivdatei wird geöffnet.
+				
+			</li>
+            <li>
+               	Wählen Sie auf der Registerkarte 'Prepare' (Vorbereiten) die generierte Nachrichtenflussdatei aus, um sie Ihrer BAR-Datei hinzuzufügen.  
+            </li>
+            <li>
+            	Wählen Sie <span class="uicontrol">Ressourcen kompilieren und integrieren</span> aus und klicken Sie anschließend auf <span class="uicontrol">Build and Save</span> (Erstellen und speichern), um Ihre BAR-Datei zu erstellen.
+            </li>			
+		</ol>
+	</li>
+	<li>
+		Konfigurieren Sie die Brokerarchivdatei. Eine weitere Konfiguration des Nachrichtenflusses in der Brokerarchivdatei ist nicht erforderlich, bevor Sie die Nachrichtenflüsse für Ihre Instanz des Musters <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort) implementieren, Sie können jedoch einige Standardoptionen überprüfen und Änderungen für Ihre Umgebung konfigurieren.
+		
+		Auf der Seite 'Verwalten' des Brokerarchiv-Editors:
+		
+		<ol>
+			<li>
+				<span>
+				Optional: Legen Sie mit der benutzerdefinierten Eigenschaft <span class="msobjprop">RequestLoggingOn</span>
+				fest, ob die Protokollierung für den Anforderungsnachrichtenfluss aktiviert werden soll.
+				</span>
+			</li>
+			<li>
+				<span>
+				Optional:  Legen Sie mit der benutzerdefinierten Eigenschaft
+    <span class="msobjprop">ResponseLoggingOn</span>
+				fest, ob die Protokollierung für den Antwortnachrichtenfluss aktiviert werden soll.</span>
+			</li>
+			<li>Optional: Legen Sie mit der benutzerdefinierten Eigenschaft
+				<span class="msobjprop">ErrorLoggingOn</span> fest, ob Fehlernachrichten
+				generiert werden sollen.
+			</li>
+			<li>Optional: Sie können alle konfigurierbaren Eigenschaften im Brokerarchiv ändern,
+				zum Beispiel Sicherheitseigenschaften oder Eigenschaften zur Erstellung weiterer
+				Instanzen.
+				
+				<p>Allerdings müssen Sie sicherstellen, dass sich die von Ihnen geänderten Werte
+				nicht auf das Verhalten der Musterinstanz auswirken.</p>
+			</li>
+		</ol>
+	</li>
+	<li>
+		Erstellen Sie Warteschlangen. Bei der Anwendung des Musters wird eine Liste mit
+		WebSphere MQ-Warteschlangen generiert. Diese Liste enthält die Namen von Warteschlangen
+		und Warteschlangenmanagern. Falls diese WebSphere MQ-Warteschlangen noch nicht
+		vorhanden sind, müssen sie erstellt werden. Sämtliche für das Muster erforderlichen
+		Nachrichteneinstellungen werden explizit in den Nachrichten definiert und sind
+		nicht abhängig von den Warteschlangeneinstellungen.
+		<ol>
+			<li>Die zu erstellenden Warteschlangen entnehmen Sie bitte der
+ 				Zusammenfassungsdatei. Die Summendatei befindet sich im Projektverweisordner des Musterinstanzprojektes <i>Instanzname</i>.</li>
+			<li>Erstellen Sie <span>WebSphere MQ</span>-Ressourcen. <span>WebSphere MQ</span>-
+				Ressourcen können in der Befehlszeile mit Programmen und Dienstprogrammen wie
+				<span class="cmdname">runmqsc</span> oder in der grafischen Benutzerschnittstelle
+				von <span>WebSphere MQ</span> Explorer erstellt werden. Weitere Informationen zur Erstellung von
+    				<span>WebSphere MQ</span>-Ressourcen finden Sie unter <cite><span>WebSphere MQ</span> Intercommunication</cite>,         verfügbar auf der <img src="../../../images/external_link.gif" alt="Dieser Link         öffnet sich in einem neuen Fenster" class="external_link" />	<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere
+    				MQ-Bibliotheks</a>webseite.
+				
+			</li>
+		</ol>
+	</li>
+	<li>Implementieren Sie die BAR-Datei. Der Nachrichtensatz mit der
+			implementierbaren WSDL muss aus der gleichen oder einer anderen Brokerarchivdatei
+			auf jedem Broker implementiert werden, auf dem die Nachrichtenflüsse implementiert
+			wurden.
+	</li>
+</ol>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</p>
+
+</body>
+</html>

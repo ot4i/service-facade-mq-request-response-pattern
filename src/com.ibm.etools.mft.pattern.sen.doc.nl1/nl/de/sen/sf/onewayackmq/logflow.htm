@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.overview">
+<div class="section">
+	<h1 class="topictitle1">Untergeordneter Protokollnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</h1>
+	<p class="shortdesc">
+	Wenn der untergeordnete Protokollnachrichtenfluss im Anforderungsnachrichtenfluss enthalten
+	ist, wird die Protokollierung der Anforderungen durch die benutzerdefinierte Eigenschaft
+	<span class="msobjprop">LoggingOn</span> gesteuert. 
+	</p>
+	<p>
+	Protokollnachrichten werden als persistente WebSphere MQ-Nachrichten in eine
+	WebSphere MQ-Warteschlange geschrieben. Diese Protokollnachrichten können dann
+	unabhängig voneinander gemäß der in Ihrem Unternehmen implementierten
+	Standardverfahren verarbeitet werden. Das Nachrichtenprotokoll enthält
+	die ursprüngliche Nachricht sowie die folgenden Informationen in einem
+	MQRFH2-Header:
+	</p>
+	<ul>
+		<li>
+			Zeitmarke
+		</li>
+		<li>
+			Brokername
+		</li>
+		<li>
+			Nachrichtenflussname
+		</li>
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</a>
+</body>
+</html>

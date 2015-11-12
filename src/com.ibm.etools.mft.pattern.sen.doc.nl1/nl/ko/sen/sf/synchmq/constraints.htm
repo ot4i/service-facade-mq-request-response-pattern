@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴을 사용하기 전에 알아야 하는 내용과 필요한 자원 세부사항입니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴의 사용 제한조건</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1"><span>WebSphere MQ에 서비스 퍼사드: 요청-응답</span> 패턴의 사용 제한조건</h1>
+<div>
+<p class="shortdesc">이 패턴을 사용할 때는 많은 제한조건이 존재합니다. </p>
+	<p>
+	다음과 같은 제한조건을 모두 충족하는 경우에만	<span>WebSphere MQ에 서비스 퍼사드: 요청-응답</span> 패턴을 사용할 수 있습니다.
+	</p>
+	<ul>
+		<li>
+			요청이 HTTP를 통한 SOAP 메시지로 수신되어야 합니다.
+		</li>
+		<li>
+			요청 애플리케이션이 동기화된 요청 응답 상호 작용 스타일을
+			지원해야 합니다.
+		</li>
+		<li>
+			제공자 애플리케이션이 동기화된 상호 작용에 적합한 타임프레임으로
+			요청에 응답할 수 있어야 합니다.
+		</li>
+		<li>
+			제공자 애플리케이션이 WebSphere MQ를 통해 요청을 수신하고 응답을 리턴할 수 있습니다.
+		</li>
+		<li>
+			제공자 애플리케이션이 메시지 ID를 상관 ID에 복사하는 표준 동작을
+			지원해야 합니다.
+		</li>
+		<li>
+			브로커 인터페이스를 정의하는 WSDL에는 포트 유형과 바인딩이 하나씩만 있습니다.
+		</li>
+		<li>
+			WSDL은 최상위 레벨 WSDL의 정의에서 SOAPInput 노드 특성을 정의하는
+			정의를 포함하고 있어야 합니다. 따라서 일부 복합 중첩된 WSDL은 패턴으로
+			자동 처리할 수 없습니다.
+			<p>이 제한조건을 충족하지 않는 WSDL이 사용되면 패턴이 SOAPInput 노드를 구성하지
+			않지만, SOAPInput 노드의 구성을 패턴 인스턴스를 생성한 후 완료할 태스크로
+			나열합니다.</p> 
+			
+		</li>
+		<li>
+			제공자 애플리케이션은 SOAP 요청 및 응답의 본문으로 사용할 수 있는 형식의 WebSphere MQ XML
+			메시지를 지원하거나 해당 형식을 XML 이외 메시지로 변환하도록 요청 처리 서브플로우를
+			사용자 정의할 수 있습니다.
+		</li>
+		<li>
+			로그 기록이 필요하면 이 패턴에 사용된 형식이
+			사용자 고유 환경의 요구사항을 충족한다고 가정합니다.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="이전">WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴 스펙으로 돌아가기</a>
+</p>
+</body>
+</html>

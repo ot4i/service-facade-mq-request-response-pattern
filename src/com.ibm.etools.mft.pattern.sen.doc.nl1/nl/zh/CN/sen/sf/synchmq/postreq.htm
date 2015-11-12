@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="生成 Service Facade to WebSphere MQ: request-response 模式之后要完成的任务"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>生成 Service Facade to WebSphere MQ: request-response 模式之后要完成的任务</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.postreq">
+<h1 class="topictitle1">生成 <span>Service Facade to WebSphere MQ: request-response</span> 模式之后要完成的任务</h1>
+<p class="shortdesc">
+生成该模式之后必须完成的任务。</p>
+<ol>
+	<li>
+		创建代理归档 (BAR) 文件。必须将消息流添加到代理归档文件中。将自动添加该流引用的任何消息集。<ol>
+			
+			<li>
+				单击<span class="uicontrol">“文件”&gt;“新建”&gt;“BAR 文件”</span>。			</li>
+			<li>
+				输入服务器项目的名称，或者从显示的列表中选择一个名称。此列表已过滤，仅会显示活动工作集中的项目。
+			</li>
+			<li>
+				为您要创建的 BAR 文件输入一个名称。
+			</li>
+			<li>
+				单击“<span class="uicontrol">完成</span>”。				将创建一个扩展名为 <span class="filepath">.bar</span> 的文件，该文件显示在“代理管理导航器”视图中的“代理归档”文件夹下。此时将为 BAR 文件打开“内容”编辑器。
+</li>
+            <li>
+               	在“准备”选项卡上，选择生成的消息流文件，以便将其添加到 BAR 文件中。 
+            </li>
+            <li>
+            	选择<span class="uicontrol">编译并内联资源</span>，然后单击<span class="uicontrol">构建并保存</span>以创建 BAR 文件。            </li>			
+		</ol>
+	</li>
+	<li>
+		配置代理归档文件。为 <span>Service Facade to WebSphere MQ: request-response</span> 模式实例部署消息流之前，不需要在代理归档文件中进一步配置消息流，但应当针对您的环境复审一些缺省选项并配置更改。在“代理归档”编辑器的“管理”页面中：<ol>
+			<li>
+				<span>
+可选：使用用户定义的属性 <span class="msobjprop">RequestLoggingOn</span> 来选择是对请求消息流开启还是关闭记录。</span>
+			</li>
+			<li>
+				<span>
+可选：使用用户定义的属性 <span class="msobjprop">ResponseLoggingOn</span> 来选择是对响应消息流开启还是关闭记录。</span>
+			</li>
+			<li>可选：使用用户定义的属性 <span class="msobjprop">ErrorLoggingOn</span> 来选择是否生成错误消息。
+			</li>
+			<li>可选：您可以更改代理归档中的任何可配置属性，例如，安全性属性或用于创建其他实例的属性。
+				<p>您必须确保更改的任何值都不会影响模式实例的行为。</p>
+			</li>
+		</ol>
+	</li>
+	<li>
+		创建队列。应用模式时，将生成一个 WebSphere MQ 队列的列表，其中会列出队列名称和队列管理器名称；如果不存在这些 WebSphere MQ 队列，就必须加以创建。模式所需的所有消息设置都必须明确设置在消息上，且独立于队列的设置。<ol>
+			<li>在摘要文件中，查看您必须创建的队列列表。摘要文件位于 <i>InstanceName</i> 模式实例项目的模式配置文件夹中。</li>
+			<li>创建 <span>WebSphere MQ</span> 资源。您可以使用程序和实用程序（如 <span class="cmdname">runmqsc</span>）在命令行上创建 <span>WebSphere MQ</span> 资源，也可以使用 <span>WebSphere MQ</span> Explorer 图形界面来完成创建。有关创建 <span>WebSphere MQ</span> 资源的更多信息，请参阅 <img src="../../../images/external_link.gif" alt="此链接在新窗口中打开" class="external_link" />
+    				<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere
+    				MQ Library</a> Web 页面上提供的 <cite><span>WebSphere MQ</span> Intercommunication</cite>。
+</li>
+		</ol>
+	</li>
+	<li>部署 BAR 文件。必须使用同一个或其他 BAR 文件将包含可部署 WSDL 的消息集部署到部署了流的每个代理。</li>
+</ol>
+<p>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Facade to WebSphere MQ: request-response 模式规范</a>
+</p>
+
+</body>
+</html>

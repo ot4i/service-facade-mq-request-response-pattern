@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalles sobre lo que necesita saber y qué recursos debe tener antes de poder utilizar el patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Restricciones en la utilización del patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">Restricciones en la utilización del patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span></h1>
+<div>	
+<p class="shortdesc">Se aplican una serie de restricciones cuando se utiliza este patrón.</p>
+	<p>
+	Puede utilizar el patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span> sólo si se cumplen todas las restricciones siguientes:
+	</p>
+	<ul>
+		<li>
+			Se reciben solicitudes como mensajes SOAP a través de HTTP que utilizan el estilo literal de los documentos.
+		</li>
+		<li>
+			Las solicitudes y respuestas SOAP utilizan CCSID 1208.
+		</li>
+		<li>
+			Las aplicaciones solicitantes pueden dar soporte al patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span>.
+		</li>
+		<li>
+			Las aplicaciones de proveedor asumen la responsabilidad de actuar en una actualización cuando se entrega un mensaje a su cola de entrada.
+		</li>
+		<li>
+			Unos WSDL que definen la interfaz de intermediario sólo tienen un tipo de puerto y un enlace.
+		</li>
+		<li>
+			Los WSDL deben contener las definiciones que definen las propiedades para el nodo SOAPInput en las definiciones del WSDL de nivel superior. Por lo tanto, el patrón no puede procesar automáticamente algunos WSDL anidados complejos.
+			<p>Si se utilizan unos WSDL que no cumplen esta restricción, el patrón no configura el nodo SOAPInput, sino que lista la configuración del nodo SOAPInput como tarea que debe completarse después de la generación de la instancia de patrón.</p> 
+			
+		</li>
+		<li>
+			La aplicación de proveedor da soporte a los mensajes XML de WebSphere MQ en un formato que puede utilizarse como cuerpo de una solicitud SOAP, o puede personalizar el subflujo Request Processing para transformar el formato a mensajes no XML.
+		</li>
+		<li>
+			El patrón define su propio formato para los mensajes de registro y error; se supone que estos mensajes son suficientes para satisfacer los requisitos del propio entorno del usuario.
+		</li>
+	</ul>
+	<p>
+	Algunas de las restricciones anteriores, especialmente el CCSID, pueden ser alteradas temporalmente por la configuración después de haber aplicado el patrón.
+	</p>
+</div>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</a>
+</body>
+</html>

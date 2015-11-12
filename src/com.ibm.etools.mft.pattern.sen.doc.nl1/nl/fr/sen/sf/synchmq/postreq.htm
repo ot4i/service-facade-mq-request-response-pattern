@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Tâches à exécuter après avoir généré le modèle Façade de service sur WebSphere MQ : demande-réponse"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tâches à exécuter après avoir généré le modèle Façade de service sur WebSphere MQ : demande-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.postreq">
+<h1 class="topictitle1">Tâches à exécuter après avoir généré le modèle <span>Façade de service sur WebSphere MQ : demande-réponse </span></h1>
+<p class="shortdesc">
+Tâches que vous devez exécuter après avoir généré le modèle.
+</p>
+<ol>
+	<li>
+		Créez le fichier archive de courtier (BAR). Le flux de messages doit être ajouté à un fichier archive de courtier. Les ensembles de messages référencés par le flux sont ajoutés automatiquement.
+		<ol>
+			
+			<li>
+				Cliquez sur <span class="uicontrol">Fichier &gt; Nouveau &gt; Fichier BAR</span>.
+			</li>
+			<li>
+				Entrez le nom du projet de serveur ou sélectionnez-en un dans la liste affichée. La liste est filtrée pour contenir uniquement les projets dans l'ensemble actif de projets.
+			</li>
+			<li>
+				Entrez le nom du fichier BAR à créer.
+			</li>
+			<li>
+				Cliquez sur <span class="uicontrol">Terminer</span>.
+				
+				Un fichier portant l'extension <span class="filepath">.bar</span> est créé et s'affiche dans la        vue Explorateur d'administration du courtier sous le dossier Archives de courtier. L'éditeur de contenu du fichier BAR s'affiche.
+				
+			</li>
+            <li>
+               	Dans l'onglet Préparation, sélectionnez le fichier de flux de messages généré et ajoutez-le au fichier BAR.  
+            </li>
+            <li>
+            	Sélectionnez <span class="uicontrol">Compiler et intégrer des ressources</span> et cliquez ensuite sur <span class="uicontrol">Générer et sauvegarder</span> pour créer le fichier BAR.
+            </li>			
+		</ol>
+	</li>
+	<li>
+		Configurez le fichier archive du courtier. Il n'est pas nécessaire d'effectuer d'autres opérations de configuration au niveau du flux de messages dans le fichier archive de courtier avant de déployer les flux de messages de l'instance du modèle <span>Façade de service sur WebSphere MQ : demande-réponse</span>. Néanmoins, vous pouvez vérifier certaines options par défaut et configurer des modifications pour votre environnement.
+		
+		Dans la page Gestion de l'éditeur d'archive de courtier :
+		
+		<ol>
+			<li>
+				<span>
+				Facultatif : utilisez la propriété <span class="msobjprop">RequestLoggingOn</span> définie par l'utilisateur pour activer ou désactiver le flux de messages Demande.
+				</span>
+			</li>
+			<li>
+				<span>
+				Facultatif : utilisez la propriété <span class="msobjprop">ResponseLoggingOn</span> définie par l'utilisateur pour activer ou désactiver le flux de messages Réponse.
+				</span>
+			</li>
+			<li>Facultatif : utilisez la propriété <span class="msobjprop">ErrorLoggingOn</span> définie par l'utilisateur pour indiquer si des messages d'erreur sont générés.
+			</li>
+			<li>Facultatif : vous pouvez modifier les propriétés configurables dans l'archive de courtier, telles que les propriétés de sécurité ou de création d'instances supplémentaires.
+				
+				<p>Vous devez vérifier que les valeurs que vous changez n'affectent pas le comportement de l'instance du modèle.</p>
+			</li>
+		</ol>
+	</li>
+	<li>
+		Créez les files d'attente. Lorsque vous appliquez le modèle, la liste des files d'attente WebSphere MQ est générée, avec des noms de file d'attente et de gestionnaire de file d'attente, que vous devez créer s'ils n'existent pas. Tous les paramètres de message nécessaires au modèle sont définis explicitement dans les messages et ne dépendent pas des paramètres de file d'attente.
+		<ol>
+			<li>Dans le fichier récapitulatif, consultez la liste des files d'attente que vous devez créer. Ce fichier se trouve dans le dossier Configuration du modèle du projet d'instance de modèle <i>InstanceName</i>.</li>
+			<li>Créez les ressources <span>WebSphere MQ</span>. Vous pouvez créer les ressources <span>WebSphere MQ</span> depuis la ligne de commande en utilisant des programmes et des utilitaires, tels que <span class="cmdname">runmqsc</span>, ou en utilisant l'interface graphique <span>WebSphere MQ</span> Explorer. Pour plus d'informations sur la création des ressources <span>WebSphere MQ</span>, voir <cite><span>WebSphere MQ</span> Intercommunication</cite> sur la page Web
+				 <img src="../../../images/external_link.gif" alt="Ce lien s'ouvre dans une nouvelle fenêtre" class="external_link" />
+				<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">Bibliothèque WebSphere	MQ</a>.
+				
+			</li>
+		</ol>
+	</li>
+	<li>Déployez le fichier BAR. L'ensemble de messages qui contient le fichier déployable WSDL doit être déployé en utilisant le même ou un autre fichier BAR dans chaque courtier où les flux sont déployés.
+	</li>
+</ol>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : demande-réponse</a>
+</p>
+
+</body>
+</html>

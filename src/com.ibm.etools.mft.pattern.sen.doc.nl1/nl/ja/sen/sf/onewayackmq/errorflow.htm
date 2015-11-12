@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンを使用して、サービス要求を受け入れ、WebSphere MQ 対応のアプリケーションを使用して、これらの要求を実行します。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンのエラー・サブフロー</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.errorflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向</span>」パターンのエラー・サブフロー</h1>
+	<p class="shortdesc">このサブフローは、エラー・メッセージを書き込む必要があるかどうかをテストします。
+これは、ユーザー定義のプロパティー <span class="msobjprop">ErrorLoggingOn</span> によって決定されます。
+</p>
+<ol>
+<li>エラー・メッセージを含めるようにパターン・パラメーターを構成し、ユーザー定義プロパティー <span class="msobjprop">ErrorLoggingOn</span> を選択している場合には、エラー・メッセージが作成されてエラー・キューに書き込まれます。<p>例外の詳細は XML メッセージとして書き込まれます。これらの詳細には、以下の内容が含まれます。</p>
+	<ul>
+	<li>ブローカー名</li>
+	<li>フロー名</li>
+	<li>タイム・スタンプ</li>
+	<li>例外データの要約</li>
+	</ul>
+	<p>例外データの要約には、メッセージ・フロー・ラベル、エラー番号、テキスト記述、および詳細情報挿入リストが含まれます。</p>
+</li>
+<li>プロバイダーへのメッセージが書き込まれ、応答が要求側に送信されたのであれば、さらにアクションが実行されることはありません。</li> 
+<li>プロバイダーへのメッセージが書き込まれなかった場合、例外が生成されて SOAP 障害が要求側に返されます。</li>
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="戻る">「WebSphere MQ へのサービス・ファサード: 確認応答を伴う一方向」パターンの仕様に戻る</a>
+</body>
+</html>

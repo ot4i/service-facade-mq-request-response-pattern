@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks, die vor der Anwendung des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort) ausgeführt werden müssen</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.prereq">
+<h1 class="topictitle1">Tasks, die vor der Anwendung des Musters <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort) ausgeführt werden müssen</h1>
+<div class="p">
+	<p class="shortdesc">Bevor Sie das Muster für die Erstellung einer Musterinstanz anwenden, müssen Sie bestimmen, welche der folgenden Tasks erforderlich sind. Führen Sie folgende Tasks aus, falls erforderlich:</p>
+</div>
+<ul>
+	<li>
+		Prüfen Sie, ob dieses Muster Ihren Geschäftsanforderungen entspricht und sowohl
+		von den Requester- als auch von den Provideranwendungen unterstützt wird.
+	</li>
+	<li>
+		Definieren bzw. ermitteln Sie die Providerschnittstelle sowie die zugehörige
+		Serviceschnittstelle.
+	</li>
+	<li>
+		Wählen Sie einen Namen für die Musterinstanz aus. Legen Sie einen aussagekräftigen Namen
+		fest, der auf den Zweck der Musteranwendung hinweist.
+	</li>
+	<li>
+		Wählen Sie die WebSphere MQ-Warteschlangen und -Warteschlangenmanager aus. Vorhandene
+		Warteschlangenmanager und Warteschlangen können zum Beispiel für den Zugriff auf die
+		Provideranwendung verwendet werden, und deren Namen müssen festgelegt werden.
+	</li>
+	<li>
+		Ermitteln Sie alle weiteren für dieses Muster erforderlichen Warteschlangenmanager
+		und Warteschlangen und legen Sie deren Namen fest. Berücksichtigen Sie dabei alle
+		anzuwendenden Regeln, Standards und Namenskonventionen.
+	</li>
+	<li>
+		Entscheiden Sie, ob die Protokollierung erforderlich ist. Falls ja, bestimmen Sie den
+		Warteschlangenmanager und die Warteschlange für die Protokollnachrichten. Die Protokollnachrichten können an eine allgemeine Protokollwarteschlange gesendet werden, die von mehreren Nachrichtenflüssen verwendet wird, oder an eine speziell für die Musterinstanz eingerichtete Warteschlange.
+	</li>
+	<li>
+		Entscheiden Sie, ob Fehlernachrichten erforderlich sind.
+	</li>
+	<li>
+		Entscheiden Sie, ob die Validierung erforderlich ist.
+	</li>
+	<li>
+		Erstellen Sie die implementierbare WSDL in einem Nachrichtensatzprojekt.
+	</li>
+</ul>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</p>
+</body>
+</html>

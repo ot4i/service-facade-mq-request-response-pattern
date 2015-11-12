@@ -1,0 +1,57 @@
+<povs>
+    <simplePov name="instanceName" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.instanceName"/>
+    <simplePov name="deployableServiceWsdl" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.serviceInformation"
+        povEditorId="com.ibm.etools.mft.patterns.model.edit.POVEditorAdapterWSDL"/>
+    <simplePov name="validationofSOAPRequest" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.serviceInformation"/>
+    <simplePov name="providerRequestQueueManager" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.providerInformation"></simplePov >
+    <simplePov name="providerRequestQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.providerInformation"></simplePov >
+    <simplePov name="loggingRequired" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.log">
+        <master>
+            <slave id="logQueueManager" handler="com.ibm.etools.patterns.dependency.Enable">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+            <slave id="logQueue" handler="com.ibm.etools.patterns.dependency.Enable">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+        </master>
+    </simplePov >
+    <simplePov name="logQueueManager" type="xsd:string" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.log"></simplePov >
+    <simplePov name="logQueue" type="xsd:string" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.log"></simplePov >
+    <simplePov name="errorMessageRequired" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.errorHandling">
+        <master>
+            <slave id="errorQueueManager" handler="com.ibm.etools.patterns.dependency.Enable">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+            <slave id="errorQueue" handler="com.ibm.etools.patterns.dependency.Enable">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+        </master>
+    </simplePov >
+    <simplePov name="errorQueueManager" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.errorHandling"></simplePov >
+    <simplePov name="errorQueue" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.errorHandling"></simplePov>
+    <simplePov name="brokerSchema" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="flowPrefix" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="flowSuffix" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="queuePrefix" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="queueSuffix" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="shortDescription" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <simplePov name="longDescription" groupId="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.instanceName" visible="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.serviceInformation" visible="true" name="serviceInformation"
+        description="description" expand="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.responseInformation" visible="true" name="responseInformation"
+        description="description" expand="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.providerInformation" visible="true" name="providerInformation"
+        description="description" expand="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.log" visible="true" name="log"
+        description="description" expand="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.errorHandling" visible="true" name="errorHandling"
+        description="description" expand="false"/>
+    <Group id="com.ibm.etools.mft.pattern.sen.sf.onewayackmq.patternLevel" visible="true" name="patternLevel"
+        description ="description" expand="false"/>
+    <ReferencedProject name="_Flows"/>    
+</povs>

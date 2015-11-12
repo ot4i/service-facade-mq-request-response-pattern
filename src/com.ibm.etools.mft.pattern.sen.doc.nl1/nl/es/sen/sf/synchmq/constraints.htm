@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalles sobre lo que necesita saber y qué recursos debe tener antes de poder utilizar el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Restricciones en la utilización del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.constraints">
+<h1 class="topictitle1">Restricciones en la utilización del patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+<div>
+<p class="shortdesc">Se aplican una serie de restricciones cuando se utiliza este patrón.</p>
+	<p>
+	Puede utilizar el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span> sólo si se cumplen todas las restricciones siguientes:
+	</p>
+	<ul>
+		<li>
+			Las solicitudes deben recibirse como mensajes SOAP a través de HTTP.
+		</li>
+		<li>
+			Las aplicaciones solicitantes deben dar soporte a un estilo de interacción de respuesta a solicitud síncrona.
+		</li>
+		<li>
+			Las aplicaciones de proveedor deben poder responder a solicitudes en un marco de tiempo adecuado para la interacción síncrona.
+		</li>
+		<li>
+			Las aplicaciones de proveedor pueden recibir solicitudes y devolver las respuestas a través de WebSphere MQ.
+		</li>
+		<li>
+			Las aplicaciones de proveedor deben dar soporte al comportamiento estándar de copiar el identificador de mensaje al identificador de correlación.
+		</li>
+		<li>
+			Unos WSDL que definen la interfaz de intermediario sólo tienen un tipo de puerto y un enlace.
+		</li>
+		<li>
+			Los WSDL deben contener las definiciones que definen propiedades para el nodo SOAPInput en las definiciones del WSDL de nivel superior. Por lo tanto, el patrón no puede procesar automáticamente algunos WSDL anidados complejos.
+			<p>Si se utilizan unos WSDL que no cumplen esta restricción, el patrón no configura el nodo SOAPInput, sino que lista la configuración del nodo SOAPInput como tarea que debe completarse después de la generación de la instancia de patrón.</p> 
+			
+		</li>
+		<li>
+			La aplicación de proveedor da soporte a los mensajes XML de WebSphere MQ en un formato que puede utilizarse como cuerpo de una solicitud y respuesta SOAP, o puede personalizar el subflujo Request Processing para transformar el formato a mensajes no XML.
+		</li>
+		<li>
+			Si el registro es necesario, se supone que el formato utilizado por este patrón cumple los requisitos.
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</a>
+</p>
+</body>
+</html>

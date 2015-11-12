@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="有关使用 Service Facade to WebSphere MQ: one-way with acknowledgment 模式之前必须了解的内容和必须具备的资源的详细信息。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>应用 Service Facade to WebSphere MQ: one-way with acknowledgment 模式之前要完成的任务</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">应用 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 模式之前要完成的任务</h1>
+<div>
+	<div class="section">
+		<p class="shortdesc">应用模式以生成模式实例之前，您必须确定需要执行以下哪些任务。如果需要，请完成以下任务：</p>
+	</div>
+	<ul>
+		<li>
+			检查此模式是否符合您的业务需求，以及请求者应用程序和提供者应用程序是否都支持此模式。</li>
+		<li>
+			为模式实例选择唯一的名称。您可以多次使用该模式并创建多个不同的实例，这些实例可通过名称进行区分。识别模式实例的用途，以便确定合适或有意义的名称。</li>
+		<li>
+			定义或标识提供者接口和相关联的服务接口。
+			在消息集项目中创建可部署的 WSDL。</li>
+		<li>
+			标识队列和队列管理器。可以使用现有的队列管理器和队列（例如，用来访问提供者应用程序），而且必须确定它们的名称。标识此模式所需的任何其他队列管理器和队列并确定它们的名称。考虑必须应用的任何策略、标准或命名约定。</li>
+		<li>
+			
+			确定是否需要记录请求消息。如果需要记录，那么必须确定将记录消息发送到哪个队列管理器和队列。可以将记录消息发送到由多个消息流使用的常规日志队列，也可以使用特定于模式实例的队列。</li>
+		<li>
+			确定是否要为模式实例生成错误消息。在此模式中，错误消息用于通知正在处理错误，而不用于保留数据。可以将错误消息发送到由多个消息流使用的常规错误队列，也可以使用特定于模式实例的队列。如果选择在模式实例中发送错误消息，那么可以在部署前配置代理归档 (BAR) 文件来开启或关闭此功能。</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Facade to WebSphere MQ: one-way with acknowledgment 模式规范</a>
+</p>
+</body>
+</html>

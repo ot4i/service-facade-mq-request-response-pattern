@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Informations dont vous devez avoir connaissance et ressources dont vous devez disposer pour pouvoir utiliser le modèle Façade de service sur WebSphere MQ : question-réponse."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tâches à exécuter après avoir généré le modèle Façade de service sur WebSphere MQ : question-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.prereq">
+<h1 class="topictitle1">Tâches à exécuter après avoir généré le modèle <span>Façade de service sur WebSphere MQ : question-réponse</span></h1>
+<div class="p">
+	<p class="shortdesc">Avant d'appliquer le modèle pour produire une instance du modèle, vous devez déterminer les tâches à exécuter parmi les tâches suivantes. Si nécessaire, exécutez les tâches suivantes :</p>
+</div>
+<ul>
+	<li>
+		Vérifiez que le modèle répond aux besoins de l'entreprise et qu'il peut être pris en charge par les applications demandeur et fournisseur.
+	</li>
+	<li>
+		Définissez ou identifiez l'interface fournisseur et l'interface de service associée.
+	</li>
+	<li>
+		Affectez un nom à l'instance du modèle. Identifiez la fonction de l'application de modèle pour déterminer le nom approprié.
+	</li>
+	<li>
+		Sélectionnez les files d'attente et les gestionnaires de files d'attente WebSphere MQ. Vous pouvez utiliser les gestionnaires de files d'attente et les files d'attente existants, par exemple, pour accéder à l'application fournisseur et vous devez définir leurs noms.
+	</li>
+	<li>
+		Identifiez les gestionnaires de files d'attente et les files d'attente supplémentaires nécessaires au modèle et définissez leurs noms. Tenez compte des règles, des normes ou des conventions d'attribution de nom qui s'appliquent.
+	</li>
+	<li>
+		Déterminez si vous devez utiliser la consignation. Si la consignation est nécessaire, vous devez définir le gestionnaire de files d'attente et la file d'attente auxquels les messages de consignation sont envoyés. Vous pouvez envoyer les messages de consignation vers une file d'attente de consignation générale utilisée par plusieurs flux de messages ou utiliser une file d'attente spécifique pour l'instance du modèle.
+	</li>
+	<li>
+		Déterminez si vous avez besoin des messages d'erreur.
+	</li>
+	<li>
+		Déterminez si vous devez utiliser la validation.
+	</li>
+	<li>
+		Créez un fichier déployable WSDL dans un projet d'ensemble de messages.
+	</li>
+</ul>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : question-réponse</a>
+</p>
+</body>
+</html>

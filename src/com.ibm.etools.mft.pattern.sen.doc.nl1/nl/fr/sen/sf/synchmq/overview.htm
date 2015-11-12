@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Utilisation du modèle Façade de service sur WebSphere MQ : demande-réponse pour accepter les demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Modèle Façade de service sur WebSphere MQ : demande-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.overview">
+<h1 class="topictitle1">Modèle <span>Façade de service sur WebSphere MQ : demande-réponse</span></h1>
+<div>
+	<p class="shortdesc">
+	Utilisez le modèle <span>Façade de service sur WebSphere MQ : demande-réponse </span>pour fournir une façade de service Web aux fonctions accessibles uniquement via WebSphere MQ. 
+	Ce modèle établit un pont entre le protocole HTTP synchrone, généralement utilisé avec les services Web, et les applications existantes avec des interfaces WebSphere MQ qui ne peuvent pas être mises à niveau aisément.</p>
+	<p>Utilisez ce modèle lorsque les applications fournisseurs mettent à disposition une interface XML et que les applications client prennent en charge les appels vers les services Web. Vous pouvez étendre le modèle avec des transformations pour prendre en charge une façade de service dans les applications avec une interface non-XML sur WebSphere MQ.</p>
+	</div>
+<div class="section">
+	<h2 class="sectiontitle">Solution</h2>
+</div>
+<p>La solution consiste à implémenter un flux de messages qui fournit un point d'entrée de service. 
+Lorsqu'une demande de service est reçue, l'identificateur de réponse est stocké dans une file d'attente interne et la demande est envoyée à l'application demandeur. Lorsque l'application fournisseur répond, l'identificateur de la réponse est récupéré et une réponse des services Web, qui contient la réponse du fournisseur, est envoyée à l'application demandeur.
+</p>
+<div class="image">
+	<img src="synchmq.gif"
+		alt="Diagramme montrant le comportement du modèle. Les applications envoient les demandes de service au courtier qui répond à ces demandes en utilisant des fonctions qui ne fournissent pas une interface de service." />
+	<div>
+		<a href="requestflow.htm" title="Informations de conception sur le flux de messages Demande.">Flux Demande</a>
+	</div>
+	<div>
+		<a href="responseflow.htm" title="Informations de conception sur le flux de messages Réponse.">Flux Réponse</a>
+	</div>
+	<div>
+		<a href="requestsubflow.htm" title="Informations de conception sur le flux secondaire Traitement de la demande.">Traitement de la demande</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informations de conception sur le flux secondaire Erreur.">Flux secondaire Erreur</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informations de conception sur le flux secondaire Journal.">Flux secondaire Journal</a>
+	</div>
+	<div>
+		<div class="familylinks">
+			<a name="anchor1"></a>
+			<div class="section"><h2 class="sectiontitle">Tâches connexes</h2></div>
+				<p>Consultez la section suivante qui contient des informations sur l'application et l'utilisation de ce modèle.</p>
+					<a href="constraints.htm" title="Contraintes d'utilisation du modèle"> 			Contraintes d'utilisation du modèle</a>
+				</div>
+				<div>
+					<a href="prereq.htm"
+						title="Informations dont vous devez avoir connaissance et ressources dont vous devez disposer pour pouvoir utiliser le modèle.">Tâches à exécuter avant d'appliquer le modèle</a>
+				</div>
+				<div>
+					<a href="resources.htm" title="Ressources nécessaires pour commencer avec le modèle"> Ressources nécessaires pour commencer avec le modèle</a>
+				</div>
+				<div>
+					<a href="parametertable.htm"
+						title="Appliquer le modèle et définir les paramètres">Paramètres du modèle</a>
+				</div>
+				<div>
+					<a href="postreq.htm" title="">Tâches à exécuter après avoir généré le modèle</a>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

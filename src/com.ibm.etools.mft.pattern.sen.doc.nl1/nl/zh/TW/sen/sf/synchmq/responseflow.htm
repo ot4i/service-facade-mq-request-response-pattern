@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="使用 Service Facade to WebSphere MQ: request-response 型樣，可以接受單一佇列上多個用戶端應用程式的要求，以及使用交易式流程及持續 WebSphere MQ 訊息，將回應傳回給正確的用戶端。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Service Facade to WebSphere MQ: request-response 型樣的回應流程</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1"><span>Service Facade to WebSphere MQ: request-response</span> 型樣的回應流程</h1>
+<p class="shortdesc">「回應」流程是以非交易式流程的形式執行。</p>
+<p>接收到來自提供者應用程式的回應時，會採取下列動作：</p>
+<ol>
+<li>「回應」流程會讀取提供者中的回應訊息。驗證是透過型樣參數來決定。</li>
+<li>此流程會使用相關性 ID 以擷取內部 WebSphere MQ 佇列中的「SOAP 回覆 ID」。
+「SOAP 回覆 ID」會新增至區域環境，以控制 SOAP 回覆的目的地。</li>
+<li>會建立 HTTP 回覆標頭。</li>
+<li>如果發生異常狀況，並將錯誤記載併入型樣應用程式中，則會呼叫「錯誤」子流程，並將錯誤寫入回應佇列中。
+不過，因為失敗表示無法使用必須回覆 SOAP 要求的 ReplyID，所以不會嘗試回覆要求者。</li>
+<li>只有在將記載併入此型樣應用程式中而且目前已開啟該功能時，才會記載順利完成的回應。</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="上一步">回到 <span>Service Facade to WebSphere MQ: request-response</span> 型樣規格</a></body>
+</html>

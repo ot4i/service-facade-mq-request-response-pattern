@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="使用 Service Facade to WebSphere MQ: request-response 型樣，可以接受單一佇列上多個用戶端應用程式的要求，以及使用交易式流程及持續 WebSphere MQ 訊息，將回應傳回給正確的用戶端。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Service Facade to WebSphere MQ: request-response 型樣的要求流程</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Facade to WebSphere MQ: request-response</span> 型樣的要求流程</h1>
+	<p class="shortdesc">
+	<span>Service Facade to WebSphere MQ: request-response</span> 型樣的「要求」流程明細（包括記載及異常狀況）。</p>
+	<ol>
+		<li>
+			SOAP 要求是在 SOAP 節點上進行接收。如果每一個型樣實例的型樣參數需要驗證，則會驗證要求。</li>
+		<li>
+			會移除 SOAP 及 HTTP 標頭，以保留目標設為提供者應用程式的基本 XML 訊息。</li>
+		<li>
+			然後，將訊息傳遞給要求處理子流程，而此子流程會提供位置來自訂型樣實例。</li>
+		<li>
+			MQMD 標頭會與 Integration Bus 的「回覆」位址一起插入，而期限時間是根據預期的回應時間來設定。</li>
+		<li>
+			訊息會置入提供者佇列中。</li>
+		<li>
+			已設定用來儲存 SOAP 回覆 ID 的訊息。
+			針對送出訊息產生的訊息 ID 是擷取自區域環境的已寫入目的地資料，並用於 MQMD 相關性 ID；SOAP 回覆 ID 則是擷取自區域環境，並作為訊息的主體使用。此資料會寫入內部佇列中。</li>
+		<li>
+			如果在將訊息傳送給提供者之前發生異常狀況，則會將 SOAP 錯誤傳回給提供者。如果需要錯誤訊息，則會將錯誤訊息傳送至錯誤佇列。</li>
+		<li>
+			如果需要記載要求，且訊息流程順利完成，則會呼叫記載子流程，以記載送入訊息。</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: request-response 型樣規格</a>
+</body>
+</html>

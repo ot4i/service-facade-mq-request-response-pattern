@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣，可以接受單一佇列上多個用戶端應用程式的要求，以及使用交易式流程及持續 WebSphere MQ 訊息，將回應傳回給正確的用戶端。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Service Facade to WebSphere MQ: one-way with acknowledgment 型樣</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1"><span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣</h1>
+<div>
+	<p class="shortdesc">
+	使用
+	<span>Service Facade to WebSphere MQ: one-way with acknowledgment</span>
+	型樣，可以向用戶端呈現 Web 服務介面，以及使用已啟用 WebSphere MQ 的應用程式來滿足服務要求。</p>
+	<p>
+	使用此型樣，可以橋接非同步 HTTP 通訊協定及可靠的傳訊通訊協定，以透過儲存要求以進行處理的安全來處理更新項目。</p>
+	<p>
+	此型樣提供在計時、通訊協定及傳輸時，要求者與提供者之間的鬆散聯結。它適用於現有系統的服務介面。</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="顯示型樣行為的圖表。用戶端的服務要求會置入佇列以進行處理，然後傳回確認通知。"/>
+	<div class="section">
+		<h2 class="sectiontitle">解決方案</h2>
+	</div>
+	<p>
+	解決方案是實作可提供服務進入點的訊息流程。透過 HTTP 接收到 Web 服務要求時，會將資料作為持續訊息置入提供者應用程式的佇列中。放置訊息之後，會傳回確認通知，以確認已接受要求。如果用戶端接收到確認通知，則表示已將訊息寫入佇列。如果接收到錯誤，則不會傳送任何訊息，不過，如果錯誤是逾時，則此狀況是暫時的，但是用戶端應用程式會察覺到發生問題。</p>
+	<div>
+		<a href="requestflow.htm" title="「要求」訊息流程的相關設計資訊。">要求流程</a></div>
+	<div>
+		<a href="errorflow.htm" title="「錯誤」子流程的相關設計資訊。">錯誤子流程</a></div>
+	<div>
+		<a href="logflow.htm" title="「日誌」子流程的相關設計資訊。">日誌子流程</a></div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">相關作業</h2></div>
+		<p>如需如何套用及使用此型樣的相關資訊，請閱讀下節。</p>
+		<div>
+			<a href="constraints.htm" title="使用型樣的限制">使用型樣的限制</a></div>
+		<div>
+			<a href="prereq.htm" title="套用型樣之前要完成的作業">套用型樣之前要完成的作業</a></div>
+		<div>
+			<a href="resources.htm" title="可讓您開始使用型樣的資源">可讓您開始使用型樣的資源</a></div>
+		<div>
+			<a href="interface.htm" title="介面範例">介面範例</a></div>
+		<div>
+			<a href="parametertable.htm" title="型樣的參數">型樣的參數</a></div>
+		<div>
+			<a href="postreq.htm" title="產生型樣之後要完成的作業">產生型樣之後要完成的作業</a></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão do Service Facade para WebSphere MQ: Pedido-Resposta para aceitar pedidos de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto usando fluxos transacionais e mensagens do WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Subfluxo de Log para o Padrão de Service Facade para WebSphere MQ: Pedido-Resposta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1">Subfluxo de Log para o Padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span></h1>
+	<p class="shortdesc">
+	As mensagens de criação de log para um banco de dados não
+	ocorrem nos fluxos de mensagens que manipulam transações de negócios. Em vez disso,
+	mensagens persistentes são gravadas em uma fila do WebSphere MQ, que é processada separadamente. Gravar
+	mensagens persistentes em uma fila do WebSphere MQ
+	isola qualquer impacto no desempenho de atualizações de banco de dados, permitindo, portanto, o controle de onde
+	e quando estas filas são processadas.
+	</p>
+	<p>
+	O padrão assume que os dados do log são incluídos no cabeçalho MQRFH2 se um
+	existir. Se nenhum cabeçalho MQRFH2 existir, um será criado. O corpo da mensagem é
+	registrado conforme ele chega no fluxo de mensagens. Os dados do log a seguir são incluídos:
+	</p>
+	<ul>
+		<li>
+			Registro de data e hora do log
+		</li>
+		<li>
+			Nome do broker
+		</li>
+		<li>
+			Nome do fluxo de mensagens
+		</li>
+		<li>
+			Status (0 sucesso)
+		</li>
+		<li>
+			Modo - Pedido / Resposta
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do padrão do Service Facade para WebSphere MQ: Pedido-Resposta</a>
+</p>
+</body>
+</html>
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="在您可以使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣之前，必須知道及必須具有的資源的明細。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>使用 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣的限制</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">使用 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣的限制</h1>
+<div>	
+<p class="shortdesc">當您使用此型樣時，將適用一些限制。</p>
+	<p>
+	只有在符合下列所有限制時，才能使用 <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣：
+	</p>
+	<ul>
+		<li>
+			要求是透過使用文件文字樣式的 HTTP，以 SOAP 訊息形式接收。</li>
+		<li>
+			SOAP 要求及回應使用 CCSID 1208。</li>
+		<li>
+			要求端應用程式可以支援
+			<span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> 型樣。
+		</li>
+		<li>
+			提供者應用程式負責在將訊息遞送至其輸入佇列時處理更新。</li>
+		<li>
+			定義分配管理系統介面的 WSDL 只有一個埠類型及一個連結。</li>
+		<li>
+			WSDL 必須包含的定義會定義最上層 WSDL 定義中 SOAPInput 節點的內容。因此，型樣無法自動處理部分複式巢狀 WSDL。
+			<p>如果使用不符合此限制的 WSDL，則型樣不會配置 SOAPInput 節點，但會將 SOAPInput 節點的配置列為在產生型樣實例之後要完成的作業。</p> 
+			
+		</li>
+		<li>
+			提供者應用程式支援其格式可以作為 SOAP 要求主體使用的 WebSphere MQ XML 訊息，或者，您可以自訂要求處理子流程，以將格式轉換為非 XML 訊息。</li>
+		<li>
+			此型樣定義它自己的格式以用於記載及錯誤訊息；假設這些訊息足以符合您自己環境中的需求。</li>
+	</ul>
+	<p>
+	透過套用型樣之後的配置，可以克服部分之前的限制（特別是 CCSID）。</p>
+</div>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: one-way with acknowledgment 型樣規格</a>
+</body>
+</html>

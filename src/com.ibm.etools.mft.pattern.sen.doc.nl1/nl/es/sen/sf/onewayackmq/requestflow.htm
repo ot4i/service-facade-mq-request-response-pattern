@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flujo de solicitud para el patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.overview">
+<div class="section">
+	<h1 class="topictitle1">Flujo Request para el patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span></h1>
+	<p class="shortdesc">
+	Detalles sobre el flujo Request, incluidos el registro y las excepciones, para el patrón <span>Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</span>.
+	</p>
+	<ol>
+		<li>
+			Un nodo SOAP ha recibido una solicitud SOAP. Si es necesaria la validación según los parámetros del patrón, se valida la solicitud.
+		</li>
+		<li>
+			Las cabeceras HTTP y SOAP se eliminan para dejar el mensaje XML básico dirigido a la aplicación de proveedor.
+		</li>
+		<li>
+			A continuación, el mensaje pasa a un subflujo de proceso de solicitudes, que proporciona un lugar para la personalización de una instancia de patrón.
+		</li>
+		<li>
+			Cualquier excepción que se produzca en este momento se detectará y causará que se devuelva un error SOAP al canal de llamada. La solicitud no se procesa después de haber enviado el error.
+		</li>
+		<li>
+			Si no se producen excepciones, el mensaje se escribe como mensaje persistente en la cola de entrada del proveedor y se confirma. El flujo está estructurado de forma que si la escritura es satisfactoria, las excepciones posteriores no causan que se envíe una respuesta al solicitante que indique que el mensaje no se ha enviado. Sin embargo, es posible que el tiempo de espera el nodo SOAP cause que se devuelva un error SOAP de tiempo de espera excedido.
+		</li>
+		<li>
+			Se devuelve un acuse de recibo positivo al solicitante como respuesta SOAP. 
+			Esta respuesta contiene un solo acuse de recibo con la serie <tt>Aceptado</tt>.
+		</li>
+		<li>
+			Si el registro de solicitudes es necesario y el flujo de mensajes es satisfactorio, se llama al subflujo de registro para registrar el mensaje entrante.
+		</li>
+		<li>
+			Si se produce una excepción después de escribir el mensaje, al crear y enviar el acuse de recibo, y si los mensajes de error son necesarios según los parámetros del patrón, se llama al subflujo de error para registrar el error y el subflujo finaliza satisfactoriamente. Dado que el mensaje persiste en la cola de proveedor, este error es sólo informativo, no para la persistencia de datos, y el cuerpo del mensaje no está incluido. Si no son necesarios los mensajes de error según los parámetros del patrón, el flujo finaliza satisfactoriamente.
+		</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: unidireccional con acuse de recibo</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use the Service Facade to WebSphere MQ: request-response pattern to accept requests from many client applications on a single queue, and to return responses to the correct client by using transactional flows and persistent WebSphere MQ messages."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Request flow for the Service Facade to WebSphere MQ: request-response pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.requestflow">
+<div class="section">
+	<h1 class="topictitle1">Request flow for the <span>Service Facade to WebSphere MQ: request-response</span> pattern</h1>
+	<p class="shortdesc">
+	Details about the Request flow, including logging and exceptions, for the 
+	<span>Service Facade to WebSphere MQ: request-response</span> pattern.
+	</p>
+	<ol>
+		<li>
+			A SOAP request is received on a SOAP node. The request is validated if validation is required, 
+			by the pattern parameters for each pattern instance.
+		</li>
+		<li>
+			The SOAP and HTTP headers are removed to leave the basic XML message targeted at 
+			the provider application.
+		</li>
+		<li>
+			The message then passes to a request processing subflow, which provides a place 
+			for customization of a pattern instance.
+		</li>
+		<li>
+			An MQMD header is inserted with the Reply address of the Integration Bus and the 
+			expiry time is set in accordance with the expected response time.
+		</li>
+		<li>
+			The message is placed on the provider queue.
+		</li>
+		<li>
+			A message to store the SOAP reply identifier is set up. 
+			The message identifier that is generated 
+			for the outgoing message is retrieved from the written destination data in the 
+			local environment, and is used in the MQMD correlation identifier; the SOAP reply 
+			identifier is retrieved from the local environment and is used as the body of the 
+			message. This data is written to an internal queue.
+		</li>
+		<li>
+			If exceptions occur before the message is sent to the provider, a SOAP fault is 
+			returned to the provider. If error messages are required, an error message 
+			is sent to the error queue.
+		</li>
+		<li>
+			If logging of requests is required and the message flow succeeds, the 
+			logging subflow is called to log the incoming message.
+		</li>
+	</ol>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the Service Facade to WebSphere MQ: request-response pattern specification</a>
+</body>
+</html>

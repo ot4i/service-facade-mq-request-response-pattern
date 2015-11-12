@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴을 사용하면 단일 큐에 있는 많은 클라이언트 애플리케이션의 요청을 승인하고 트랜잭션 플로우와 지속 WebSphere MQ 메시지를 사용하여 올바른 클라이언트로 응답을 리턴할 수 있습니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴의 응답 플로우</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sen.sen.sf.synchmq.responseflow">
+<div><h1 class="topictitle1"><span>WebSphere MQ에 서비스 퍼사드: 요청-응답</span> 패턴의 응답 플로우</h1>
+<p class="shortdesc">응답 플로우는 비트랜잭션 플로우로 실행됩니다.</p>
+<p>제공자 애플리케이션으로부터 응답을 수신하면
+다음과 같은 조치가 수행됩니다.</p>
+<ol>
+<li>응답 플로우는 제공자의 응답 메시지를 읽습니다.
+패턴 매개변수에 따라 유효성 검증이 결정됩니다.</li>
+<li>응답 플로우는 상관 ID를 사용하여 내부 WebSphere MQ 큐에서 SOAP 응답 ID를 검색합니다.
+SOAP 응답 ID가 로컬 환경에 추가되어 SOAP 응답 대상을 제어합니다.</li>
+<li>HTTP 응답 헤더가 작성됩니다.</li>
+<li>예외가 발생하고 패턴 애플리케이션에 오류 로그 기록이 포함되어 있으면 오류 서브플로우가 호출되고 오류가 응답 큐에 기록됩니다.
+하지만, 실패는 SOAP 요청에 응답하는 데 필요한 ReplyID를 사용할 수 없음을 의미하기 때문에 요청자에 대해 응답이 시도되지 않습니다.</li>
+<li>성공 응답은 로그 기록이 이 패턴 애플리케이션에 포함되어 있고 현재 설정된 상태인 경우에만 기록됩니다.
+</li>
+
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="이전"><span>WebSphere MQ에 서비스 퍼사드: 요청-응답</span> 패턴 스펙으로 돌아가기</a>
+</body>
+</html>

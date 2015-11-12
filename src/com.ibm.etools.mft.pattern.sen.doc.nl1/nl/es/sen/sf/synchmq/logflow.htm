@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta para aceptar solicitudes de muchas aplicaciones cliente en una sola cola y devolver las respuestas al cliente correcto utilizando flujos transaccionales y mensajes de WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Subflujo Log para el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1">Subflujo Log para el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+	<p class="shortdesc">
+	El registro de mensajes en una base de datos no se realiza en los flujos de mensajes que manejan transacciones empresariales. Por el contrario, los
+ mensajes persistentes se escriben en una cola de WebSphere MQ, que se procesa por separado. Escribir mensajes persistentes en una cola de WebSphere MQ aísla cualquier efecto en el rendimiento de las actualizaciones de base de datos, con lo que se permite el control de dónde y cuándo se procesan las colas.
+	</p>
+	<p>
+	El patrón supone que se añaden datos de registro a la cabecera MQRFH2 si hay una. Si no existe ninguna cabecera MQRFH2, se crea una. El cuerpo del mensaje se registra cuando llega al flujo de mensajes. Se han añadido los siguientes datos de registro:
+	</p>
+	<ul>
+		<li>
+			Indicación horaria del registro
+		</li>
+		<li>
+			Nombre del intermediario
+		</li>
+		<li>
+			Nombre del flujo de mensajes
+		</li>
+		<li>
+			Estado (0 éxito)
+		</li>
+		<li>
+			Modalidad - Solicitud / Respuesta
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</a>
+</p>
+</body>
+</html>
+
+

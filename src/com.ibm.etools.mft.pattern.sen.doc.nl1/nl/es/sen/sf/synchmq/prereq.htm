@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Detalles sobre lo que necesita saber y qué recursos debe tener antes de poder utilizar el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tareas que deben completarse antes de aplicar el patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.prereq">
+<h1 class="topictitle1">Tareas que deben completarse antes de aplicar el patrón <span>Fachada de servicio a WebSphere MQ: solicitud-respuesta</span></h1>
+<div class="p">
+	<p class="shortdesc">Antes de aplicar el patrón para producir una instancia de patrón, debe determinar cuáles de las tareas siguientes son necesarias. Si es preciso, realice las tareas siguientes:</p>
+</div>
+<ul>
+	<li>
+		Identifique que este patrón cumple el requisito empresarial y puede ser soportado por las aplicaciones solicitante y proveedor.
+	</li>
+	<li>
+		Defina o identifique la interfaz del proveedor y la interfaz de servicio asociada.
+	</li>
+	<li>
+		Asigne un nombre a la instancia de patrón. Identifique el fin de la aplicación de patrón para que pueda decidir cuál es el nombre adecuado.
+	</li>
+	<li>
+		Seleccione colas y gestores de colas de WebSphere MQ. Las colas y los gestores de colas existentes pueden utilizarse, por ejemplo, para acceder a la aplicación de proveedor y debe elegir sus nombres.
+	</li>
+	<li>
+		Identifique cualquier cola y gestor de colas adicionales que este patrón necesite, y decida qué nombres desea utilizar. Tenga en cuenta las políticas, estándares o convenios de denominación que deben aplicarse.
+	</li>
+	<li>
+		Decida si necesita un registro. Si el registro es necesario, debe decidir a qué gestor de colas y cola se enviarán los mensajes de registro. Puede enviar mensajes de registro a una cola de registro general que utilicen varios flujos de mensajes, o puede utilizar una cola específicamente para la instancia de patrón.
+	</li>
+	<li>
+		Decida si necesita mensajes de error.
+	</li>
+	<li>
+		Decida si necesita validación.
+	</li>
+	<li>
+		Cree WSDL desplegable en un proyecto de conjunto de mensajes.
+	</li>
+</ul>
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Fachada de servicio a WebSphere MQ: solicitud-respuesta</a>
+</p>
+</body>
+</html>

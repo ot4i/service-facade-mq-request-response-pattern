@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento para aceitar solicitações de serviço e preenchê-las usando aplicativos ativados para WebSphere MQ."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Subfluxo de erro do padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Subfluxo de erro do padrão de <span>Service Facade para WebSphere MQ:
+unidirecional com reconhecimento</span></h1>
+	<p class="shortdesc">Este subfluxo testa se uma mensagem de erro deve ser gravada, o que é	determinado
+	pela propriedade definida pelo usuário: <span class="msobjprop">ErrorLoggingOn</span>.</p>
+<ol>
+<li>Se você tiver configurado os parâmetros padrão para incluir mensagens de erro e a propriedade definida pelo usuário:
+<span class="msobjprop">ErrorLoggingOn</span> será selecionado, uma mensagem de erro será preparada e gravada na
+fila de erros.
+<p>Detalhes da exceção são gravadas como uma mensagem XML. Estes detalhes incluem:</p>
+	<ul>
+	<li>Nome do broker</li>
+	<li>Nome do fluxo</li>
+	<li>Registro de data e hora</li>
+	<li>Resumo dos dados da exceção</li>
+	</ul>
+	<p>O resumo dos dados de exceção contém o rótulo do fluxo de mensagens, o número do erro, a descrição do texto
+	e uma lista de inserções fornecendo os detalhes adicionais.</p>
+</li>
+<li>Se a mensagem para o provedor tiver sido gravada e uma resposta enviada ao solicitante, nenhuma ação adicional
+será executada.</li> 
+<li>Se a mensagem para o provedor não tiver sido gravada, uma exceção, que faz com que uma falha de SOAP
+seja retornada ao solicitante, será produzida.</li>
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do
+padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento</a>
+</body>
+</html>

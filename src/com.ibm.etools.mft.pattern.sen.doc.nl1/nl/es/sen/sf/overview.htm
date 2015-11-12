@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Utilice el patrón Fachada de servicio a aceptar solicitudes de muchas aplicaciones clientes en una sola cola y devolver respuestas al cliente correcto."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Patrón Fachada de servicio</title>
+<script language="JavaScript" src="../../help/LiveHelp.js"> </script></head>
+<body id="sen.sf.overview">
+<h1 class="topictitle1"><span></span>Patrón Fachada de servicio</h1>
+<div><p class="shortdesc">Utilice un patrón Fachada de servicio a proporcionar acoplamiento abierto entre un solicitante de servicio y la funcionalidad proporcionada por una aplicación o prestación que no está habilitada por servicio. 
+El acoplamiento abierto oculta las complejidades del proveedor y presenta una interfaz de servicio web estándar.</p>
+Un patrón Fachada de servicio también introduce un punto de mediación para la aplicación de funciones estándar como, por ejemplo, el registro.</div>
+<div class="image"><img src="facade.gif" alt="Un diagrama que muestra el comportamiento del patrón. Las aplicaciones envían solicitudes de servicio al intermediario, que satisface estas solicitudes utilizando una funcionalidad que no proporciona una interfaz de servicio." />
+<div class="section"><h2 class="sectiontitle">El contexto</h2>
+<p>Cuando una arquitectura empresarial evoluciona hacia una arquitectura orientada a servicios, a menudo es necesario acomodar existente los sistemas heredados existentes que hacen funcionar partes importantes de la actividad, pero no tienen una prestación de servicio. Estas aplicaciones suelen utilizar funciones que deben ser accesibles para paquetes de software más recientes habilitados para servicios, pero que sólo ofrecen acceso a través de adaptadores, mensajería u otras técnicas de integración no orientadas a servicios.</p>
+</div>
+<div class="section"><h2 class="sectiontitle">El problema</h2></div>
+<p>Las aplicaciones heredadas no encajan naturalmente en un entorno de arquitectura orientada a servicios
+(SOA) y los cambios en esos sistemas son costosos y requieren escasos conocimientos. El problema es encontrar una forma de integrar esos sistemas con paquetes y aplicaciones más recientes orientados a servicios. En particular, es necesario crear un puente entre el protocolo HTTP síncrono que se utiliza generalmente con servicios web y los protocolos de mensajería que a menudo utilizan las aplicaciones heredadas.</p>
+<div class="section"><h2 class="sectiontitle">Orientación sobre la selección</h2></div>
+<p>Este patrón es adecuado cuando una empresa desea presentar una interfaz de servicio a clientes solicitantes como parte de un entorno SOA, pero las aplicaciones de proveedor no pueden actualizarse fácilmente para proporcionar interfaces de servicio.</p>
+<p>Este patrón se utiliza en los casos en que las aplicaciones de proveedor proporcionan una interfaz XML y las aplicaciones clientes dan soporte a las llamadas a servicios web. El patrón puede ampliarse con transformaciones para dar soporte a una fachada de servicio a aplicaciones con interfaces no XML a través de
+WebSphere MQ.</p>
+</div>
+</body></html>

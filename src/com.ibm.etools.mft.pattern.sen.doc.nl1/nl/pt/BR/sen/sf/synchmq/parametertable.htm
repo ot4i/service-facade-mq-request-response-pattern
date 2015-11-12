@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="security" content="público"/>
+	<meta name="Robots" content="index,follow"/>
+	<meta content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1)"http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+	<meta name="DC.Type" content="referência"/>
+	<meta name="DC.Title" content="Parâmetros padrão para o Padrão de Service Facade para WebSphere MQ: Pedido-Resposta"/>
+	<meta name="abstract" content="Tabelas contendo os detalhes dos parâmetros padrão para o padrão Service Facade para WebSphere MQ: Pedido-Resposta."/>
+	<meta name="description" content="Tabelas contendo os detalhes dos parâmetros padrão para o padrão Service Facade para WebSphere MQ: Pedido-Resposta."/>
+	<meta name="DC.Format" content="XHTML"/>
+	<meta name="DC.Language" content="en-us"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/style2.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Parâmetros para o Padrão de Service Facade para WebSphere MQ: Pedido-Resposta</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+	<!-- START NON-TRANSLATABLE -->
+	<script language="JavaScript">
+	<!--
+
+	function getParameter(location, name) {
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		var search = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(search);
+		var results = regex.exec(location);
+		return (results == null ? true : (results[1] == "false" ? false : true));
+	}
+	
+	function addStyleSheet() {
+		if (getParameter(window.location.href, "everything") == false) {
+			var headId = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement("link");
+			cssNode.type = "text/css";
+			cssNode.rel = "stylesheet";
+			cssNode.href = "../../../css/patterns.css";
+			cssNode.media = "screen";
+			headId.appendChild(cssNode);
+		}
+	}
+		
+	addStyleSheet(); // Depends on the query string!
+	
+	function getElementsByStyleClass (className) {
+  		var all = document.all ? document.all :
+    	document.getElementsByTagName('*');
+  		var elements = new Array();
+  		
+  		for (var e = 0; e < all.length; e++) {
+    		if (all[e].className == className) {
+      			elements[elements.length] = all[e];
+      		}
+      	}
+ 		return elements;
+	}
+	
+	function collapseAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.COLLAPSEALL');
+		}
+	}
+	
+	function expandAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.EXPANDALL');
+		}
+	}
+	
+	function toggleTwisty(group) {
+		changeTwisty(group, 'TWISTIE.TOGGLE');
+	}
+
+	function changeTwisty(group, mode) {		
+		whichGroupId = group.parentNode.id;
+
+		whichGroupContainerId = whichGroupId + "Container";
+		whichGroupTwistyId = whichGroupId + "Twisty";
+		whichGroupTwistyImageId = whichGroupId + "Arrow";
+		groupContainerObj = document.getElementById(whichGroupContainerId);
+		twistyArrowContainerObj = document.getElementById(whichGroupTwistyId);
+		twistyArrowImageObj = document.getElementById(whichGroupTwistyImageId);
+		group.parentNode.style.height = "auto";
+
+		var toShow = false;
+		
+		if (mode == 'TWISTIE.TOGGLE') {
+			if (groupContainerObj.style.display == "none" || groupContainerObj.style.display == "") {
+				toShow = true;
+			} else {
+				toShow = false;
+			}
+		} else if (mode == 'TWISTIE.EXPANDALL') {
+			toShow = true;
+		}
+		
+		if (toShow) {
+			groupContainerObj.style.visibility = "visible";
+			groupContainerObj.style.display = "block";
+			twistyArrowImageObj.src = '../../../images/twisty-open.png'
+			group.parentNode.style.height = (groupContainerObj.offsetHeight + 30) +'px'; 
+	
+		} else {
+			groupContainerObj.style.visibility = "hidden";
+			groupContainerObj.style.display = "none";
+			twistyArrowImageObj.src = '../../../images/twisty-closed.png'
+		}
+	
+	}
+	//-->
+	</script>
+	 <!-- END NON-TRANSLATABLE -->
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.parametertable">
+<!-- Page main title -->
+<div id="title" class="invisible">
+	<h1 class="patterns-title">Parâmetros para o Padrão de <span>Service Facade para WebSphere MQ: Pedido-Resposta</span></h1>
+</div>
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="serviceInformation">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="serviceInformationTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="serviceInformationArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Informações de Serviço</div>
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="serviceInformationContainer">
+					<div class="tablenoborder">
+						<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+							<thead align="left">
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Parâmetro de padrão</th>
+									<th valign="top" width="*" class="invisible">M</th>
+									<th valign="top" width="*" class="invisible">C</th>
+									<th valign="top" width="*" class="invisible">Default</th>
+									<th valign="top" width="*">Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">WSDL de Serviço</th>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não se aplica</td>
+									<td valign="top" width="*">Este parâmetro padrão define o arquivo WSDL
+									implementável que define a interface de serviço apresentada pelo broker aos solicitantes. 
+									<p>Este
+									valor deve incluir o nome do caminho que se inicia no projeto do conjunto de mensagens da área de trabalho. </p>
+									<p>Para navegar até o WSDL requerido, clique em <span class="uicontrol">Navegar</span>.</p></td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Validação do Pedido SOAP</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">Nenhum</span></td>
+									<td valign="top" width="*">Pedidos de serviço recebidos são
+									validados conforme definido por este parâmetro.
+										Os valores
+válidos são:
+										<ul>
+											<li>
+												<span class="msobjpropval">Nenhum</span>
+											</li>
+											<li>
+												<span class="msobjpropval">Conteúdo e Valor</span>
+											</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Validação da resposta SOAP</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">Nenhum</span></td>
+									<td valign="top" width="*">Respostas SOAP de saída são
+									validadas conforme definido por este parâmetro.
+										Os valores
+válidos são:
+										<ul>
+											<li>
+												<span class="msobjpropval">Nenhum</span>
+											</li>
+											<li>
+												<span class="msobjpropval">Conteúdo e Valor</span>
+											</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="responseInformation">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="responseInformationTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="responseInformationArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Informações de resposta</div>
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="responseInformationContainer">
+					<div class="tablenoborder">
+						<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+							<thead align="left">
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Parâmetro de padrão</th>
+									<th valign="top" width="*" class="invisible">M</th>
+									<th valign="top" width="*" class="invisible">C</th>
+									<th valign="top" width="*" class="invisible">Default</th>
+									<th valign="top" width="*">Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Fila de Respostas</th>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">RESPONSE</span></td>
+									<td valign="top" width="*">Este parâmetro padrão identifica a fila do broker para
+									a qual o aplicativo do provedor deve retornar respostas.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Fila de armazenamento</th>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">STORE</span></td>
+									<td valign="top" width="*">Este parâmetro padrão define a fila que é
+									usada para armazenar os cabeçalhos MQMD enquanto aguarda uma resposta do provedor.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Expiração das mensagens de fila de armazenamento em décimos de um segundo</th>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">Sem tempo limite</span></td>
+									<td valign="top" width="*">Este parâmetro padrão define o tempo de expiração, em décimos de um segundo, para
+									mensagens que contêm o identificador de resposta HTTP. 
+									<p>Este valor deve exceder o tempo de resposta máximo esperado. </p>
+									<p>É possível inserir seu próprio valor ou aceitar o valor-padrão <span class="msobjpropval">Sem tempo limite</span>.</p></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="providerInformation">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="providerInformationTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="providerInformationArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Informações do Provedor</div>
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="providerInformationContainer">
+					<div class="tablenoborder">
+						<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+							<thead align="left">
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Parâmetro de padrão</th>
+									<th valign="top" width="*" class="invisible">M</th>
+									<th valign="top" width="*" class="invisible">C</th>
+									<th valign="top" width="*" class="invisible">Default</th>
+									<th valign="top" width="*">Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Gerenciador de filas do provedor</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Este parâmetro padrão
+									identifica o gerenciador de filas no
+									qual o aplicativo do provedor recebe pedidos do fluxo de mensagens do broker. 
+									<p>Se for deixado em branco, o padrão é o gerenciador de filas do broker.</p></td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Fila de pedidos do provedor</th>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible">sim</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">PROVIDER</span></td>
+									<td valign="top" width="*">Este parâmetro padrão identifica
+									a fila na qual o aplicativo do provedor recebe pedidos do fluxo
+									de mensagens do broker.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="log">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="logTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="logArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Criação de log</div>
+				
+				
+						
+						
+						
+				
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="logContainer">
+						<div class="tablenoborder">
+							<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+								<thead align="left">
+									<tr>
+										  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+										  <th class="invisible" valign="top" width="*">M</th>
+										  <th class="invisible" valign="top" width="*">C</th>
+										  <th class="invisible" valign="top" width="*">Default</th>
+										  <th valign="top" width="*">Descrição</th>
+									</tr>
+								</thead>
+								<tbody>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Criação de log requerida</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="2*" class="invisible">
+																	Limpo
+												</td>
+												<td valign="top" width="*">
+													
+                    <p>Este parâmetro padrão determina se a
+										instância padrão inclui o código para criação de log.</p>
+                    <p>Se <span class="msobjprop">Criação de log requerida</span> estiver limpo,
+                    o subfluxo de Log não será incluído.</p>
+                    <p>Se <span class="msobjprop">Criação de log requerida</span> estiver selecionado,
+                    um subfluxo de Log será incluído no
+                    fluxo de mensagens e os valores deverão ser configurados para <span class="msobjprop">Gerenciador de filas de log</span>
+                    e <span class="msobjprop">Fila de logs</span>.</p>
+                    
+												</td>
+											</tr>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Gerenciador de filas de log</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Sim
+												</td>
+												<td valign="top" width="2*" class="invisible">
+																	
+												</td>
+												<td valign="top" width="*">
+													
+                    <p>Este parâmetro padrão define o gerenciador de filas para criação de log. 
+                    Ele poderá ser deixado em branco se o gerenciador de filas do broker for usado para criação de log.</p>
+                    <p>Este parâmetro é necessário apenas se <span class="msobjprop">Criação de log requerida</span>
+     é selecionado.
+                    </p>
+                    
+												</td>
+											</tr>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Fila de Logs</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Sim
+												</td>
+												<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">LOG</span>
+												</td>
+												<td valign="top" width="*">
+													
+					<p>Este parâmetro padrão define a fila para criação de log.</p>
+					<p>Este parâmetro é necessário apenas se <span class="msobjprop">Criação de log requerida</span>
+     é selecionado.</p>
+                    
+												</td>
+											</tr>
+								</tbody>
+							</table>
+					  	</div>
+					
+			  	</div>
+	  		</div>
+  		</div>
+	</div>
+</div>
+
+
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="errorHandling">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="errorHandlingTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="errorHandlingArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Tratamento de erro</div>
+				
+				
+						
+						
+						
+				
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="errorHandlingContainer">
+						<div class="tablenoborder">
+							<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+								<thead align="left">
+									<tr>
+										  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+										  <th class="invisible" valign="top" width="*">M</th>
+										  <th class="invisible" valign="top" width="*">C</th>
+										  <th class="invisible" valign="top" width="*">Default</th>
+										  <th valign="top" width="*">Descrição</th>
+									</tr>
+								</thead>
+								<tbody>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Mensagem de erro necessária</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="2*" class="invisible">
+																	Selecionado
+												</td>
+												<td valign="top" width="*">
+													
+                    <p>Este parâmetro padrão define se o aplicativo padrão cria
+                    os elementos de fluxo de mensagens para criar mensagens de erro.</p>
+                    <p>Se <span class="msobjprop">Mensagem de erro requerida</span> for selecionado,
+                    os valores deverão ser configurados para <span class="msobjprop">Gerenciador de filas de erros</span>
+                    e <span class="msobjprop">Fila de erros</span>.</p>
+                    
+												</td>
+											</tr>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Gerenciador de filas de erros</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Sim
+												</td>
+												<td valign="top" width="2*" class="invisible">
+															&nbsp;
+												</td>
+												<td valign="top" width="*">
+													
+                    <p>Este parâmetro padrão define o gerenciador de filas para mensagens de erro. 
+                    Ele poderá ser deixado em branco se o gerenciador de filas do broker for usado para criação de log.</p>
+                    
+												</td>
+											</tr>
+											<tr>
+												<th align="left" valign="top" width="*" class="firstcol">
+													Fila de erros</th>
+												<td valign="top" width="*" class="invisible">
+															Não
+												</td>
+												<td valign="top" width="*" class="invisible">
+															Sim
+												</td>
+												<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">ERROR</span>
+												</td>
+												<td valign="top" width="*">
+													
+                    <p>Este parâmetro padrão define a fila para mensagens de erro.</p>
+                    <p>Este parâmetro é necessário apenas se <span class="msobjprop">Mensagem de erro requerida</span>
+                    é selecionado.
+                    </p>
+                    
+												</td>
+											</tr>
+								</tbody>
+							</table>
+					  	</div>
+					
+			  	</div>
+	  		</div>
+  		</div>
+	</div>
+</div>
+<div class="box first">
+	<div class="TitleBox"><!-- --></div>
+	<div class="FooterBox"><!-- --></div>
+	<div class="TL"><!-- --></div>
+	<div class="TR"><!-- --></div>
+	<div class="BL"><!-- --></div>
+	<div class="BR"><!-- --></div>
+	<div class="ContentBox">
+		<div class="border">
+			<div class="groupBox" id="patternLevel">
+				<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="patternLevelTwisty">
+					<img src="../../../images/twisty-closed.png"
+						name="b" id="patternLevelArrow" alt=""></img>
+				</div>
+				<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Gerais</div>
+				<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="patternLevelContainer">
+					<div class="tablenoborder">
+						<table cellpadding="4" cellspacing="0" summary="" width="100%" rules="all" frame="border" border="1">
+							<thead align="left">
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Parâmetro de padrão</th>
+									<th valign="top" width="*" class="invisible">M</th>
+									<th valign="top" width="*" class="invisible">C</th>
+									<th valign="top" width="*" class="invisible">Default</th>
+									<th valign="top" width="*">Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Esquema do Servidor Intermediário</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible"><span class="msobjpropval">mqsi</span></td>
+									<td valign="top" width="*">Um esquema do broker pode ser usado para
+									criar um espaço de nomes para a instance padrão.
+										<p>
+										Se configurado, todos os fluxos de mensagens e arquivos ESQL são criados no
+										esquema do broker denominado. 
+										Se não configurado, o esquema padrão será
+									usado.
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Prefixo do fluxo</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Se configurado, este prefixo é incluído no início de todos os nomes de fluxo de mensagens.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Sufixo do fluxo</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Se configurado, este sufixo é incluído no final de
+									todos os nomes de fluxo de mensagens.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Prefixo de Fila</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Se configurado, este prefixo é incluído no início de todos os nomes da fila.
+										<p>
+										Se os nomes de fila padrão forem usados, o prefixo, o sufixo, ou ambos, deverão ser configurados para
+										identificar nomes de fila para cada instância padrão.
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Sufixo da Fila</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Se configurado, este sufixo é incluído no final de todos os nomes de fila.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Descrição curta</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Esta descrição é incluída na
+										propriedade <span class="msobjprop">Descrição Resumida</span>
+										de todos os fluxos de mensagens que são gerados.</td>
+								</tr>
+								<tr>
+									<th align="left" valign="top" width="*" class="firstcol">Descrição detalhada</th>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">Não</td>
+									<td valign="top" width="*" class="invisible">&nbsp;</td>
+									<td valign="top" width="*">Esta descrição é incluída na
+										propriedade <span class="msobjprop">Descrição Detalhada</span>
+										de todos os fluxos de mensagens que são gerados.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footnotes" class="invisible">
+	<div class="box first">
+		<div class="TitleBox"><!-- --></div>
+		<div class="FooterBox"><!-- --></div>
+		<div class="TL"><!-- --></div>
+		<div class="TR"><!-- --></div>
+		<div class="BL"><!-- --></div>
+		<div class="BR"><!-- --></div>
+		<div class="ContentBox">
+			<div class="invisible" >
+				<p class="shortdesc">
+				Todos os parâmetros de padrão são listados com seus valores-padrão.
+				</p>
+				<p>
+				A coluna intitulada <b>O</b> indica se a propriedade é <dfn class="term">obrigatória</dfn>. 
+				A coluna intitulada <b>C</b> indica se a propriedade é <dfn class="term">configurável</dfn>,
+				significando que é possível alterar o valor quando você inclui o fluxo de mensagens no
+				arquivo broker archive (BAR).
+				</p>
+				<p>
+				Onde nenhum padrão é indicado, o valor-padrão é uma cadeia vazia.
+				</p>
+			</div>
+			<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação do padrão do Service Facade para WebSphere MQ: Pedido-Resposta</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

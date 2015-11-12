@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use o padrão de Service Facade para WebSphere MQ: unidirecional com reconhecimento para aceitar solicitações de vários aplicativos clientes em uma única fila e para retornar respostas ao cliente correto usando fluxos transacionais e mensagens do WebSphere MQ persistentes."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Padrão do Service Facade to WebSphere MQ: unidirecional com reconhecimento</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1">Padrão do <span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span></h1>
+<div>
+	<p class="shortdesc">
+	Use o padrão de
+	<span>Service Facade para WebSphere MQ: unidirecional com reconhecimento</span>
+	para apresentar uma interface de serviço da Web aos clientes e preencher as solicitações
+ de serviço usando um aplicativo ativado para WebSphere MQ.
+	</p>
+	<p>
+	Use este padrão para ligar os protocolos HTTP assíncronos e protocolos do
+	sistema de mensagens confiáveis para manipular atualizações com uma garantia de que os pedidos
+	serão salvos para processamento. 
+	</p>
+	<p>
+	Este padrão fornece loose coupling entre solicitantes e provedores na sincronização,
+	nos protocolos e no transporte. Ele é apropriado para as interfaces
+	de serviço em sistemas existentes.
+	</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="Um diagrama mostrando o comportamento do padrão. As solicitações de serviço dos clientes são colocadas em uma fila para processamento e um reconhecimento é retornado em seguida."/>
+	<div class="section">
+		<h2 class="sectiontitle">Solução</h2>
+	</div>
+	<p>
+	A solução é implementar um fluxo de mensagens que fornece um ponto de entrada de serviço. 
+	Quando uma solicitação de serviço da Web é recebida via HTTP, os dados são colocados
+ como uma mensagem persistente em uma fila para o aplicativo do provedor. Quando a
+ mensagem é colocada, um reconhecimento é retornado para confirmar que a solicitação foi
+ aceita. Se um cliente receber um reconhecimento, a mensagem foi gravada na fila. Se uma falha for recebida, nenhuma mensagem
+	foi enviada, entretanto, se a falha for uma expiração, o caso é indeterminado, mas
+	aplicativos clientes estarão cientes de que existe um problema.
+	</p>
+	<div>
+		<a href="requestflow.htm" title="Informações de Design sobre o Fluxo de Mensagens de Pedido.">Fluxo de Pedido</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informações de Design sobre o Subfluxo de Erro.">Subfluxo de Erro</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informações de Design sobre o Subfluxo de Log.">Subfluxo de Log</a>
+	</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">Tarefas Relacionadas</h2></div>
+		<p>Leia a seção a seguir para obter informações sobre como aplicar e usar este padrão.</p>
+		<div>
+			<a href="constraints.htm" title="Restrições no Uso do Padrão">
+			Restrições no uso do padrão</a>
+		</div>
+		<div>
+			<a href="prereq.htm" title="Tarefas para Concluir Antes de Aplicar o Padrão">
+			Tarefas para concluir antes de aplicar o padrão</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="Recursos para Introduzí-lo no Padrão">
+			Recursos para introduzí-lo no padrão</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="Exemplo de Interface">Exemplo de interface</a>
+		</div>
+		<div>
+			<a href="parametertable.htm" title="Parâmetros para o Padrão">
+			Parâmetros para o padrão</a>
+		</div>
+		<div>
+			<a href="postreq.htm" title="Tarefas para Concluir Após Gerar o Padrão">
+			Tarefas para concluir após gerar o padrão</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

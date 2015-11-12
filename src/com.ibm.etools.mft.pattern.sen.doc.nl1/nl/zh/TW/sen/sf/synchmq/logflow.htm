@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="使用 Service Facade to WebSphere MQ: request-response 型樣，可以接受單一佇列上多個用戶端應用程式的要求，以及使用交易式流程及持續 WebSphere MQ 訊息，將回應傳回給正確的用戶端。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Service Facade to WebSphere MQ: request-response 型樣的日誌子流程</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Facade to WebSphere MQ: request-response</span> 型樣的日誌子流程</h1>
+	<p class="shortdesc">
+	不會在處理商業交易的訊息流程內，將訊息記載至資料庫。而是將持續訊息寫入 WebSphere MQ 佇列，而這是個別處理的作業。將持續訊息寫入 WebSphere MQ 佇列，可找出對資料庫更新的任何效能影響，因此，可以控制這些佇列的處理位置及時間。</p>
+	<p>
+	此型樣假設日誌資料會新增至 MQRFH2 標頭（如果有的話）。如果沒有 MQRFH2 標頭，則會加以建立。訊息內文會在到達訊息流程時記載。下列是新增的日誌資料：
+	</p>
+	<ul>
+		<li>
+			日誌的時間戳記</li>
+		<li>
+			分配管理系統名稱</li>
+		<li>
+			訊息流程名稱</li>
+		<li>
+			狀態（0 個成功）</li>
+		<li>
+			模式 - 要求/回應</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Facade to WebSphere MQ: request-response 型樣規格</a>
+</p>
+</body>
+</html>
+
+

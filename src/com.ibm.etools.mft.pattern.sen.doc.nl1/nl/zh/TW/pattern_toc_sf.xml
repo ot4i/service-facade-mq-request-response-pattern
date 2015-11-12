@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sen" label="Service Facade" topic="sen/sf/overview.htm">
+    <topic label="Service Facade" href="sen/sf/overview.htm">
+      	<topic label="MQ one-way with acknowledgement" href="sen/sf/onewayackmq/overview.htm">
+      		<topic label="要求流程" href="sen/sf/onewayackmq/requestflow.htm"/>
+      		<topic label="錯誤子流程" href="sen/sf/onewayackmq/errorflow.htm"/>
+      		<topic label="日誌子流程" href="sen/sf/onewayackmq/logflow.htm"/> 
+      		<topic label="介面範例" href="sen/sf/onewayackmq/interface.htm"/>
+      		<topic label="限制" href="sen/sf/onewayackmq/constraints.htm"/>
+      		<topic label="套用型樣之前要完成的作業" href="sen/sf/onewayackmq/prereq.htm"/>
+      		<topic label="可讓您開始使用型樣的資源" href="sen/sf/onewayackmq/resources.htm"/>
+      		<topic label="參數" href="sen/sf/onewayackmq/parametertable.htm"/>
+      		<topic label="產生型樣之後要完成的作業" href="sen/sf/onewayackmq/postreq.htm"/>
+      	</topic>
+      	<topic label="MQ request-response" href="sen/sf/synchmq/overview.htm">
+      		<topic label="要求流程" href="sen/sf/synchmq/requestflow.htm"/>
+      		<topic label="回應流程" href="sen/sf/synchmq/responseflow.htm"/>
+      		<topic label="要求處理子流程" href="sen/sf/synchmq/requestsubflow.htm"/>
+      		<topic label="錯誤子流程" href="sen/sf/synchmq/errorflow.htm"/>
+      		<topic label="日誌子流程" href="sen/sf/synchmq/logflow.htm"/> 
+      		<topic label="限制" href="sen/sf/synchmq/constraints.htm"/>
+      		<topic label="套用型樣之前要完成的作業" href="sen/sf/synchmq/prereq.htm"/>
+      		<topic label="可讓您開始使用型樣的資源" href="sen/sf/synchmq/resources.htm"/>
+      		<topic label="參數" href="sen/sf/synchmq/parametertable.htm"/>
+      		<topic label="產生型樣之後要完成的作業" href="sen/sf/synchmq/postreq.htm"/>
+      	</topic>
+    	<anchor id="wmb_patterns_sf"/>
+    </topic>
+</toc>

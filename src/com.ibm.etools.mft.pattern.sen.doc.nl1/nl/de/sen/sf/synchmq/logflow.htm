@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Untergeordneter Protokollnachrichtenfluss für das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1">Untergeordneter Protokollnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+	<p class="shortdesc">
+	Nachrichten werden nicht innerhalb von Nachrichtenflüssen, die für Geschäftstransaktionen zuständig sind, in einer Datenbank protokolliert. Stattdessen werden persistente Nachrichten in eine WebSphere MQ-Warteschlange geschrieben, die separat verarbeitet wird. Dadurch
+	werden sämtliche Leistungsbeeinträchtigungen durch Datenbankaktualisierungen isoliert
+	und Zeitpunkt und Ort der Verarbeitung dieser Warteschlangen können gesteuert werden.
+	</p>
+	<p>
+	Das Muster geht davon aus, dass die Protokolldaten dem MQRFH2-Header hinzugefügt werden,
+	sofern dieser existiert. Falls kein MQRFH2-Header vorhanden ist, wird er erstellt. Der
+	Nachrichtenhauptteil wird protokolliert, sobald er im Nachrichtenfluss eingeht. Folgende
+	Protokolldaten werden hinzugefügt:
+	</p>
+	<ul>
+		<li>
+			Zeitmarke des Protokolls
+		</li>
+		<li>
+			Brokername
+		</li>
+		<li>
+			Nachrichtenflussname
+		</li>
+		<li>
+			Status (0 für Erfolg)
+		</li>
+		<li>
+			Modus - Anforderung / Antwort
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</p>
+</body>
+</html>
+
+

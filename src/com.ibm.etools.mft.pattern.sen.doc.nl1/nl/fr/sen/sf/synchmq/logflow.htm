@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilisez le modèle Façade de service sur WebSphere MQ : question-réponse pour répondre aux demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié en utilisant des flux transactionnels et des messages WebSphere MQ persistants."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Flux secondaire Journal pour le modèle Façade de service sur WebSphere MQ : question-réponse</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1">Flux secondaire Journal pour le modèle  <span>Façade de service sur WebSphere MQ : question-réponse</span></h1>
+	<p class="shortdesc">
+	La consignation des messages dans une base de données n'intervient pas dans les flux de messages qui gèrent les transactions métier. Des messages persistants sont écrits dans une file d'attente WebSphere MQ qui est traitée séparément. L'écriture des messages persistants dans une file d'attente WebSphere MQ isole l'impact des mises à jour de la base de données sur les performances, ce qui permet de contrôler où et quand les files d'attente sont traitées.
+	</p>
+	<p>
+	Le modèle suppose que les données de journal sont ajoutées à l'en-tête MQRFH2 s'il en existe un. Si aucun en-tête MQRFH2 n'existe, un en-tête est créé. Le corps du message est consigné à son arrivée dans le flux des messages. Les données de journal suivantes sont ajoutées :
+	</p>
+	<ul>
+		<li>
+			Horodatage du journal
+		</li>
+		<li>
+			Nom du courtier
+		</li>
+		<li>
+			Nom du flux de messages
+		</li>
+		<li>
+			Etat ( 0 succès)
+		</li>
+		<li>
+			Mode - Demande/Réponse
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Façade de service sur WebSphere MQ : question-réponse</a>
+</p>
+</body>
+</html>
+
+

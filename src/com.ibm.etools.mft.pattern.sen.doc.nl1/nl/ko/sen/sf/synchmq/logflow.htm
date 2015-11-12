@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009, 2012
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴을 사용하면 단일 큐에 있는 많은 클라이언트 애플리케이션의 요청을 승인하고 트랜잭션 플로우와 지속 WebSphere MQ 메시지를 사용하여 올바른 클라이언트로 응답을 리턴할 수 있습니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴의 로그 서브플로우</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.logflow">
+<div class="section">
+	<h1 class="topictitle1"><span>WebSphere MQ에 서비스 퍼사드: 요청-응답</span> 패턴의 로그 서브플로우</h1>
+	<p class="shortdesc">
+비즈니스 트랜잭션을 처리하는 메시지 플로우에서
+데이터베이스에 메시지를 로그하지 않습니다.
+대신, 따로 처리되는 지속 메시지가 WebSphere MQ 큐에 기록됩니다.
+지속 메시지를 WebSphere MQ
+큐에 기록하면 데이터베이스 업데이트의 성능 영향이 격리되므로
+이 큐가 처리되는 위치와 시기를 제어할 수 있습니다.
+</p>
+	<p>
+	해당 패턴은 로그 데이터가 MQRFH2 헤더에 추가된다고
+	가정합니다(존재하는 경우). MQRFH2 헤더가 존재하지 않으면 MQRFH2 헤더가 작성됩니다. 메시지 본문은 메시지 플로우에
+	도착할 때 기록됩니다. 다음과 같은 로그 데이터가 추가됩니다.
+	</p>
+	<ul>
+		<li>
+			로그 시간소인
+		</li>
+		<li>
+			브로커 이름
+		</li>
+		<li>
+			메시지 플로우 이름
+		</li>
+		<li>
+			상태( 0 성공)
+		</li>
+		<li>
+			모드 - 요청 / 응답
+		</li>
+	</ul>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="이전">WebSphere MQ에 서비스 퍼사드: 요청-응답 패턴 스펙으로 돌아가기</a>
+</p>
+</body>
+</html>
+
+

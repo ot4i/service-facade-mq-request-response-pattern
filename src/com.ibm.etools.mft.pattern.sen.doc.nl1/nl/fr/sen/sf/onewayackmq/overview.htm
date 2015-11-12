@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Utilisez le modèle Façade de service sur WebSphere MQ : unidirectionnel pour répondre aux demandes d'un grand nombre d'applications client dans une seule file d'attente et répondre au client approprié en utilisant des flux transactionnels et des messages WebSphere MQ persistants."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Modèle Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sen.sf.onewayackmq.overview">
+<h1 class="topictitle1">Modèle <span>Façade de service sur WebSphere MQ : unidirectionnel avec accusé de réception</span></h1>
+<div>
+	<p class="shortdesc">
+	Utilisez le modèle <span>Façade de service vers WebSphere MQ : unidirectionnel avec accusé de réception</span>
+	pour présenter une interface de service Web aux clients et répondre aux demandes de service en utilisant une application WebSphere MQ.
+	</p>
+	<p>
+	Utilisez ce modèle pour relier les protocoles HTTP asynchrones et les protocoles de messagerie  fiables pour gérer les mises à jour en enregistrant les demandes pour les traiter. 
+	</p>
+	<p>
+	Ce modèle fournit un couplage large entre les demandeurs et les fournisseurs en terme de timing, de protocoles et de transport. Il est recommandé que le service s'interface avec les systèmes existants.
+	</p>
+</div>
+<div class="image">
+	<img src="onewayackmq.gif"
+		alt="Diagramme montrant le comportement du modèle. Les demandes de service des clients sont placées dans une file d'attente pour être traitées et un accusé de réception est retourné."/>
+	<div class="section">
+		<h2 class="sectiontitle">Solution</h2>
+	</div>
+	<p>
+	La solution consiste à implémenter un flux de messages qui fournit un point d'entrée de service. 
+	Lorsqu'une demande de service Web est reçue sur HTTP, les données sont placées sous la forme d'un message persistant dans une file d'attente à l'attention de l'application fournisseur. Lorsque le message est placé, un accusé de réception est envoyé pour confirmer que la demande a été acceptée. Si un client reçoit un accusé de réception, le message est placé dans la file d'attente. Si une erreur se produit, aucun message n'est envoyé. S'il s'agit d'un dépassement de délai d'attente, le cas est indéterminé, mais les applications client savent qu'un incident s'est produit.
+	</p>
+	<div>
+		<a href="requestflow.htm" title="Informations de conception sur le flux de messages Demande.">Flux Demande</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informations de conception sur le flux secondaire Erreur.">Flux secondaire Erreur</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informations de conception sur le flux secondaire Journal.">Flux secondaire Journal</a>
+	</div>
+	<div>
+		<a name="anchor1"></a>
+		<div class="section"><h2 class="sectiontitle">Tâches connexes</h2></div>
+		<p>Consultez la section suivante qui contient des informations sur l'application et l'utilisation de ce modèle.</p>
+		<div>
+			<a href="constraints.htm" title="Contraintes d'utilisation du modèle"> 			Contraintes d'utilisation du modèle</a>
+		</div>
+		<div>
+			<a href="prereq.htm" title="Tâches à exécuter avant d'appliquer le modèle"> 			Tâches à exécuter avant d'appliquer le modèle</a>
+		</div>
+		<div>
+			<a href="resources.htm" title="Ressources nécessaires pour commencer avec le modèle"> Ressources nécessaires pour commencer avec le modèle</a>
+		</div>
+		<div>
+			<a href="interface.htm" title="Exemple d'interface">Exemple d'interface</a>
+		</div>
+		<div>
+			<a href="parametertable.htm" title="Paramètres du modèle">
+			Paramètres du modèle</a>
+		</div>
+		<div>
+			<a href="postreq.htm" title="Tâches à exécuter après avoir généré le modèle"> 			Tâches à exécuter après avoir généré le modèle</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

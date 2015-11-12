@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Anforderungsnachrichtenfluss für das Muster 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="mbi.mrrc.relmq.overview">
+<div class="section">
+	<h1 class="topictitle1">Anforderungsnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</h1>
+	<p class="shortdesc">
+	Details zum Anforderungsnachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: one-way with acknowledgment</span> (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung),
+	einschließlich Protokollierung und Ausnahmen.
+	</p>
+	<ol>
+		<li>
+			Bei einem SOAP-Knoten geht eine SOAP-Anforderung ein. Wenn die
+			Musterparameter eine Validierung vorschreiben, wird die Anforderung
+			validiert.
+		</li>
+		<li>
+			SOAP- und HTTP-Header werden entfernt, um das Ziel der XML-Basisnachricht
+			bei der Provideranwendung zu belassen.
+		</li>
+		<li>
+			Die Nachricht wird dann an einen untergeordneten Anforderungsprozessor-
+			Nachrichtenfluss weitergeleitet, der die Möglichkeit der Anpassung einer
+			Musterinstanz bietet.
+		</li>
+		<li>
+			Jede bis zu diesem Zeitpunkt auftretende Ausnahme wird abgefangen und führt
+			zu einem SOAP-Fehler, der an das aufrufende Programm zurückgegeben wird. Nach
+			der Ausgabe eines Fehlers wird die Anforderung nicht verarbeitet.
+		</li>
+		<li>
+			Wenn keine Ausnahme auftritt, wird die Nachricht als persistente Nachricht in
+			die Eingabewarteschlange des Providers geschrieben und festgeschrieben. Der
+			Nachrichtenfluss ist so strukturiert, dass bei Ausnahmen, die nach einem
+			erfolgreichen Schreibvorgang auftreten, keine Antwort an den Requester ausgegeben
+			wird, die darauf hinweist, dass die Nachricht nicht gesendet wurde. Dennoch
+			kann das Zeitlimit des SOAP-Knotens dazu führen, dass ein SOAP-Zeitlimitfehler
+			zurückgegeben wird.
+		</li>
+		<li>
+			Als SOAP-Antwort wird dem Requester eine positive Empfangsbestätigung zurückgesendet. 
+			Diese Antwort enthält eine kurze Bestätigung mit der Zeichenfolge <tt>Accepted</tt>
+			(Akzeptiert).
+		</li>
+		<li>
+			Wenn die Musterparameter die Protokollierung von Anforderungen vorschreiben
+			und der Nachrichtenfluss erfolgreich durchlaufen wird, wird zur Protokollierung
+			der eingehenden Nachricht der untergeordnete Protokollnachrichtenfluss aufgerufen.
+		</li>
+		<li>
+			Wenn nach dem Schreiben der Nachricht beim Erstellen und Senden der
+			Empfangsbestätigung eine Ausnahme auftritt und die Musterparameter
+			Fehlernachrichten vorschreiben, wird zur Aufzeichnung des Fehlers der
+			untergeordnete Fehlernachrichtenfluss aufgerufen, woraufhin der
+			untergeordnete Nachrichtenfluss erfolgreich beendet wird. Da die Nachricht
+			bereits in der Providerwarteschlange vorhanden ist, dient diese Fehlernachricht
+			lediglich der Information (nicht der Bewahrung der Daten). Der Hauptteil der
+			Nachricht ist daher nicht in der Fehlernachricht enthalten. Wenn die
+			Musterparameter keine Fehlernachrichten vorschreiben, endet der
+			Nachrichtenfluss erfolgreich.
+		</li>
+	</ol>
+</div>
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: one-way with acknowledgment' (Servicefassade für WebSphere MQ: unidirektional mit Empfangsbestätigung)</a>
+</p>
+</body>
+</html>

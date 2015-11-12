@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Verwenden Sie das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort), um die Anforderungen mehrerer Clientanwendungen in einer einzigen Warteschlange anzunehmen und die Antworten mittels transaktionsorientierter Nachrichtenflüsse und persistenter WebSphere MQ-Nachrichten an die richtigen Clients zurückzugeben."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Untergeordneter Fehlernachrichtenfluss für das Muster 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sen.doc.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Untergeordneter Fehlernachrichtenfluss für das Muster <span>Service Facade to WebSphere MQ: request-response</span> (Servicefassade für WebSphere MQ: Anforderung-Antwort)</h1>
+	<p class="shortdesc">Dieser untergeordnete Nachrichtenfluss überprüft, ob eine Fehlernachricht ausgegeben
+	werden muss. Dies wird durch die benutzerdefinierte Eigenschaft
+	<span class="msobjprop">ErrorLoggingOn</span> bestimmt.</p>
+<ol>
+<li>Wenn Sie die Musterparameter auch für Fehlernachrichten konfiguriert haben und die
+benutzerdefinierte Eigenschaft <span class="msobjprop">ErrorLoggingOn</span> ausgewählt ist, wird
+eine Fehlernachricht erzeugt und in die Fehlerwarteschlange geschrieben.
+<p>Details zur
+Ausnahmebedingung werden als XML-Nachricht geschrieben. Zu diesen Details gehören:</p>
+	<ul>
+	<li>Brokername</li>
+	<li>Nachrichtenflussname</li>
+	<li>Zeitmarke</li>
+	<li>Zusammenfassung der Ausnahmedaten</li>
+	</ul>
+	<p>Die Zusammenfassung der Ausnahmedaten enthält die Nachrichtenflussbezeichnung, Fehlernummer,
+Textbeschreibung und eine Liste mit Einfügungen, die weitere Details liefern.</p>
+</li>
+<li>Es wird eine Ausnahmebedingung erzeugt, die dazu führt, dass ein SOAP-Fehler an den Requester
+zurückgegeben wird.</li>
+</ol>
+	
+	<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Facade to WebSphere MQ: request-response' (Servicefassade für WebSphere MQ: Anforderung-Antwort)</a>
+</div>
+</body>
+</html>
