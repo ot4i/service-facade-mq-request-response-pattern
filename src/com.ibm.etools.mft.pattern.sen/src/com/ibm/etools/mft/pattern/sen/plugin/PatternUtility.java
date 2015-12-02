@@ -36,6 +36,11 @@ public class PatternUtility {
 	private static final String ELEMENT_WSDL_IS_MESSAGE_SET_PROJECT = "isMessageSetProject";
 	private static final String ELEMENT_WSDL_MESSAGE_SET_NAME = "messageSetName";
 	private static final String MESSAGE_SET_PROJECT_NATURE = "com.ibm.etools.msg.validation.msetnature";
+	private static final String SHARED_LIB_PROJECT_NATURE = "com.ibm.etools.msgbroker.tooling.sharedLibraryNature";
+	private static final String OPEN_LIB_BRACKET = "{";
+	private static final String CLOSING_LIB_BRACKET = "}";
+	
+	
 
 	/**
 	 * Gets the folder name for the pattern configuration.
@@ -56,6 +61,17 @@ public class PatternUtility {
 	public static boolean isMessageSetProject(IProject project) {
 		try {
 			return project.isNatureEnabled(MESSAGE_SET_PROJECT_NATURE);
+		} catch (CoreException exception) {
+			return true; // Should never happen..!
+		}
+	}
+	
+	/**
+	 * @return <code>true</code> if this is a shared library project.
+	 */
+	public static boolean isSharedLibProject(IProject project) {
+		try {
+			return project.isNatureEnabled(SHARED_LIB_PROJECT_NATURE);
 		} catch (CoreException exception) {
 			return true; // Should never happen..!
 		}
@@ -96,14 +112,26 @@ public class PatternUtility {
 				wsdlProjectName = leadingSeparatorRemoved.substring(0, position);
 				extender.addTextElement(configurationElement, ELEMENT_WSDL_PROJECT_NAME, wsdlProjectName);
 				IProject referencedProject = workspaceRoot.getProject(wsdlProjectName);
-				boolean isMessageSet = isMessageSetProject(referencedProject);
-				String isMessageSetText = Boolean.toString(isMessageSet);
-				extender.addTextElement(configurationElement, ELEMENT_WSDL_IS_MESSAGE_SET_PROJECT, isMessageSetText);
-				if (isMessageSet == true) {
-					String messageSetName = leadingSeparatorRemoved.substring(position + 1);
-					position = messageSetName.indexOf('/');
-					messageSetName = messageSetName.substring(0, position);
-					extender.addTextElement(configurationElement, ELEMENT_WSDL_MESSAGE_SET_NAME, messageSetName);
+				//first check if the referenced project is a shared library
+				boolean isSharedLib = isSharedLibProject(referencedProject);
+				//if it is a shlib then just set the messageSetName to the lib name
+				if (isSharedLib)
+				{
+					extender.addTextElement(configurationElement, ELEMENT_WSDL_IS_MESSAGE_SET_PROJECT, Boolean.toString(isSharedLib));
+					extender.addTextElement(configurationElement, ELEMENT_WSDL_MESSAGE_SET_NAME, OPEN_LIB_BRACKET + referencedProject.getName() + CLOSING_LIB_BRACKET);
+				}
+				else
+				{
+					//check for the message set
+					boolean isMessageSet = isMessageSetProject(referencedProject);
+					String isMessageSetText = Boolean.toString(isMessageSet);
+					extender.addTextElement(configurationElement, ELEMENT_WSDL_IS_MESSAGE_SET_PROJECT, isMessageSetText);
+					if (isMessageSet == true) {
+						String messageSetName = leadingSeparatorRemoved.substring(position + 1);
+						position = messageSetName.indexOf('/');
+						messageSetName = messageSetName.substring(0, position);
+						extender.addTextElement(configurationElement, ELEMENT_WSDL_MESSAGE_SET_NAME, messageSetName);
+					}
 				}
 			}
 		}

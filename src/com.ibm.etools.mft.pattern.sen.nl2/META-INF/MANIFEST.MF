@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 1
 Bundle-Name: National Language Support Fragment
 Bundle-SymbolicName: com.ibm.etools.mft.pattern.sen.nl2
-Bundle-Version: 10.0.300.qualifier
+Bundle-Version: 10.0.400.qualifier
 Bundle-Vendor: IBM
 Fragment-Host: com.ibm.etools.mft.pattern.sen;bundle-version="[10.0.0,11.0.0)"
 Bundle-Localization: plugin

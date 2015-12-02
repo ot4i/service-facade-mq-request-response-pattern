@@ -78,11 +78,11 @@ public class _jet_transformation implements JET2TemplateLoader,
             case 0: // sen/sf/onewayackmq/templates/dump.jet
                 return new org.eclipse.jet.compiled._jet_dump_0();
             case 1: // sen/sf/onewayackmq/templates/main.jet
-                return new org.eclipse.jet.compiled._jet_main_0();
+                return new org.eclipse.jet.compiled._jet_main();
             case 2: // sen/sf/onewayackmq/templates/root/Error.esql.jet
                 return new org.eclipse.jet.compiled._jet_Erroresql_0();
             case 3: // sen/sf/onewayackmq/templates/root/Error.subflow.jet
-                return new org.eclipse.jet.compiled._jet_Errorsubflow();
+                return new org.eclipse.jet.compiled._jet_Errorsubflow_0();
             case 4: // sen/sf/onewayackmq/templates/root/Log.esql.jet
                 return new org.eclipse.jet.compiled._jet_Logesql_0();
             case 5: // sen/sf/onewayackmq/templates/root/Log.subflow.jet
@@ -100,11 +100,11 @@ public class _jet_transformation implements JET2TemplateLoader,
             case 11: // sen/sf/synchmq/templates/dump.jet
                 return new org.eclipse.jet.compiled._jet_dump();
             case 12: // sen/sf/synchmq/templates/main.jet
-                return new org.eclipse.jet.compiled._jet_main();
+                return new org.eclipse.jet.compiled._jet_main_0();
             case 13: // sen/sf/synchmq/templates/root/Error.esql.jet
                 return new org.eclipse.jet.compiled._jet_Erroresql();
             case 14: // sen/sf/synchmq/templates/root/Error.subflow.jet
-                return new org.eclipse.jet.compiled._jet_Errorsubflow_0();
+                return new org.eclipse.jet.compiled._jet_Errorsubflow();
             case 15: // sen/sf/synchmq/templates/root/Intermediary.esql.jet
                 return new org.eclipse.jet.compiled._jet_Intermediaryesql();
             case 16: // sen/sf/synchmq/templates/root/Log.esql.jet

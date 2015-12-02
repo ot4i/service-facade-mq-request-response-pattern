@@ -164,7 +164,7 @@
 </c:if> 
     </propertyOrganizer>
 <c:if test="$root/errorMessageRequired = 'true'">
-      <attributeLinks promotedAttribute="Property.ErrorLoggingOn" overriddenNodes="FCMComposite_1_7">
+      <attributeLinks promotedAttribute="Property.ErrorLoggingOn" overriddenNodes="FCMComposite_1_3">
       <overriddenAttribute href="<c:get select="$root/@brokerSchema2"/><c:get select="$root/@error"/>.subflow#Property.ErrorLoggingOn"/>
     </attributeLinks>
 </c:if>

@@ -5,6 +5,6 @@ Bundle-Vendor: IBM
 Fragment-Host: com.ibm.etools.mft.pattern.sen.doc;bundle-version="[10.0.0,11.0.0)"
 Bundle-Name: National Language Support Fragment
 Bundle-SymbolicName: com.ibm.etools.mft.pattern.sen.doc.nl2a
-Bundle-Version: 10.0.300.qualifier
+Bundle-Version: 10.0.400.qualifier
 Bundle-ManifestVersion: 1
 

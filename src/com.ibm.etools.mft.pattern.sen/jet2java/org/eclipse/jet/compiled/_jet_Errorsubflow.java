@@ -151,88 +151,80 @@ public class _jet_Errorsubflow implements JET2Template {
             new String[] {
                 "$root/errorMessageRequired= 'true'", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_53_40 = new TagInfo("c:get", //$NON-NLS-1$
-            53, 40,
+    private static final TagInfo _td_c_get_51_40 = new TagInfo("c:get", //$NON-NLS-1$
+            51, 40,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/@esqlQualifier", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_59_25 = new TagInfo("c:get", //$NON-NLS-1$
-            59, 25,
+    private static final TagInfo _td_c_get_57_25 = new TagInfo("c:get", //$NON-NLS-1$
+            57, 25,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/errorQueueManager", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_60_18 = new TagInfo("c:get", //$NON-NLS-1$
-            60, 18,
+    private static final TagInfo _td_c_get_58_18 = new TagInfo("c:get", //$NON-NLS-1$
+            58, 18,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/queuePrefix", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_60_55 = new TagInfo("c:get", //$NON-NLS-1$
-            60, 55,
+    private static final TagInfo _td_c_get_58_55 = new TagInfo("c:get", //$NON-NLS-1$
+            58, 55,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/errorQueue", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_60_91 = new TagInfo("c:get", //$NON-NLS-1$
-            60, 91,
+    private static final TagInfo _td_c_get_58_91 = new TagInfo("c:get", //$NON-NLS-1$
+            58, 91,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/queueSuffix", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_69_33 = new TagInfo("c:get", //$NON-NLS-1$
-            69, 33,
+    private static final TagInfo _td_c_get_67_33 = new TagInfo("c:get", //$NON-NLS-1$
+            67, 33,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/@esqlQualifier", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_73_40 = new TagInfo("c:get", //$NON-NLS-1$
-            73, 40,
-            new String[] {
-                "select", //$NON-NLS-1$
-            },
-            new String[] {
-                "$root/@esqlQualifier", //$NON-NLS-1$
-            } );
-    private static final TagInfo _td_c_if_76_2 = new TagInfo("c:if", //$NON-NLS-1$
-            76, 2,
+    private static final TagInfo _td_c_if_71_2 = new TagInfo("c:if", //$NON-NLS-1$
+            71, 2,
             new String[] {
                 "test", //$NON-NLS-1$
             },
             new String[] {
                 "$root/errorMessageRequired= 'true'", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_if_88_1 = new TagInfo("c:if", //$NON-NLS-1$
-            88, 1,
+    private static final TagInfo _td_c_if_81_1 = new TagInfo("c:if", //$NON-NLS-1$
+            81, 1,
             new String[] {
                 "test", //$NON-NLS-1$
             },
             new String[] {
                 "$root/errorMessageRequired= 'true'", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_91_19 = new TagInfo("c:get", //$NON-NLS-1$
-            91, 19,
+    private static final TagInfo _td_c_get_84_19 = new TagInfo("c:get", //$NON-NLS-1$
+            84, 19,
             new String[] {
                 "select", //$NON-NLS-1$
             },
             new String[] {
                 "$root/@thisFlowBundleName", //$NON-NLS-1$
             } );
-    private static final TagInfo _td_c_get_92_19 = new TagInfo("c:get", //$NON-NLS-1$
-            92, 19,
+    private static final TagInfo _td_c_get_85_19 = new TagInfo("c:get", //$NON-NLS-1$
+            85, 19,
             new String[] {
                 "select", //$NON-NLS-1$
             },
@@ -390,7 +382,7 @@ public class _jet_Errorsubflow implements JET2Template {
         out.write(NL);         
         out.write("    <version xmi:type=\"utility:ConstantString\" string=\"1\"/>");  //$NON-NLS-1$        
         out.write(NL);         
-        out.write("   <composition>");  //$NON-NLS-1$        
+        out.write("   \t<composition>");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("      <nodes xmi:type=\"eflow:FCMSource\" xmi:id=\"InTerminal.Input\" location=\"38,42\">");  //$NON-NLS-1$        
         out.write(NL);         
@@ -422,7 +414,7 @@ public class _jet_Errorsubflow implements JET2Template {
         _jettag_c_get_45_41.setTagInfo(_td_c_get_45_41);
         _jettag_c_get_45_41.doStart(context, out);
         _jettag_c_get_45_41.doEnd();
-        out.write("SF_Build_Error_Message.Main\" ");  //$NON-NLS-1$        
+        out.write("Build_Error_Message.Main\" ");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("      throwExceptionOnDatabaseError=\"false\">");  //$NON-NLS-1$        
         out.write(NL);         
@@ -435,17 +427,14 @@ public class _jet_Errorsubflow implements JET2Template {
         _jettag_c_if_49_1.setTagInfo(_td_c_if_49_1);
         _jettag_c_if_49_1.doStart(context, out);
         while (_jettag_c_if_49_1.okToProcessBody()) {
-            out.write(NL);         
-            out.write("      ");  //$NON-NLS-1$        
-            out.write(NL);         
             out.write("      <nodes xmi:type=\"ComIbmFilter.msgnode:FCMComposite_1\" xmi:id=\"FCMComposite_1_8\" location=\"490,43\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      filterExpression=\"esql://routine/");  //$NON-NLS-1$        
-            RuntimeTagElement _jettag_c_get_53_40 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_53_40); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_53_40.setRuntimeParent(_jettag_c_if_49_1);
-            _jettag_c_get_53_40.setTagInfo(_td_c_get_53_40);
-            _jettag_c_get_53_40.doStart(context, out);
-            _jettag_c_get_53_40.doEnd();
+            RuntimeTagElement _jettag_c_get_51_40 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_51_40); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_51_40.setRuntimeParent(_jettag_c_if_49_1);
+            _jettag_c_get_51_40.setTagInfo(_td_c_get_51_40);
+            _jettag_c_get_51_40.doStart(context, out);
+            _jettag_c_get_51_40.doEnd();
             out.write("CheckErrorLogging.Main\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      throwExceptionOnDatabaseError=\"false\">");  //$NON-NLS-1$        
@@ -459,29 +448,29 @@ public class _jet_Errorsubflow implements JET2Template {
             out.write("      <nodes xmi:type=\"ComIbmMQOutput.msgnode:FCMComposite_1\" xmi:id=\"FCMComposite_1_12\" location=\"644,57\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      queueManagerName=\"");  //$NON-NLS-1$        
-            RuntimeTagElement _jettag_c_get_59_25 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_59_25); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_59_25.setRuntimeParent(_jettag_c_if_49_1);
-            _jettag_c_get_59_25.setTagInfo(_td_c_get_59_25);
-            _jettag_c_get_59_25.doStart(context, out);
-            _jettag_c_get_59_25.doEnd();
+            RuntimeTagElement _jettag_c_get_57_25 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_57_25); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_57_25.setRuntimeParent(_jettag_c_if_49_1);
+            _jettag_c_get_57_25.setTagInfo(_td_c_get_57_25);
+            _jettag_c_get_57_25.doStart(context, out);
+            _jettag_c_get_57_25.doEnd();
             out.write("\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      queueName=\"");  //$NON-NLS-1$        
-            RuntimeTagElement _jettag_c_get_60_18 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_60_18); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_60_18.setRuntimeParent(_jettag_c_if_49_1);
-            _jettag_c_get_60_18.setTagInfo(_td_c_get_60_18);
-            _jettag_c_get_60_18.doStart(context, out);
-            _jettag_c_get_60_18.doEnd();
-            RuntimeTagElement _jettag_c_get_60_55 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_60_55); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_60_55.setRuntimeParent(_jettag_c_if_49_1);
-            _jettag_c_get_60_55.setTagInfo(_td_c_get_60_55);
-            _jettag_c_get_60_55.doStart(context, out);
-            _jettag_c_get_60_55.doEnd();
-            RuntimeTagElement _jettag_c_get_60_91 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_60_91); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_60_91.setRuntimeParent(_jettag_c_if_49_1);
-            _jettag_c_get_60_91.setTagInfo(_td_c_get_60_91);
-            _jettag_c_get_60_91.doStart(context, out);
-            _jettag_c_get_60_91.doEnd();
+            RuntimeTagElement _jettag_c_get_58_18 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_58_18); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_58_18.setRuntimeParent(_jettag_c_if_49_1);
+            _jettag_c_get_58_18.setTagInfo(_td_c_get_58_18);
+            _jettag_c_get_58_18.doStart(context, out);
+            _jettag_c_get_58_18.doEnd();
+            RuntimeTagElement _jettag_c_get_58_55 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_58_55); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_58_55.setRuntimeParent(_jettag_c_if_49_1);
+            _jettag_c_get_58_55.setTagInfo(_td_c_get_58_55);
+            _jettag_c_get_58_55.doStart(context, out);
+            _jettag_c_get_58_55.doEnd();
+            RuntimeTagElement _jettag_c_get_58_91 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_58_91); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_58_91.setRuntimeParent(_jettag_c_if_49_1);
+            _jettag_c_get_58_91.setTagInfo(_td_c_get_58_91);
+            _jettag_c_get_58_91.doStart(context, out);
+            _jettag_c_get_58_91.doEnd();
             out.write("\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      transactionMode=\"no\" persistenceMode=\"yes\" validateMaster=\"none\">");  //$NON-NLS-1$        
@@ -502,52 +491,35 @@ public class _jet_Errorsubflow implements JET2Template {
         out.write("      <nodes xmi:type=\"ComIbmDatabase.msgnode:FCMComposite_1\" xmi:id=\"FCMComposite_1_3\" location=\"600,220\" ");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("      statement=\"esql://routine/");  //$NON-NLS-1$        
-        RuntimeTagElement _jettag_c_get_69_33 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_69_33); //$NON-NLS-1$ //$NON-NLS-2$
-        _jettag_c_get_69_33.setRuntimeParent(null);
-        _jettag_c_get_69_33.setTagInfo(_td_c_get_69_33);
-        _jettag_c_get_69_33.doStart(context, out);
-        _jettag_c_get_69_33.doEnd();
+        RuntimeTagElement _jettag_c_get_67_33 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_67_33); //$NON-NLS-1$ //$NON-NLS-2$
+        _jettag_c_get_67_33.setRuntimeParent(null);
+        _jettag_c_get_67_33.setTagInfo(_td_c_get_67_33);
+        _jettag_c_get_67_33.doStart(context, out);
+        _jettag_c_get_67_33.doEnd();
         out.write("Throw.Main\">");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("        <translation xmi:type=\"utility:ConstantString\" string=\"Throw Fault\"/>");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("      </nodes>");  //$NON-NLS-1$        
         out.write(NL);         
-        out.write("      <nodes xmi:type=\"ComIbmFilter.msgnode:FCMComposite_1\" xmi:id=\"FCMComposite_1_4\" location=\"283,216\" ");  //$NON-NLS-1$        
         out.write(NL);         
-        out.write("      filterExpression=\"esql://routine/");  //$NON-NLS-1$        
-        RuntimeTagElement _jettag_c_get_73_40 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_73_40); //$NON-NLS-1$ //$NON-NLS-2$
-        _jettag_c_get_73_40.setRuntimeParent(null);
-        _jettag_c_get_73_40.setTagInfo(_td_c_get_73_40);
-        _jettag_c_get_73_40.doStart(context, out);
-        _jettag_c_get_73_40.doEnd();
-        out.write("CheckifMessageSent.Main\">");  //$NON-NLS-1$        
-        out.write(NL);         
-        out.write("      <translation xmi:type=\"utility:ConstantString\" string=\"Check if Message Sent\"/>");  //$NON-NLS-1$        
-        out.write(NL);         
-        out.write("      </nodes> ");  //$NON-NLS-1$        
-        out.write(NL);         
-        RuntimeTagElement _jettag_c_if_76_2 = context.getTagFactory().createRuntimeTag(_jetns_c, "if", "c:if", _td_c_if_76_2); //$NON-NLS-1$ //$NON-NLS-2$
-        _jettag_c_if_76_2.setRuntimeParent(null);
-        _jettag_c_if_76_2.setTagInfo(_td_c_if_76_2);
-        _jettag_c_if_76_2.doStart(context, out);
-        while (_jettag_c_if_76_2.okToProcessBody()) {
+        RuntimeTagElement _jettag_c_if_71_2 = context.getTagFactory().createRuntimeTag(_jetns_c, "if", "c:if", _td_c_if_71_2); //$NON-NLS-1$ //$NON-NLS-2$
+        _jettag_c_if_71_2.setRuntimeParent(null);
+        _jettag_c_if_71_2.setTagInfo(_td_c_if_71_2);
+        _jettag_c_if_71_2.doStart(context, out);
+        while (_jettag_c_if_71_2.okToProcessBody()) {
             out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_5\" targetNode=\"FCMComposite_1_8\" sourceNode=\"FCMComposite_1_2\" sourceTerminalName=\"OutTerminal.first\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_2\" targetNode=\"FCMComposite_1_12\" sourceNode=\"FCMComposite_1_8\" sourceTerminalName=\"OutTerminal.true\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
             out.write(NL);         
-            _jettag_c_if_76_2.handleBodyContent(out);
+            _jettag_c_if_71_2.handleBodyContent(out);
         }
-        _jettag_c_if_76_2.doEnd();
+        _jettag_c_if_71_2.doEnd();
         out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_3\" targetNode=\"FCMComposite_1_7\" sourceNode=\"InTerminal.Input\" sourceTerminalName=\"OutTerminal.out\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_4\" targetNode=\"FCMComposite_1_2\" sourceNode=\"FCMComposite_1_7\" sourceTerminalName=\"OutTerminal.out\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
         out.write(NL);         
-        out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_8\" targetNode=\"FCMComposite_1_3\" sourceNode=\"FCMComposite_1_4\" sourceTerminalName=\"OutTerminal.unknown\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
-        out.write(NL);         
-        out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_9\" targetNode=\"FCMComposite_1_3\" sourceNode=\"FCMComposite_1_4\" sourceTerminalName=\"OutTerminal.false\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
-        out.write(NL);         
-        out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_11\" targetNode=\"FCMComposite_1_4\" sourceNode=\"FCMComposite_1_2\" sourceTerminalName=\"OutTerminal.second\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
+        out.write("      <connections xmi:type=\"eflow:FCMConnection\" xmi:id=\"FCMConnection_9\" targetNode=\"FCMComposite_1_3\" sourceNode=\"FCMComposite_1_2\" sourceTerminalName=\"OutTerminal.second\" targetTerminalName=\"InTerminal.in\"/>");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("     ");  //$NON-NLS-1$        
         out.write(NL);         
@@ -555,36 +527,36 @@ public class _jet_Errorsubflow implements JET2Template {
         out.write(NL);         
         out.write("    <propertyOrganizer>");  //$NON-NLS-1$        
         out.write(NL);         
-        RuntimeTagElement _jettag_c_if_88_1 = context.getTagFactory().createRuntimeTag(_jetns_c, "if", "c:if", _td_c_if_88_1); //$NON-NLS-1$ //$NON-NLS-2$
-        _jettag_c_if_88_1.setRuntimeParent(null);
-        _jettag_c_if_88_1.setTagInfo(_td_c_if_88_1);
-        _jettag_c_if_88_1.doStart(context, out);
-        while (_jettag_c_if_88_1.okToProcessBody()) {
+        RuntimeTagElement _jettag_c_if_81_1 = context.getTagFactory().createRuntimeTag(_jetns_c, "if", "c:if", _td_c_if_81_1); //$NON-NLS-1$ //$NON-NLS-2$
+        _jettag_c_if_81_1.setRuntimeParent(null);
+        _jettag_c_if_81_1.setTagInfo(_td_c_if_81_1);
+        _jettag_c_if_81_1.doStart(context, out);
+        while (_jettag_c_if_81_1.okToProcessBody()) {
             out.write("      <propertyDescriptor groupName=\"Group.Basic\" configurable=\"true\" userDefined=\"true\" describedAttribute=\"Property.ErrorLoggingOn\">");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("        <propertyName xmi:type=\"utility:TranslatableString\" key=\"Property.ErrorLoggingOn\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("    \t\tbundleName=\"");  //$NON-NLS-1$        
-            RuntimeTagElement _jettag_c_get_91_19 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_91_19); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_91_19.setRuntimeParent(_jettag_c_if_88_1);
-            _jettag_c_get_91_19.setTagInfo(_td_c_get_91_19);
-            _jettag_c_get_91_19.doStart(context, out);
-            _jettag_c_get_91_19.doEnd();
+            RuntimeTagElement _jettag_c_get_84_19 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_84_19); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_84_19.setRuntimeParent(_jettag_c_if_81_1);
+            _jettag_c_get_84_19.setTagInfo(_td_c_get_84_19);
+            _jettag_c_get_84_19.doStart(context, out);
+            _jettag_c_get_84_19.doEnd();
             out.write("\" ");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("        pluginId=\"");  //$NON-NLS-1$        
-            RuntimeTagElement _jettag_c_get_92_19 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_92_19); //$NON-NLS-1$ //$NON-NLS-2$
-            _jettag_c_get_92_19.setRuntimeParent(_jettag_c_if_88_1);
-            _jettag_c_get_92_19.setTagInfo(_td_c_get_92_19);
-            _jettag_c_get_92_19.doStart(context, out);
-            _jettag_c_get_92_19.doEnd();
+            RuntimeTagElement _jettag_c_get_85_19 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_85_19); //$NON-NLS-1$ //$NON-NLS-2$
+            _jettag_c_get_85_19.setRuntimeParent(_jettag_c_if_81_1);
+            _jettag_c_get_85_19.setTagInfo(_td_c_get_85_19);
+            _jettag_c_get_85_19.doStart(context, out);
+            _jettag_c_get_85_19.doEnd();
             out.write("\"/>");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      </propertyDescriptor>");  //$NON-NLS-1$        
             out.write(NL);         
-            _jettag_c_if_88_1.handleBodyContent(out);
+            _jettag_c_if_81_1.handleBodyContent(out);
         }
-        _jettag_c_if_88_1.doEnd();
+        _jettag_c_if_81_1.doEnd();
         out.write("    </propertyOrganizer>");  //$NON-NLS-1$        
         out.write(NL);         
         out.write("  </eClassifiers>");  //$NON-NLS-1$        

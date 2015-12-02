@@ -1314,7 +1314,7 @@ public class _jet_Requestmsgflow implements JET2Template {
         _jettag_c_if_166_1.setTagInfo(_td_c_if_166_1);
         _jettag_c_if_166_1.doStart(context, out);
         while (_jettag_c_if_166_1.okToProcessBody()) {
-            out.write("      <attributeLinks promotedAttribute=\"Property.ErrorLoggingOn\" overriddenNodes=\"FCMComposite_1_7\">");  //$NON-NLS-1$        
+            out.write("      <attributeLinks promotedAttribute=\"Property.ErrorLoggingOn\" overriddenNodes=\"FCMComposite_1_3\">");  //$NON-NLS-1$        
             out.write(NL);         
             out.write("      <overriddenAttribute href=\"");  //$NON-NLS-1$        
             RuntimeTagElement _jettag_c_get_168_34 = context.getTagFactory().createRuntimeTag(_jetns_c, "get", "c:get", _td_c_get_168_34); //$NON-NLS-1$ //$NON-NLS-2$
